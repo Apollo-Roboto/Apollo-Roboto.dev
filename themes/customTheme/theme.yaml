@@ -1,0 +1,15 @@
+name: CustomTheme
+license: MIT
+licenselink: 'https://github.com/apollo-roboto/yourtheme/blob/master/LICENSE'
+description: ''
+homepage: 'https://apollo-roboto.dev'
+tags: []
+features: []
+min_version: 0.41.0
+author:
+  name: Apollo-Roboto
+  homepage: Apollo-Roboto.dev
+original:
+  name: ''
+  homepage: ''
+  repo: ''

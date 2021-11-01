@@ -1,0 +1,44 @@
+{{ if .Site.Params.debug }}
+
+<pre class="debug">
+.Site.Title: {{ .Site.Title }}
+.Site.IsServer: {{ .Site.IsServer }}
+.Site.Language.LanguageName: {{ .Site.Language.LanguageName }}
+.Site.Params:
+{{- range $key, $val := .Site.Params }}
+	<b>{{ $key }}: </b>{{ $val -}}
+{{ end }}
+.Site.Menus.main:
+{{- range .Site.Menus.main }}
+	{{ .Name -}}
+{{ end }}
+.Site.Taxonomies:
+{{- range $key, $val := .Site.Taxonomies }}
+	<b>{{ $key }}: </b>{{ $val -}}
+{{ end }}
+</pre>
+<pre class="debug">
+.: {{ . }}
+.IsPage: {{ .IsPage }}
+.IsSection: {{ .IsSection }}
+.IsHome: {{ .IsHome }}
+.Kind: {{ .Kind }}
+.Layout: {{ .Layout }}
+.Pages:
+{{- range .Pages }}
+	{{ . -}}
+{{ end }}
+.Title: {{ .Title }}
+.Type: {{ .Type }}
+.Params:
+{{- range $key, $val := .Params }}
+	<b>{{ $key }}: </b>{{ $val -}}
+{{ end }}
+</pre>
+<pre class="debug">
+.File: {{ .File }}
+.File.Dir: {{ .File.Dir }}
+.File.UniqueID: {{ .File.UniqueID }}
+</pre>
+
+{{ end }}

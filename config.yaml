@@ -1,0 +1,26 @@
+baseURL: 'https://apollo-roboto.dev/'
+languageCode: en-us
+title: Apollo-Roboto's place
+theme: customTheme
+copyright: Apollo-Roboto
+
+summaryLength: 70
+
+# sectionPagesMenu: main
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Posts
+      url: /posts
+      weight: 2
+    - name: Tags
+      url: /tags
+      weight: 3
+    - name: About
+      url: /about
+      weight: 4
+
+params:
+  debug: true
