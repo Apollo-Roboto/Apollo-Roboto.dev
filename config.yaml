@@ -1,8 +1,8 @@
-baseURL: 'https://apollo-roboto.dev/'
+baseURL: https://www.apollo-roboto.dev/
 languageCode: en-us
 title: Apollo-Roboto's place
-# theme: customTheme
-theme: vanilla-bootstrap
+theme: customTheme
+# theme: vanilla-bootstrap
 copyright: Apollo-Roboto
 
 summaryLength: 70
@@ -16,12 +16,9 @@ menu:
     - name: Posts
       url: /posts
       weight: 2
-    - name: Tags
-      url: /tags
-      weight: 3
     - name: About
       url: /about
-      weight: 4
+      weight: 3
 
 params:
-  debug: true
+  debug: false
