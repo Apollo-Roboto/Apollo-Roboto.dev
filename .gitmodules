@@ -1,3 +1,9 @@
 [submodule "themes/PaperMod"]
 	path = themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "themes/Dimension"]
+	path = themes/Dimension
+	url = https://github.com/your-identity/hugo-theme-dimension.git
+[submodule "themes/vanilla-bootstrap"]
+	path = themes/vanilla-bootstrap
+	url = https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme.git
