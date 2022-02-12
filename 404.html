@@ -17,7 +17,7 @@
 .Site.Menus.main:
 .Site.Taxonomies:
 	<b>categories: </b>map[]
-	<b>tags: </b>map[foo:[WeightedPage(0,&#34;My Other Post&#34;)] testing:[WeightedPage(0,&#34;My Other Post&#34;)] text:[WeightedPage(0,&#34;My Post&#34;)]]
+	<b>tags: </b>map[ascii:[WeightedPage(0,&#34;Here&#39;s a poblano&#34;)] foo:[WeightedPage(0,&#34;My Other Post&#34;)] testing:[WeightedPage(0,&#34;My Other Post&#34;)] text:[WeightedPage(0,&#34;My Post&#34;)]]
 </pre>
 <pre class=debug>
 .: Page(&#34;404 Page not found&#34;)
@@ -27,12 +27,14 @@
 .Kind: 404
 .Layout: 
 .Pages:
+	Page(/tags/ascii)
+	Page(/posts/poblano.md)
+	Page(/posts)
+	Page(/tags)
 	Page(/_index.md)
 	Page(/about.md)
 	Page(/tags/foo)
 	Page(/posts/anotherPost.md)
-	Page(/posts)
-	Page(/tags)
 	Page(/tags/testing)
 	Page(/posts/myPost.md)
 	Page(/tags/text)
@@ -42,7 +44,7 @@
 .Params:
 </pre>
 <pre class=debug>
-.File: {0xc000575890}
+.File: {0xc00073b710}
 .File.Dir: 
 .File.UniqueID: 
 </pre>

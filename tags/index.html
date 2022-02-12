@@ -17,7 +17,7 @@
 .Site.Menus.main:
 .Site.Taxonomies:
 	<b>categories: </b>map[]
-	<b>tags: </b>map[foo:[WeightedPage(0,&#34;My Other Post&#34;)] testing:[WeightedPage(0,&#34;My Other Post&#34;)] text:[WeightedPage(0,&#34;My Post&#34;)]]
+	<b>tags: </b>map[ascii:[WeightedPage(0,&#34;Here&#39;s a poblano&#34;)] foo:[WeightedPage(0,&#34;My Other Post&#34;)] testing:[WeightedPage(0,&#34;My Other Post&#34;)] text:[WeightedPage(0,&#34;My Post&#34;)]]
 </pre>
 <pre class=debug>
 .: Page(/tags)
@@ -27,6 +27,7 @@
 .Kind: taxonomy
 .Layout: 
 .Pages:
+	Page(/tags/ascii)
 	Page(/tags/foo)
 	Page(/tags/testing)
 	Page(/tags/text)
@@ -37,7 +38,7 @@
 	<b>iscjklanguage: </b>false
 </pre>
 <pre class=debug>
-.File: {0xc000575890}
+.File: {0xc00073b710}
 .File.Dir: 
 .File.UniqueID: 
 </pre>
@@ -79,6 +80,19 @@
 <header>
 <h2>
 <a href=/tags/foo/>Foo</a>
+</h2>
+</header>
+<section>
+<p></p>
+</section>
+<footer>
+<br>
+</footer>
+</article>
+<article>
+<header>
+<h2>
+<a href=/tags/ascii/>ascii</a>
 </h2>
 </header>
 <section>
