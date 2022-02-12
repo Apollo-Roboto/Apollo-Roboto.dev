@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apollo-Roboto's place</title><link>https://apollo-roboto.dev/</link><description>Recent content on Apollo-Roboto's place</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Apollo-Roboto</copyright><lastBuildDate>Sun, 31 Oct 2021 19:32:11 -0400</lastBuildDate><atom:link href="https://apollo-roboto.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://apollo-roboto.dev/about/</link><pubDate>Sun, 31 Oct 2021 18:59:13 -0400</pubDate><guid>https://apollo-roboto.dev/about/</guid><description>hello</description></item><item><title>My Other Post</title><link>https://apollo-roboto.dev/posts/anotherpost/</link><pubDate>Tue, 26 Oct 2021 00:00:00 +0000</pubDate><guid>https://apollo-roboto.dev/posts/anotherpost/</guid><description>Hello again This is another post. It&amp;rsquo;s only existance is to test things out.
+Will it work or will it not work, I can only wonder until that page gets displayed.
+Have a good day :)
+Header 2 Hello
+Header 3 Bonjour
+{ &amp;#34;msg&amp;#34;: &amp;#34;this is a code block&amp;#34; }</description></item><item><title>My Post</title><link>https://apollo-roboto.dev/posts/mypost/</link><pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate><guid>https://apollo-roboto.dev/posts/mypost/</guid><description>Testing that thing! This is a post made on Hugo.
+one two three I think it&amp;rsquo;s ok
+They said.</description></item></channel></rss>
