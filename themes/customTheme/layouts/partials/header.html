@@ -1,8 +1,20 @@
-<div>
-	<nav>
+<!-- <nav class="flex px-20 py-5 border-b-2 border-black"> -->
+<nav class="flex px-20 py-5 shadow-md">
+	<div>
+		<span class="font-mono">
+			Apollo-Roboto/
+		</span>
+	</div>
+
+	<div class="ml-auto flex justify-center">
+
 		{{ range .Site.Menus.nav }}
-		{{ $text := print .Name | safeHTML }}
-		<a href="{{ .URL }}">{{ $text }}</a>
+			{{ $text := print .Name | safeHTML }}
+			<a href="{{ .URL }}" class="inline-block font-mono text-md w-32 h-auto mr-4 border rounded-md text-center border-black text-black hover:bg-black hover:text-white">
+				{{ $text }}
+			</a>
 		{{ end }}
-	</nav>
-</div>
+
+	</div>
+
+</nav>
