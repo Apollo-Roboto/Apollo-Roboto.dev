@@ -1,17 +1,22 @@
 <!-- <nav class="flex px-20 py-5 border-b-2 border-black"> -->
-<nav class="flex px-20 py-5 shadow-md">
+<nav class="flex px-20 py-5 shadow-md items-center">
 	<div>
-		<span class="font-mono">
-			Apollo-Roboto/
-		</span>
+		<span class="font-mono">Apollo-Roboto/</span>
 	</div>
 
-	<div class="ml-auto flex justify-center">
+	<!-- Navigation Container -->
+	<div class="ml-auto flex justify-center uppercase">
 
 		{{ range .Site.Menus.nav }}
 			{{ $text := print .Name | safeHTML }}
-			<a href="{{ .URL }}" class="inline-block font-mono text-md w-32 h-auto mr-4 border rounded-md text-center border-black text-black hover:bg-black hover:text-white">
+			<a href="{{ .URL }}" class="
+				inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+				p-2 border-black text-black tracking-widest transition-all duration-200
+				hover:bg-black hover:text-white
+				">
+				<!-- <div class="h-2"></div> -->
 				{{ $text }}
+				<!-- <div class="h-2"></div> -->
 			</a>
 		{{ end }}
 

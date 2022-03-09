@@ -2,12 +2,14 @@
 <html>
 	{{- partial "head.html" . -}}
 	<body class="bg-amber-50">
-		{{- partial "debug.html" . -}}
-		{{- partial "header.html" . -}}
-		<div id="content" class="p-5">
-		{{- block "main" . }}{{- end }}
+		<div class="flex flex-col h-screen justify-between">
+			{{- partial "debug.html" . -}}
+			{{- partial "header.html" . -}}
+			<div id="content" class="p-5 mb-auto">
+			{{- block "main" . }}{{- end }}
+			</div>
+			{{- partial "footer.html" . -}}
+			{{- partial "script.html" . -}}
 		</div>
-		{{- partial "footer.html" . -}}
-		{{- partial "script.html" . -}}
 	</body>
 </html>
