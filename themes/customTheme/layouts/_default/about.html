@@ -1,7 +1,13 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
-<br/>
+<!-- <h1>{{ .Title }}</h1> -->
 {{ .Content }}
+
+<h1>Socials</h1>
+<ul>
+	{{ range .Site.Params.socials }}
+		<li class="font-bold"><a href="{{ .url }}" class="hover:underline">{{ .name }}</a></li>
+	{{ end }}
+</ul>
 
 {{ end }}

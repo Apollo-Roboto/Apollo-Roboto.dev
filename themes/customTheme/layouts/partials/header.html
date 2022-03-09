@@ -1,22 +1,46 @@
 <!-- <nav class="flex px-20 py-5 border-b-2 border-black"> -->
 <nav class="flex px-20 py-5 shadow-md items-center">
+	<div class="font-mono">
+		{{ if .IsHome }}
+		<span href="/">Apollo-Roboto/</span>
+		{{ else }}
+		<a href="/">Apollo-Roboto/</a>
+		{{ end }}
+	</div>
 	<div>
-		<span class="font-mono">Apollo-Roboto/</span>
+		
 	</div>
 
 	<!-- Navigation Container -->
 	<div class="ml-auto flex justify-center uppercase">
-
+		{{ $currentPage := . }}
 		{{ range .Site.Menus.nav }}
-			{{ $text := print .Name | safeHTML }}
-			<a href="{{ .URL }}" class="
+
+			
+			{{ $buttonClass := "" }}
+
+			{{ $isActive := or ($currentPage.IsMenuCurrent "nav" .) ($currentPage.HasMenuCurrent "nav" .) }}
+			{{ $isActive = or $isActive (eq $currentPage.Title .Name) }}
+			{{ if $isActive }}
+				<a href="{{ .URL }}" class="
+					inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+					p-2 border-black text-black tracking-widest transition-all duration-200
+					hover:bg-black hover:text-white hover:shadow-md
+					border-b-4">
+			{{ else }}
+				<a href="{{ .URL }}" class="
+					inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+					p-2 border-black text-black tracking-widest transition-all duration-200
+					hover:bg-black hover:text-white hover:shadow-md">
+			{{ end }}
+
+			<!-- <a href="{{ .URL }}" class="
 				inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
 				p-2 border-black text-black tracking-widest transition-all duration-200
-				hover:bg-black hover:text-white
-				">
-				<!-- <div class="h-2"></div> -->
+				hover:bg-black hover:text-white"> -->
+				{{ $text := print .Name | safeHTML }}
 				{{ $text }}
-				<!-- <div class="h-2"></div> -->
+
 			</a>
 		{{ end }}
 

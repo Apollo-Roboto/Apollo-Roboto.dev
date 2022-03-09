@@ -2,12 +2,11 @@ baseURL: https://www.apollo-roboto.dev/
 languageCode: en-us
 title: Apollo-Roboto's place
 theme: customTheme
-# theme: vanilla-bootstrap
+
 copyright: Apollo-Roboto
 
 summaryLength: 70
 
-# sectionPagesMenu: main
 menu:
   nav:
     - name: Home
@@ -19,6 +18,11 @@ menu:
     - name: About
       url: /about
       weight: 3
-
+  
 params:
   debug: false
+  socials:
+  - name: GitHub
+    url: https://github.com/Apollo-Roboto
+  - name: StackOverflow
+    url: https://stackoverflow.com/users/10101321/apollo-roboto
