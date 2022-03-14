@@ -1,23 +1,32 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
-{{ range .Pages.ByPublishDate.Reverse }}
-<article>
-	<header>
-		<h2>
-			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-		</h2>
-	</header>
+<!-- <h1>{{ .Title }}</h1> -->
+<div class="flex flex-row justify-center items-center mt-8">
 	
-	<section>
-		<p>{{ .Summary }}</p>
-	</section>
-	
-	<footer>
-		{{ partial "metadata.html" . }}
-	</footer>
+	<div class="border-l border-black max-w-3xl">
+	{{ range .Pages.ByPublishDate.Reverse }}
 
-</article>
-{{ end }}
+		<article class="pt-5 pb-8">
+			<header>
+				<h2 class="text-3xl font-thin border-l-2 border-black pl-4 tracking-wide">
+					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+				</h2>
+				<time class="text-sm pl-5 font-light">{{ .PublishDate | time.Format "2006-01-02" }}</time>
+				
+			</header>
+			
+			<section class="pl-5 font-light">
+				<p>{{ .Summary }}</p>
+			</section>
+			
+			<footer>
+				<!-- {{ partial "metadata.html" . }} -->
+			</footer>
+
+		</article>
+
+	{{ end }}
+	</div>
+</div>
 
 {{ end }}
