@@ -1,12 +1,11 @@
 {{ define "main" }}
 
 <!-- <h1>{{ .Title }}</h1> -->
-<div class="flex flex-row justify-center items-center mt-8">
-	
+<div class="flex flex-row justify-center items-start">
 	<div class="border-l border-black max-w-3xl">
 	{{ range .Pages.ByPublishDate.Reverse }}
 
-		<article class="pt-5 pb-8">
+		<article class="pt-8 pb-8">
 			<header>
 				<h2 class="text-3xl font-thin border-l-2 border-black pl-4 tracking-wide">
 					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
