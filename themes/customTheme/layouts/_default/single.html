@@ -1,9 +1,44 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
-{{ partial "metadata.html" . }}
-<br/>
-{{ partial "toc.html" . }}
-{{ .Content }}
+<div class="flex flex-row justify-center items-start">
+
+	<!-- Side information bar -->
+	<div class="text-sm font-thin w-40 mt-10 text-right">
+		<div class="mb-10">
+			<div class="border-b border-black pb-1 mb-3">Date</div>
+			<time>Published {{ .PublishDate | time.Format "2006-01-02" }}</time>
+		</div>
+		
+		<div class="mb-10">
+			<div class="border-b border-black pb-1 mb-3">Author</div>
+			<span>Apollo-Roboto</span>
+		</div>
+
+		<div class="mb-10">
+			<div class="border-b border-black pb-1 mb-3">Tags</div>
+			<div>magic</div>
+			<div>soup</div>
+			<div>glass art</div>
+		</div>
+		
+		
+	</div>
+
+	<div class="w-16"></div>
+
+	<!-- main content -->
+	<div class="max-w-3xl">
+
+		<h1 class="text-3xl mb-5">{{ .Title }}</h1>
+		<!-- {{ partial "metadata.html" . }} -->
+
+
+		<!-- {{ partial "toc.html" . }} -->
+
+
+
+		{{ .Content }}
+	</div>
+</div>
 
 {{ end }}

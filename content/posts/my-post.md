@@ -7,7 +7,7 @@ tags: ["Text"]
 
 # Testing that thing!
 
-This is a post made on Hugo.
+This is a post.
 
 1. one
 2. two

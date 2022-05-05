@@ -2,15 +2,25 @@
 
 <!-- <h1>{{ .Title }}</h1> -->
 <div class="flex flex-row justify-center items-start">
+
+	<!-- Posts container -->
 	<div class="border-l border-black max-w-3xl">
 	{{ range .Pages.ByPublishDate.Reverse }}
 
 		<article class="pt-8 pb-8">
 			<header>
-				<h2 class="text-3xl font-thin border-l-2 border-black pl-4 tracking-wide">
-					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+				<a href="{{ .RelPermalink }}">
+				<h2 class="
+					text-3xl font-thin border-l-2 border-black pl-4 tracking-wide
+					border-b border-b-transparent
+					transition-all hover:border-l-8 hover:border-b-black
+				">
+					{{ .Title }}
 				</h2>
+				</a>
 				<time class="text-sm pl-5 font-light">{{ .PublishDate | time.Format "2006-01-02" }}</time>
+				
+				<!-- tags will go in here -->
 				
 			</header>
 			
@@ -26,6 +36,10 @@
 
 	{{ end }}
 	</div>
+
+	<!-- Pagination goes here -->
+
+
 </div>
 
 {{ end }}
