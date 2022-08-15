@@ -3,9 +3,10 @@
 <div class="flex flex-row justify-center items-start">
 
 	<!-- Side information bar -->
-	<div class="text-sm font-thin w-40 mt-10 text-right">
+	<div class="text-sm font-thin w-1/12 mt-10 text-right">
+
+		{{/*  Dates  */}}
 		<div class="mb-10">
-			
 			{{ $publishDate := .PublishDate | time.Format "2006-01-02"}}
 			{{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
 			
@@ -16,38 +17,44 @@
 			{{ if ne $publishDate $lastmod }}
 				<time>Modified {{ $lastmod }}</time>
 			{{ end }}
-
-		</div>
-		
-		<div class="mb-10">
-			<div class="border-b border-black pb-1 mb-3">Author</div>
-			<span>Apollo-Roboto</span>
 		</div>
 
-		<div class="mb-10">
-			<div class="border-b border-black pb-1 mb-3">Tags</div>
-			<div>magic</div>
-			<div>soup</div>
-			<div>glass art</div>
-		</div>
+		{{/*  Author  */}}
+		{{ if .Params.author }}
+			<div class="mb-10">
+				<div class="border-b border-black pb-1 mb-3">Author</div>
+				<span>{{ .Params.author }}</span>
+			</div>
+		{{ end }}
 		
+		{{/*  Tags  */}}
+		{{ if gt .Params.tags 0 }}
+			<div class="mb-10">
+				<div class="border-b border-black pb-1 mb-3">Tags</div>
+				{{ range .Params.tags }}
+					{{ partial "tag.html" .}}
+				{{ end }}
+			</div>
+		{{ end }}
 		
 	</div>
 
 	<div class="w-16"></div>
 
-	<!-- main content -->
-	<div class="max-w-3xl">
+	{{/*  main content  */}}
+	<div class="w-5/12">
 
 		<h1 class="text-3xl mb-5">{{ .Title }}</h1>
-		<!-- {{ partial "metadata.html" . }} -->
 
-
-		<!-- {{ partial "toc.html" . }} -->
+		{{/*  {{ partial "toc.html" . }}  */}}
 
 
 
 		{{ .Content }}
+
+
+
+		
 	</div>
 </div>
 

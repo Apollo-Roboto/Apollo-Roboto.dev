@@ -10,7 +10,7 @@ summaryLength: 70
 enableEmoji: true
 enableInlineShortcodes: true
 googleAnalytics: G-99E0KYVB3G
-paginate: 2
+paginate: 5
 
 menu:
   nav:

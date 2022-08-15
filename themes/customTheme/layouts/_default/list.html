@@ -2,15 +2,16 @@
 
 {{ $paginator := .Paginator }}
 
+{{/*  Content  */}}
 <div class="flex flex-row justify-center items-start">
 
 	<!-- Posts container -->
-	<div class="border-l border-black max-w-3xl">
+	<div class="border-l border-black w-5/12">
 
 	{{ range $paginator.Pages.ByPublishDate.Reverse }}
 
 		<article class="pt-8 pb-8">
-			<header>
+			<header class="mb-3">
 				<a href="{{ .RelPermalink }}">
 				<h2 class="
 					text-3xl font-thin border-l-2 border-black pl-4 tracking-wide
@@ -22,7 +23,12 @@
 				</a>
 				<time class="text-sm pl-5 font-light">{{ .PublishDate | time.Format "2006-01-02" }}</time>
 				
-				<!-- tags will go in here -->
+				{{/*  Tags  */}}
+				<div class="pl-5">
+					{{ range .Params.tags }}
+						{{ partial "tag.html" .}}
+					{{ end }}
+				</div>
 				
 			</header>
 			
@@ -30,9 +36,7 @@
 				<p>{{ .Summary }}</p>
 			</section>
 			
-			<footer>
-				<!-- {{ partial "metadata.html" . }} -->
-			</footer>
+			{{/*  <footer></footer>  */}}
 
 		</article>
 
@@ -41,13 +45,13 @@
 	</div>
 </div>
 
-<div class="h-16"></div>
+<div class="h-36"></div>
 
 {{/*  Pagination  */}}
 <div class="flex">
 	<div class="grow"></div>
 
-	<div class="grow flex flex-row justify-center items-start font-mono max-w-3xl">
+	<div class="grow flex flex-row justify-center items-start max-w-3xl font-mono">
 
 		{{ $buttonBaseClass := "inline-block p-2 mx-1 rounded-md leading-4"}}
 
