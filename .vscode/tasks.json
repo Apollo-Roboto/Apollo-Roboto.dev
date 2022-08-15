@@ -9,7 +9,7 @@
 		{
 			"label": "Hugo server",
 			"type": "shell",
-			"command": "hugo server -D"
+			"command": "hugo server -D --noHTTPCache"
 		}
 	]
 }

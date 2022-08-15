@@ -15,10 +15,7 @@
 	<div class="ml-auto flex justify-center uppercase">
 		{{ $currentPage := . }}
 		{{ range .Site.Menus.nav }}
-
 			
-			{{ $buttonClass := "" }}
-
 			{{ $isActive := or ($currentPage.IsMenuCurrent "nav" .) ($currentPage.HasMenuCurrent "nav" .) }}
 			{{ $isActive = or $isActive (eq $currentPage.Title .Name) }}
 			{{ if $isActive }}

@@ -1,11 +1,13 @@
 {{ define "main" }}
 
-<!-- <h1>{{ .Title }}</h1> -->
+{{ $paginator := .Paginator }}
+
 <div class="flex flex-row justify-center items-start">
 
 	<!-- Posts container -->
 	<div class="border-l border-black max-w-3xl">
-	{{ range .Pages.ByPublishDate.Reverse }}
+
+	{{ range $paginator.Pages.ByPublishDate.Reverse }}
 
 		<article class="pt-8 pb-8">
 			<header>
@@ -35,11 +37,64 @@
 		</article>
 
 	{{ end }}
+
+	</div>
+</div>
+
+<div class="h-16"></div>
+
+{{/*  Pagination  */}}
+<div class="flex">
+	<div class="grow"></div>
+
+	<div class="grow flex flex-row justify-center items-start font-mono max-w-3xl">
+
+		{{ $buttonBaseClass := "inline-block p-2 mx-1 rounded-md leading-4"}}
+
+		{{/*  Previous  */}}
+		{{ if $paginator.HasPrev }}
+			<a href="{{ $paginator.Prev.URL }}" class="{{ $buttonBaseClass }}">&lt; Previous</a>
+		{{ else }}
+			<a class="{{ $buttonBaseClass }} text-gray-500">&lt; Previous</a>
+		{{ end }}
+		
+		{{/*  spacer  */}}
+		<div class="grow"></div>		
+
+		{{/*  Page numbers  */}}
+		{{ if gt $paginator.TotalPages 1 }}
+			
+			{{ range $paginator.Pagers }}
+
+				<a href="{{ .URL }}" class="
+					{{ $buttonBaseClass }}
+					{{ if eq . $paginator }}
+					text-white bg-black
+					{{ end }}
+				">
+					{{ .PageNumber }}
+				</a>
+				
+			{{ end }}
+			
+		{{ end }}
+
+		{{/*  spacer  */}}
+		<div class="grow"></div>	
+
+		{{/*  Next  */}}
+		{{ if $paginator.HasNext }}
+			<a href="{{ $paginator.Next.URL }}" class="{{ $buttonBaseClass }}">Next &gt;</a>
+		{{ else }}
+			<a class="{{ $buttonBaseClass }} text-gray-500">Next &gt;</a>
+		{{ end }}
+
 	</div>
 
-	<!-- Pagination goes here -->
-
-
+	<div class="grow"></div>
 </div>
+
+
+
 
 {{ end }}

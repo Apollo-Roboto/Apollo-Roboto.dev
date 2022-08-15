@@ -5,8 +5,18 @@
 	<!-- Side information bar -->
 	<div class="text-sm font-thin w-40 mt-10 text-right">
 		<div class="mb-10">
+			
+			{{ $publishDate := .PublishDate | time.Format "2006-01-02"}}
+			{{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
+			
 			<div class="border-b border-black pb-1 mb-3">Date</div>
-			<time>Published {{ .PublishDate | time.Format "2006-01-02" }}</time>
+			
+			<time>Published {{ $publishDate }}</time>
+
+			{{ if ne $publishDate $lastmod }}
+				<time>Modified {{ $lastmod }}</time>
+			{{ end }}
+
 		</div>
 		
 		<div class="mb-10">

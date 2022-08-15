@@ -1,11 +1,16 @@
 baseURL: https://www.apollo-roboto.dev/
 languageCode: en-us
+defaultContentLanguage: en
 title: Apollo-Roboto's place
 theme: customTheme
 
+enableGitInfo: true
 copyright: Apollo-Roboto
-
 summaryLength: 70
+enableEmoji: true
+enableInlineShortcodes: true
+googleAnalytics: G-99E0KYVB3G
+paginate: 2
 
 menu:
   nav:
@@ -18,6 +23,11 @@ menu:
     - name: About
       url: /about
       weight: 3
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
   
 params:
   debug: false
