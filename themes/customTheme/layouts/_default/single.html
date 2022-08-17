@@ -7,7 +7,7 @@
 
 		{{/*  Dates  */}}
 		<div class="mb-10">
-			{{ $publishDate := .PublishDate | time.Format "2006-01-02"}}
+			{{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
 			{{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
 			
 			<div class="border-b border-black pb-1 mb-3">Date</div>
@@ -42,18 +42,11 @@
 	<div class="w-16"></div>
 
 	{{/*  main content  */}}
-	<div class="w-5/12">
-
-		<h1 class="text-3xl mb-5">{{ .Title }}</h1>
+	<div class="markdown w-5/12">
 
 		{{/*  {{ partial "toc.html" . }}  */}}
 
-
-
 		{{ .Content }}
-
-
-
 		
 	</div>
 </div>

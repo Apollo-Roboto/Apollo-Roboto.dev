@@ -1,10 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+date: {{ .Date | time.Format "2006-01-02" }}
 draft: true
 tableOfContent: false
 author: Name Name
-tags: []
+tags:
+  - Tag
 ---
 
 # {{ replace .Name "-" " " | title }}

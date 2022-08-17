@@ -2,12 +2,12 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{{ hugo.Generator }} {{/* generator tag information */}}
-	<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
 	<link rel="stylesheet" type="text/css" href="/css/tailwind.css">
 	<link rel="stylesheet" type="text/css" href="/css/debugStyle.css">
 	<link rel="stylesheet" type="text/css" href="/css/fonts.css">
-	{{ $title := print .Site.Title " | " .Title }}
-	{{ if .IsHome }}{{ $title = .Site.Title }} {{ end }}
-	<title>{{ $title }}</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+	<title>{{ if not .IsHome }} {{ .Title | title }} | {{ end }} {{ .Site.Title }}</title>
+
 	{{ template "_internal/google_analytics.html" . }}
 </head>
