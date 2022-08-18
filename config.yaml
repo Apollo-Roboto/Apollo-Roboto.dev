@@ -1,7 +1,7 @@
 baseURL: https://www.apollo-roboto.dev/
 languageCode: en-us
 defaultContentLanguage: en
-title: Apollo-Roboto's place
+title: Apollo-Roboto
 theme: customTheme
 
 enableGitInfo: true
@@ -25,12 +25,15 @@ menu:
       weight: 3
 
 markup:
+  highlight:
+    noClasses: false
   goldmark:
     renderer:
       unsafe: true
-  
+
 params:
   debug: false
+  kofi: M4M3CMENQ
   socials:
   - name: GitHub
     url: https://github.com/Apollo-Roboto
