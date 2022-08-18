@@ -1,0 +1,49 @@
+<!doctype html><html class=overflow-y-scroll><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.101.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>Code Test | Apollo-Roboto</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div class="flex flex-col h-screen justify-between"><nav class="flex px-20 py-5 shadow-md items-center"><div class=font-mono><a href=/>Apollo-Roboto/</a></div><div class="ml-auto flex justify-center uppercase"><a href=/ class="inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+p-2 border-black text-black tracking-widest transition-all duration-200
+hover:bg-black hover:text-white hover:shadow-md">Home</a>
+<a href=/posts class="inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+p-2 border-black text-black tracking-widest transition-all duration-200
+hover:bg-black hover:text-white hover:shadow-md border-b-4">Posts</a>
+<a href=/about class="inline-block font-mono text-md w-32 ml-4 border rounded-md text-center font-light
+p-2 border-black text-black tracking-widest transition-all duration-200
+hover:bg-black hover:text-white hover:shadow-md">About</a></div></nav><div id=content class="px-5 pt-10 pb-36 mb-auto"><div class="flex flex-row justify-center items-start"><div class="text-sm font-thin w-1/12 mt-10 text-right"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><time>Published 2022-08-17</time></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Test</span></div></div><div class=w-16></div><div class="markdown w-5/12"><h1 id=code-test>Code Test</h1><p>Inline <code>Code</code>.</p><pre tabindex=0><code>code block</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># some python code</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>display</span><span class=p>(</span><span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;== </span><span class=si>{</span><span class=n>value</span><span class=si>}</span><span class=s2> ==&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>50</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>x</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>0</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>continue</span>
+</span></span><span class=line><span class=cl>    <span class=n>display</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Cube</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>side</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>side</span> <span class=o>=</span> <span class=n>side</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-c# data-lang=c#><span class=line><span class=cl><span class=c1>// some C# code</span>
+</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>void</span> <span class=n>Display</span><span class=p>(</span><span class=kt>int</span> <span class=n>val</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>Console</span><span class=p>.</span><span class=n>WriteLine</span><span class=p>(</span><span class=s>$&#34;== {val} ==&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>(</span><span class=kt>string</span><span class=p>[]</span> <span class=n>args</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span> <span class=p>=</span> <span class=m>0</span><span class=p>;</span> <span class=n>x</span> <span class=p>&lt;</span> <span class=m>50</span><span class=p>;</span> <span class=n>x</span><span class=p>++)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>x</span> <span class=p>%</span> <span class=m>2</span> <span class=p>==</span> <span class=m>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=n>Display</span><span class=p>(</span><span class=n>x</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>Cube</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span> <span class=kt>double</span> <span class=n>Side</span> <span class=p>{</span><span class=k>get</span><span class=p>;</span><span class=k>set</span><span class=p>;}</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span> <span class=n>Cube</span><span class=p>(</span><span class=kt>double</span> <span class=n>side</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>this</span><span class=p>.</span><span class=n>Side</span> <span class=p>=</span> <span class=n>side</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div><p>Constants</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c# data-lang=c#><span class=line><span class=cl><span class=k>public</span> <span class=k>const</span> <span class=kt>float</span> <span class=n>PI</span> <span class=p>=</span> <span class=m>3.14159</span><span class=p>;</span></span></span></code></pre></div><p>html</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>Lorem ipsum dolor sit amet, <span class=p>&lt;</span><span class=nt>b</span><span class=p>&gt;</span>consectetur<span class=p>&lt;/</span><span class=nt>b</span><span class=p>&gt;</span> adipiscing elit. Proin <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span></span></span></code></pre></div><p>Long line</p><pre tabindex=0><code>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere ex scelerisque egestas porta. Aliquam vitae turpis sed urna vehicula cursus. In fringilla commodo velit eget ultricies.</code></pre></div></div></div><div class="bg-neutral-900 text-white grid place-items-center"><div class=h-14></div><a href=https://github.com/Apollo-Roboto><img src=/images/GitHub/Mark-Light-120px-plus.png alt class=w-14></a><div class=h-10></div><p class=text-xs>Copyright &#xA9 2022 | Apollo-Roboto</p><div class=h-10></div><p class="text-xs text-gray-500">Powered by
+<a class=hover:underline href=https://pages.github.com/>Github Pages</a>,
+<a class=hover:underline href=https://gohugo.io/>Hugo</a> and
+<a class=hover:underline href=https://tailwindcss.com/>Tailwindcss</a></p><div class=h-4></div></div></div></body></html>
