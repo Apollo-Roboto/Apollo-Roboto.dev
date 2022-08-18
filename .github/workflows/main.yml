@@ -34,3 +34,4 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: Apollo-Roboto/Apollo-Roboto.dev
           publish_dir: ./public
+          exclude_assets: ''
