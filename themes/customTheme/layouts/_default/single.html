@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<div class="flex flex-row justify-center items-start">
+<div class="flex flex-row justify-center items-stretch">
 
 	<!-- Side information bar -->
-	<div class="text-sm font-thin w-1/12 mt-10 text-right">
+	<div class="flex flex-col text-sm font-thin w-1/12 mt-10 text-right">
 
 		{{/*  Dates  */}}
 		<div class="mb-10">
@@ -32,10 +32,18 @@
 			<div class="mb-10">
 				<div class="border-b border-black pb-1 mb-3">Tags</div>
 				{{ range .Params.tags }}
-					{{ partial "tag.html" .}}
+					{{ partial "components/tag.html" .}}
 				{{ end }}
 			</div>
 		{{ end }}
+
+		{{/*  <div class="grow"></div>  */}}
+
+		{{/*  Back to the top button  */}}
+		{{/*  <a href="#top" class="mx-auto" title="Back to the top">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M18.655 10.405a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06l4.97-4.97v14.44a.75.75 0 001.5 0V5.435l4.97 4.97a.75.75 0 001.06 0z"></path></svg>
+		</a>
+		<div class="border-b border-black pb-1 mb-3"></div>  */}}
 		
 	</div>
 
@@ -49,6 +57,8 @@
 		{{ .Content }}
 		
 	</div>
+
 </div>
+
 
 {{ end }}

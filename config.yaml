@@ -33,9 +33,25 @@ markup:
 
 params:
   debug: false
-  kofi: M4M3CMENQ
+  githubIssueUrl: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
   socials:
   - name: GitHub
     url: https://github.com/Apollo-Roboto
+    userName: Apollo-Roboto
+    iconUrl: /images/GitHub_Icon.svg
   - name: StackOverflow
     url: https://stackoverflow.com/users/10101321/apollo-roboto
+    userName: Apollo-Roboto
+    iconUrl: /images/StackOverflow_Icon.svg
+  - name: Ko-fi
+    url: https://ko-fi.com/M4M3CMENQ
+    userName: Apollo-Roboto
+    iconUrl: /images/Ko-fi_Icon.svg
+  - name: Email
+    url: mailto:Apollo_Roboto@outlook.com
+    userName: Apollo_Roboto@outlook.com
+    iconUrl: /images/Email_Icon.svg
+  - name: RSS
+    url: todo
+    userName: Click Here
+    iconUrl: /images/RSS_Icon.svg

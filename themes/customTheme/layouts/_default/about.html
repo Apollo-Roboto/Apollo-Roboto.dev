@@ -1,13 +1,26 @@
 {{ define "main" }}
 
 <!-- <h1>{{ .Title }}</h1> -->
-{{ .Content }}
+<div class="markdown">
+	{{ .Content }}
+</div>
 
-<h1>Socials</h1>
-<ul>
+{{/*  Spacer  */}}
+<div class="h-56"></div>
+
+{{/*  Social cards  */}}
+<div class="w-9/12 mx-auto flex flex-wrap justify-center gap-12">
 	{{ range .Site.Params.socials }}
-		<li class="font-bold"><a href="{{ .url }}" class="hover:underline">{{ .name }}</a></li>
+		{{ partial "components/social_card.html" . }}
 	{{ end }}
-</ul>
+</div>
+
+{{/*  GitHub Issue Link  */}}
+{{ if .Site.Params.githubIssueUrl }}
+	<div class="markdown mt-32">
+		<p class="text-center">Found a problem? Open an issue <a href="{{ .Site.Params.githubIssueUrl }}">here.</a></p>
+	</div>
+{{ end }}
+
 
 {{ end }}

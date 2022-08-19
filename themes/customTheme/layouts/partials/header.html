@@ -1,11 +1,13 @@
 <!-- <nav class="flex px-20 py-5 border-b-2 border-black"> -->
 <nav class="flex px-20 py-5 shadow-md items-center">
 	<div class="font-mono">
+
 		{{ if .IsHome }}
-		<span href="/">Apollo-Roboto/</span>
+		<span href="/">{{ .Site.Title }} $<span class="">_</span></span>
 		{{ else }}
-		<a href="/">Apollo-Roboto/</a>
+		<a href="/">{{ .Site.Title }} $<span class="">_</span></a>
 		{{ end }}
+
 	</div>
 
 	<!-- Navigation Container -->
