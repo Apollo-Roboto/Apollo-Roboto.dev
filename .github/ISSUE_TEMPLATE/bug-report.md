@@ -1,9 +1,9 @@
 ---
-name: Bug report
+name: Bug Report
 about: Did the site broke? Let me know!
 title: ''
 labels:
-  - Bug
+  - bug
 assignees: ''
 
 ---

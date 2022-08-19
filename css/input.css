@@ -48,10 +48,10 @@ html {
 	@apply font-light mt-4 mb-1;
 }
 .markdown a {
-	@apply text-amber-700;
+	@apply text-amber-700 transition-all duration-200 underline decoration-[#00000000] decoration-2;
 }
 .markdown a:hover {
-	@apply underline decoration-2;
+	@apply decoration-amber-700;
 }
 .markdown a:visited { 
 	@apply text-orange-800;
