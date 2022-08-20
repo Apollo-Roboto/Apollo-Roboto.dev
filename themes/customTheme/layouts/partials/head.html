@@ -7,6 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="/css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/syntax.css">
+
+	{{ range .AlternativeOutputFormats }}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end }}
 	
 	<title>{{ if not .IsHome }} {{ .Title | title }} | {{ end }} {{ .Site.Title }}</title>
 
