@@ -1,11 +1,11 @@
 
-<a href="{{ .url }}" class="w-min ">
+<a href="{{ .url }}" class="w-min">
 	<div class="border border-black rounded-md decoration-2 flex items-center underline decoration-[#00000000]
-		transition-all duration-200 hover:shadow-md hover:decoration-black hover:-translate-y-4
+		transition-all duration-200 hover:shadow-md hover:decoration-black hover:-translate-y-2 md:hover:-translate-y-4
 	">
-		<img src="{{ .iconUrl }}" alt="" class="w-16 h-12 my-5 mx-7"/>
+		<img src="{{ .iconUrl }}" alt="" class="md:w-16 md:h-12 w-12 h-10 my-5 mx-7"/>
 
-		<div class="w-80 pr-7">
+		<div class="lg:w-80 w-72 pr-7">
 			<span class="font-bold">{{ .name }}</span>
 			<br/>
 			<span class="font-light">{{ .userName }}</span>

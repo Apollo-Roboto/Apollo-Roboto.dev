@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-<!-- <h1>{{ .Title }}</h1> -->
 <div class="markdown">
 	{{ .Content }}
 </div>
@@ -9,7 +8,7 @@
 <div class="h-56"></div>
 
 {{/*  Social cards  */}}
-<div class="w-9/12 mx-auto flex flex-wrap justify-center gap-12">
+<div class="w-11/12 md:w-9/12 mx-auto flex flex-wrap justify-center md:gap-12 gap-5 ">
 	{{ range .Site.Params.socials }}
 		{{ partial "components/social_card.html" . }}
 	{{ end }}
