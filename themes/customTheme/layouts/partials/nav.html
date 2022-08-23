@@ -1,0 +1,39 @@
+<div class="py-8 font-mono text-md border-b border-black shadow-md">
+	<nav class="flex md:flex-row flex-col w-9/12 mx-auto">
+
+		<div class="lg:text-left text-center">
+			{{ if .IsHome }}
+				<span>{{ .Site.Title }} $_</span>
+			{{ else }}
+				<a href="/">{{ .Site.Title }} $_</a>
+			{{ end }}
+		</div>
+
+		{{/*  spacer  */}}
+		<div class="md:grow md:h-0 h-6"></div>
+
+		<div class="flex md:gap-8 gap-16 justify-center">
+
+			{{ $currentPage := . }}
+
+			{{ range .Site.Menus.nav }}
+
+				{{ $isActive := or ($currentPage.IsMenuCurrent "nav" .) ($currentPage.HasMenuCurrent "nav" .) }}
+				{{ $isActive = or $isActive (eq $currentPage.Title .Name) }}
+				{{ $isActive = or $isActive (and (eq .Name "Posts") (eq $currentPage.Type "posts")) }} {{/* Highlight when on a single post */}}
+
+				<a href="{{ .URL }}" class="px-5 py-1
+					{{ if $isActive }}
+						text-white bg-black rounded-lg
+					{{ else }}
+						underline decoration-2 decoration-[#00000000] hover:decoration-black
+						transition-colors duration-200 underline-offset-8
+					{{ end }}
+					">
+					{{- .Name | safeHTML -}}
+				</a>
+
+			{{ end }}
+		</div>
+	</nav>
+</div>

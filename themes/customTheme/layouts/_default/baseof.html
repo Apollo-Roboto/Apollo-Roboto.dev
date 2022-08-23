@@ -5,8 +5,8 @@
 		<div id="top"></div>
 		<div class="flex flex-col h-screen justify-between">
 			{{- partial "debug.html" . -}}
-			{{- partial "header.html" . -}}
-			<div id="content" class="px-5 pt-10 pb-36 mb-auto">
+			{{- partial "nav.html" . -}}
+			<div id="content" class="pt-20 pb-36 mb-auto">
 				{{- block "main" . }}{{- end }}
 			</div>
 			{{- partial "footer.html" . -}}

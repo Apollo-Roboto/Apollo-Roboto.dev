@@ -12,7 +12,14 @@
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end }}
 	
-	<title>{{ if not .IsHome }} {{ .Title | title }} | {{ end }} {{ .Site.Title }}</title>
+	<title>
+		{{ if not .IsHome }} {{ .Title | title }} | {{ end }} {{ .Site.Title }}
+
+		{{/*  Adding - DEV to make it clear I'm on a dev page  */}}
+		{{ if in (.Site.BaseURL | string) "localhost" }}
+			- DEV
+		{{ end }}
+	</title>
 
 	{{ template "_internal/google_analytics.html" . }}
 </head>

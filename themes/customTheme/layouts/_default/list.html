@@ -2,6 +2,11 @@
 
 {{ $paginator := .Paginator }}
 
+{{/*  Title  */}}
+<div class="w-11/12 md:w-7/12 lg:w-5/12 mx-auto mb-24">
+	<h1 class="text-4xl font-normal">{{ .Type | title }}</h1>
+</div>
+
 {{/*  Content  */}}
 <div class="flex flex-row justify-center items-start">
 
@@ -18,7 +23,7 @@
 					border-b border-b-transparent
 					transition-all hover:border-l-8 hover:border-b-black
 				">
-					{{ .Title }}
+					{{- .Title -}}
 				</h2>
 				</a>
 				<time class="text-sm pl-5 font-light">{{ .PublishDate | time.Format "2006-01-02" }}</time>
@@ -76,7 +81,7 @@
 					text-white bg-black
 					{{ end }}
 				">
-					{{ .PageNumber }}
+					{{- .PageNumber -}}
 				</a>
 				
 			{{ end }}
