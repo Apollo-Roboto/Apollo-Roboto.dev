@@ -1,5 +1,5 @@
 ---
-title: "Code Test"
+title: Code Test
 date: 2022-08-17
 draft: false
 tableOfContent: false
@@ -7,8 +7,6 @@ author: Apollo-Roboto
 tags:
   - Test
 ---
-
-# Code Test
 
 Inline `Code`.
 

@@ -8,8 +8,6 @@ tags:
   - Test
 ---
 
-# Table Test
-
 Normal table
 
 | Name  | Score |

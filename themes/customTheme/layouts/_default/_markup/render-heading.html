@@ -1,1 +1,2 @@
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
+{{/*  adding one level to each header, so the title parameter is header 1  */}}
+<h{{ add .Level 1 }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ add .Level 1 }}>

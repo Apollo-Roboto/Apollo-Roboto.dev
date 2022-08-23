@@ -1,5 +1,5 @@
 ---
-title: "List Test"
+title: List Test
 date: 2022-08-16
 draft: false
 tableOfContent: false
@@ -8,10 +8,7 @@ tags:
   - Test
 ---
 
-# List Test
-
-
-## Unordered Lists
+# Unordered Lists
 
 No indentation
 - One
@@ -23,7 +20,7 @@ With indentation
   - Two
     - Three
 
-## Ordered Lists
+# Ordered Lists
 
 No indentation
 1. One

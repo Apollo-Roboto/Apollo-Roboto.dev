@@ -3,7 +3,7 @@
 <div class="flex flex-col md:flex-row justify-center items-stretch">
 
 	{{/*  Side information bar (only visible on bigger media)  */}}
-	<div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-10 mr-16 text-right min-w-min ">
+	<div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min ">
 
 		{{/*  Dates  */}}
 		<div class="mb-10">
@@ -47,40 +47,40 @@
 		
 	</div>
 
-	{{/*  Top information bar (only visible on small media)  */}}
-	<div class="block md:hidden border-b border-black w-11/12 mx-auto mb-8">
-		<p>
-			{{/*  Author  */}}
-			{{ if .Params.author }}
-				{{ .Params.author }}
-			{{ end }}
-
-			{{/*  Dates  */}}
-			{{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
-			{{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
-			
-			<time>| Published {{ $publishDate }}</time>
-
-			{{ if ne $publishDate $lastmod }}
-				<time>| Modified {{ $lastmod }}</time>
-			{{ end }}
-		</p>
-
-		{{/*  Tags  */}}
-		{{ if gt .Params.tags 0 }}
-		<div class="mb-2">
-			{{ range .Params.tags }}
-				{{ partial "components/tag.html" .}}
-			{{ end }}
-		</div>
-		{{ end }}
-
-	</div>
-
 	{{/*  main content  */}}
 	<div class="markdown w-11/12 md:w-7/12 lg:w-5/12 mx-auto md:mx-0">
 
-		{{/*  {{ partial "toc.html" . }}  */}}
+		<h1>{{- .Title -}}</h1>
+			{{/*  Top information bar (only visible on small media)  */}}
+		<div class="block md:hidden text-sm mb-12 -mt-4">
+			<p>
+				{{/*  Author  */}}
+				{{ if .Params.author }}
+					By {{ .Params.author }} | 
+				{{ end }}
+
+				{{/*  Dates  */}}
+				{{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
+				{{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
+				
+				Published <time>{{ $publishDate }}</time>
+
+				{{ if ne $publishDate $lastmod }}
+					(<time>{{ $lastmod }}</time>)
+				{{ end }}
+			</p>
+
+			{{/*  Tags  */}}
+			{{ if gt .Params.tags 0 }}
+			<div class="mb-2">
+				{{ range .Params.tags }}
+					{{ partial "components/tag.html" .}}
+				{{ end }}
+			</div>
+			{{ end }}
+
+		</div>
+
 
 		{{ .Content }}
 		

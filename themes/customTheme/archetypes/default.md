@@ -7,5 +7,3 @@ author: Name Name
 tags:
   - Tag
 ---
-
-# {{ replace .Name "-" " " | title }}
