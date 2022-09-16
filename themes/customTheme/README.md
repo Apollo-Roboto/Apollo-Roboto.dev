@@ -4,6 +4,7 @@ Example parameters:
 ```yaml
 params:
   pride: true
+  visualEffects: true
   githubIssueUrl: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
   socials:
   - name: GitHub

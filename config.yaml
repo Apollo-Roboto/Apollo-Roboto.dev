@@ -14,7 +14,7 @@ rssLimit: null
 paginate: 5
 
 author:
-  name: Apollo Roboto
+  name: Apollo-Roboto
   email: Apollo_Roboto@outlook.com
 
 menu:
@@ -39,6 +39,7 @@ markup:
 
 params:
   debug: false
+  visualEffects: true
   pride: false
   githubIssueUrl: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
   socials:

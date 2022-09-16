@@ -1,8 +1,41 @@
 {{ define "main" }}
 
-<!-- <h1>{{ .Title }}</h1> -->
+<div class="flex 2xl:flex-row flex-col 2xl:w-8/12 11/12 mx-auto items-center overflow-clip">
+	{{/*  Author text  */}}
+	<div class="font-light">
+		<p class="text-left">{{ .Params.topAuthorText }}</p>
+		<p class="text-5xl">{{ .Site.Author.name }}</p>
+		<p class="text-right">{{ .Params.subAuthorText }}</p>
+	</div>
+	
+	<div class="grow"></div>
+
+	<canvas id="threejs" class="block border-black rounded-full 2xl:w-[44rem] 2xl:h-96 w-[32rem] h-64 2xl:-mr-12"></canvas>
+</div>
+
+{{/*  Spacer  */}}
+<div class="h-20"></div>
+
+{{/*  <h1>{{ .Title }}</h1>  */}}
 <div class="markdown w-10/12 mx-auto">
 	{{ .Content }}
 </div>
+
+{{/*  Scripts  */}}
+{{/*  TODO deal with scripts in a better way  */}}
+{{ if .Site.Params.visualEffects }}
+	{{/*  <script src="https://threejs.org/build/three.js"></script>
+	<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>  */}}
+
+	<script src="js/three/build/three.min.js"></script>
+	{{/*  <script src="js/three/build/three.js"></script>  */}}
+	{{/*  <script src="js/three/examples/js/lines/LineSegmentsGeometry.js"></script>
+	<script src="js/three/examples/js/lines/LineSegments2.js"></script>
+	<script src="js/three/examples/js/lines/Line2.js"></script>
+	<script src="js/three/examples/js/lines/LineMaterial.js"></script>
+	<script src="js/three/examples/js/lines/LineGeometry.js"></script>  */}}
+	{{/*  <script src="js/three/examples/js/loaders/OBJLoader.js"></script>  */}}
+	<script src="js/homeScreenEffects.js"></script>
+{{ end }}
 
 {{ end }}
