@@ -17,12 +17,12 @@ code block
 ```python
 # some python code
 def display(value):
-    print(f"== {value} ==")
+	print(f"== {value} ==")
 
 for x in range(50):
-    if(x % 2 == 0):
-        continue
-    display(x)
+	if(x % 2 == 0):
+		continue
+	display(x)
 
 class Cube:
 	def __init__(self, side):
