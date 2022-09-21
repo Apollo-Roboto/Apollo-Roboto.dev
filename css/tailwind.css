@@ -1078,7 +1078,7 @@ html {
 }
 
 .markdown h2 {
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1086,7 +1086,7 @@ html {
 }
 
 .markdown h3 {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   margin-bottom: 0.25rem;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1157,6 +1157,14 @@ html {
 .markdown del {
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
+}
+
+/*======== Images ========*/
+
+.markdown img {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
 }
 
 /*======== Lists ========*/
@@ -1279,6 +1287,12 @@ html {
   line-height: 1.25rem;
 }
 
+.markdown pre code {
+  --tw-bg-opacity: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .markdown pre {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -1292,12 +1306,35 @@ html {
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-animation: tabAnimation 0.6s;
+          animation: tabAnimation 0.6s;
 }
 
-.markdown pre code {
-  --tw-bg-opacity: 0;
-  padding-left: 0px;
-  padding-right: 0px;
+@-webkit-keyframes tabAnimation{
+  from{
+    tab-size: 0;
+  }
+
+  to{
+    tab-size: 4;
+  }
+}
+
+@keyframes tabAnimation{
+  from{
+    -moz-tab-size: 0;
+      -o-tab-size: 0;
+         tab-size: 0;
+  }
+
+  to{
+    -moz-tab-size: 4;
+      -o-tab-size: 4;
+         tab-size: 4;
+  }
 }
 
 .hover\:-translate-y-5:hover {
