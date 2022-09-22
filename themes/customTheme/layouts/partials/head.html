@@ -1,25 +1,72 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{{ hugo.Generator }} {{/* generator tag information */}}
+
+
+
+	{{/* generator tag information */}}
+	{{ hugo.Generator }}
+
+
+
+	{{/*  CSS  */}}
 	<link rel="stylesheet" type="text/css" href="/css/tailwind.css">
 	<link rel="stylesheet" type="text/css" href="/css/debugStyle.css">
 	<link rel="stylesheet" type="text/css" href="/css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/syntax.css">
 
+
+
+	{{/*  link to alternate formats  */}}
 	{{ range .AlternativeOutputFormats }}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end }}
-	
-	<title>
-		{{ if not .IsHome }} {{ .Title | title }} | {{ end }} {{ .Site.Title }}
 
-		{{/*  Adding - DEV to make it clear I'm on a dev page  */}}
-		{{ if in (.Site.BaseURL | string) "localhost" }}
-			- DEV
-		{{ end }}
-	</title>
+
+
+	{{/*  Meta Tags  */}}
+
+	{{ $title := "" }}
+
+	{{ if .IsHome }}
+		{{ $title = .Site.Title }}
+	{{ else }}
+		{{ $title = .Title }}
+	{{ end }}
+
+	{{/*  Adding - DEV to make it clear I'm on a dev page  */}}
+	{{ if in (.Site.BaseURL | string) "localhost" }}
+		{{ $title = (print $title " - DEV") }}
+	{{ end }}
+	
+	<title>{{ $title }}</title>
+	<meta name="title" content="{{ $title }}">
+	<meta property="og:title" content="{{ $title }}" />
+	<meta name="twitter:title" content="{{ $title }}" />
+
+
+
+	{{ if .Params.summary }}
+		<meta name="description" content="{{ .Params.summary }}">
+		<meta property="og:description" content="{{ .Params.summary }}" />
+		<meta name="twitter:description" content="{{ .Params.summary }}" />
+	{{ end }}
+
+
+	<meta property="og:url" content="{{ .Permalink }}" />
+
+	{{ if eq .Type "posts" }}
+		<meta property="og:type" content="article" />
+	{{ else }} {{/*  defaults to blog  */}}
+		<meta property="og:type" content="blog" />
+	{{ end }}
+
+
+	{{/*  <meta property="og:image" content="http://www.domain.com/image.jpg" />  */}}
+	{{/*  <meta name="twitter:image" content="http://www.domain.com/image.jpg" />  */}}
+
+
 
 	{{ template "_internal/google_analytics.html" . }}
 </head>

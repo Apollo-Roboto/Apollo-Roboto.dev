@@ -2,6 +2,7 @@
 title: Home
 date: 2021-10-31
 draft: false
+summary: Apollo-Roboto's technical blog!
 
 topAuthorText: I am
 # topAuthorText: For am I the mighty
@@ -12,7 +13,6 @@ subAuthorText: and I write code!
 # subAuthorText: JavaScript makes me scream!
 # subAuthorText: (｡◕‿‿◕｡)
 # subAuthorText: Software Developer
-
 ---
 
 Welcome to my blog!
