@@ -63,8 +63,22 @@
 	{{ end }}
 
 
-	{{/*  <meta property="og:image" content="http://www.domain.com/image.jpg" />  */}}
-	{{/*  <meta name="twitter:image" content="http://www.domain.com/image.jpg" />  */}}
+	{{ if .Params.thumbnail }}
+		<meta property="og:image" content="{{ .Params.thumbnail }}" />
+		<meta name="twitter:image" content="{{ .Params.thumbnail }}" />
+	{{ end }}
+
+	<meta name="theme-color" content="#fffbeb" />
+	
+	{{ if .Params.tags }}
+		<meta name="keywords" content="{{ range .Params.tags }}{{ . }}, {{ end }}" />
+	{{ end }}
+
+	{{ if .Params.author }}
+		<meta name="author" content="{{ .Params.author }}">
+	{{ end }}
+	
+	
 
 
 
