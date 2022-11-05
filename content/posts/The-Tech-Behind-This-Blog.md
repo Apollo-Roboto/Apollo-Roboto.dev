@@ -1,7 +1,7 @@
 ---
 title: "The Tech Behind This Blog"
 date: 2022-11-04
-draft: true
+draft: false
 tableOfContent: false
 author: Apollo-Roboto
 tags:

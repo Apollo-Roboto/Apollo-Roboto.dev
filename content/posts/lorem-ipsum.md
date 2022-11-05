@@ -1,7 +1,7 @@
 ---
 title: "Lorem Ipsum"
 date: 2022-03-09
-draft: false
+draft: true
 tableOfContent: false
 author: Apollo-Roboto
 tags:
