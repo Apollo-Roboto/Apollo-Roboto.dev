@@ -6,7 +6,7 @@
 /* LineNumbersTable */ .chroma .lnt { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #000000 }
 /* LineNumbers */ .chroma .ln { white-space: pre; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #000000 }
 /* Line */ .chroma .line { display: flex; }
-/* LineHover */ .chroma .line:hover { background-color: #0000000a; border-radius: 0.25rem; }
+/* Line */ .chroma .line span:last-of-type { padding-right: 0.5em; }
 /* PreWrapper */ .chroma .p { color: #864a27 }
 /* Keyword */ .chroma .k { color: #000000 }
 /* KeywordConstant */ .chroma .kc { color: #000000; }

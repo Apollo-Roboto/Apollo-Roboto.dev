@@ -98,13 +98,13 @@ Now it's time to think about how we want to display this information! A discord 
 from discord import Embed, Color
 from models.DiceRoll import DiceRoll
 
-color = Color.from_str('#5865f2')
+class DiceRollEmbed(Embed):
+	def __init__(self, diceRoll: DiceRoll):
+		super().__init__()
 
-def view(diceRoll: DiceRoll):
-	embed = Embed(color=color)
-	embed.title = f"🎲 Rolled {diceRoll.result}!"
-	embed.description = f"With a d{diceRoll.dice}"
-	return embed
+		self.color = Color.from_str('#5865f2')
+		self.title = f"🎲 Rolled {diceRoll.result}!"
+		self.description = f"With a d{diceRoll.dice}"
 ```
 
 Here is what this should look like:
@@ -141,7 +141,7 @@ class DiceRollController(commands.Cog):
 			dice=dice,
 		)
 
-		embed = DiceRollView.view(diceRoll)
+		embed = DiceRollView.DiceRollEmbed(diceRoll)
 
 		await ctx.send(embed=embed)
 ```
