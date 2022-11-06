@@ -1,7 +1,7 @@
 ---
 title: Creating a Python Discord Bot With MVC
-date: 2022-09-21
-draft: true
+date: 2022-11-06
+draft: false
 tableOfContent: false
 author: Apollo-Roboto
 tags:
