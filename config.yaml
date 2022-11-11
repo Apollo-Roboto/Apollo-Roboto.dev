@@ -12,6 +12,7 @@ enableInlineShortcodes: true
 googleAnalytics: G-99E0KYVB3G
 rssLimit: null
 paginate: 5
+enableRobotsTXT: true
 
 author:
   name: Apollo-Roboto
