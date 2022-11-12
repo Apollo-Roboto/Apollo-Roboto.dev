@@ -43,38 +43,6 @@ There are a lot of community made themes for Hugo, I do recommend everyone to ex
 
 I used Tailwindcss to create the style of the site. CSS is confusing at times and I found that Tailwindcss was really good at simplifying the design process. Also, it produces a CSS file that includes only the class needed, unlike other framework such as Bootstrap.
 
-Setup Tailwindcss in your theme directory with:
-
-```powershell
-npm install -D tailwindcss
-npx tailwindcss init
-```
-This is a post to briefly explain what I used to create this blog without getting too technical. I am sure this stack will be useful to some as it cost me nothing to host and is very easy to maintain.
-
-
-
-# Hugo
-
-Since I didn’t want to manage any server side code, I settled on creating a static website. A static website is a simple site that does not require any server rendering. Each page has their own html file which also makes the site load really fast!
-
-This is where Hugo comes in. It’s a framework written in Go to generate static websites. Each post is written in Markdown and Hugo generates all the html files using Go’s templating engine. I really like how quick it is to generate the site, and I only need to do it once!
-
-Generating the entire site is done with one command:
-
-```powershell
-hugo --minify
-```
-
-*Installation and more on the [Hugo website](https://gohugo.io/).*
-
-
-
-# Tailwindcss
-
-There are a lot of community made themes for Hugo, I do recommend everyone to explore them since making your own can be time consuming. So of course I wanted my own.
-
-I used Tailwindcss to create the style of the site. CSS is confusing at times and I found that Tailwindcss was really good at simplifying the design process. Also, it produces a CSS file that includes only the class needed, unlike other framework such as Bootstrap.
-
 To Setup Tailwindcss, let’s first create a theme:
 
 ```powershell
@@ -87,6 +55,13 @@ And install Tailwindcss in the new theme directory.
 cd ./themes/[name]
 npm install -D tailwindcss
 npx tailwindcss init
+```
+
+Create the base css file for Tailwindcss at `.static/css/input.css`. It only needs those 3 lines to work.
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 Add the tailwind execution to the newly created `package.json`.
