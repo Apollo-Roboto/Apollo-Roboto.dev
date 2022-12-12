@@ -26,6 +26,22 @@
 				<span>{{ .Params.author }}</span>
 			</div>
 		{{ end }}
+
+		{{/*  Urls  */}}
+		{{ if gt .Params.urls 0 }}
+			<div class="mb-10 markdown">
+				<div class="border-b border-black pb-1 mb-3">Urls</div>
+				{{ range $index, $element := .Params.urls }}
+					{{/* dot seperator */}}
+					{{ if ne $index 0 }} 
+						<b>•</b>
+					{{ end }}
+
+					<a href="{{ $element.url }}">{{ $element.name }}</a>
+				{{ end }}
+			</div>
+			
+		{{ end }}
 		
 		{{/*  Tags  */}}
 		{{ if gt .Params.tags 0 }}

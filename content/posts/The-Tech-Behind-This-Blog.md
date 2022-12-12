@@ -4,6 +4,10 @@ date: 2022-11-04
 draft: false
 tableOfContent: false
 author: Apollo-Roboto
+priorityTags:
+  - Hugo
+  - Tailwindcss
+  - Website
 tags:
   - Hugo
   - Tailwindcss

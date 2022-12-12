@@ -30,8 +30,8 @@
 				
 				{{/*  Tags  */}}
 				<div class="pl-5">
-					{{ range .Params.tags }}
-						{{ partial "components/tag.html" .}}
+					{{ range .Params.priorityTags }}
+						{{ partial "components/tag.html" . }}
 					{{ end }}
 				</div>
 				
@@ -52,58 +52,7 @@
 
 <div class="h-36"></div>
 
-{{/*  Pagination  */}}
-
-<div class="grow flex flex-row justify-center items-start max-w-3xl font-mono w-11/12 md:w-7/12 lg:w-5/12 mx-auto h-16 pt-5 overflow-clip">
-
-	{{ $buttonBaseClass := "inline-block p-2 mx-1 rounded-md leading-4 decoration-[#00000000] decoration-2 underline underline-offset-8 duration-200"}}
-
-	{{/*  Previous  */}}
-	{{ if $paginator.HasPrev }}
-		<a href="{{ $paginator.Prev.URL }}" class="{{ $buttonBaseClass }} w-32 hover:decoration-black hover:-translate-y-5 pb-52">&lt; Previous</a>
-	{{ else }}
-		<a class="{{ $buttonBaseClass }} text-gray-500 w-32">&lt; Previous</a>
-	{{ end }}
-	
-	{{/*  spacer  */}}
-	<div class="grow"></div>		
-
-	{{/*  Page numbers  */}}
-	{{ if gt $paginator.TotalPages 0 }}
-		
-		{{ range $paginator.Pagers }}
-
-			<a href="{{ .URL }}" class="
-				{{ $buttonBaseClass }}
-				{{ if eq . $paginator }}
-					text-white bg-black
-				{{ else }}
-					hover:decoration-black hover:-translate-y-5 pb-52
-				{{ end }}
-			">
-				<div class="">
-					{{- .PageNumber -}}
-				</div>
-			</a>
-			
-		{{ end }}
-		
-	{{ end }}
-
-	{{/*  spacer  */}}
-	<div class="grow"></div>
-
-	{{/*  Next  */}}
-	{{ if $paginator.HasNext }}
-		<a href="{{ $paginator.Next.URL }}" class="{{ $buttonBaseClass }} w-32 text-right hover:decoration-black hover:-translate-y-5 pb-52">Next &gt;</a>
-	{{ else }}
-		<a class="{{ $buttonBaseClass }} text-gray-500 w-32 text-right">Next &gt;</a>
-	{{ end }}
-
-</div>
-
-
-
-
+{{/*  Paginator  */}}
+{{ partial "components/paginator.html" $paginator }}
 
 {{ end }}

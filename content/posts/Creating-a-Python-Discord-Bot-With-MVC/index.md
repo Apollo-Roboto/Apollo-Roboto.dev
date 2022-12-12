@@ -4,6 +4,10 @@ date: 2022-11-06
 draft: false
 tableOfContent: false
 author: Apollo-Roboto
+priorityTags:
+  - Python
+  - Discord
+  - Tutorial
 tags:
   - Tutorial
   - Python

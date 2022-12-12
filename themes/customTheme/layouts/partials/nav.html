@@ -1,6 +1,7 @@
 <div class="py-8 font-mono text-md border-b border-black shadow-md">
-	<nav class="flex md:flex-row flex-col w-9/12 mx-auto">
+	<nav class="flex md:flex-row flex-col lg:w-9/12 w-11/12 mx-auto">
 
+		{{/*  Title  */}}
 		<div class="lg:text-left text-center my-auto">
 			{{ if .IsHome }}
 				<span>{{ .Site.Title }} $_</span>
@@ -9,7 +10,7 @@
 			{{ end }}
 		</div>
 
-		{{/*  spacer  */}}
+		{{/*  Spacer  */}}
 		<div class="md:grow md:h-0 h-6"></div>
 
 		<div class="flex md:gap-8 gap-0 justify-evenly">

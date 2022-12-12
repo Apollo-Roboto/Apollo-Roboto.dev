@@ -15,7 +15,8 @@ subAuthorText: and I write code!
 # subAuthorText: Software Developer
 ---
 
-Welcome to my blog!
+Welcome to my little blog!
 
-I'm currently thinking really hard on the content I'll be posting on here and it should be coming
-soon. While waiting, checkout my [GitHub](https://github.com/Apollo-Roboto).
+I'm starting to have a few little things on here. Checkout the projects and posts page to see what
+I've been up to. And give a visit to my [GitHub](https://github.com/Apollo-Roboto)!
+
