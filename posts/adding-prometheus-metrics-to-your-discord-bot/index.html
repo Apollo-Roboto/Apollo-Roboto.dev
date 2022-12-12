@@ -1,0 +1,90 @@
+<!doctype html><html class=overflow-y-scroll><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.108.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>Adding Prometheus Metrics to Your Discord Bot</title><meta name=title content="Adding Prometheus Metrics to Your Discord Bot"><meta property="og:title" content="Adding Prometheus Metrics to Your Discord Bot"><meta name=twitter:title content="Adding Prometheus Metrics to Your Discord Bot"><meta name=description content="This extension for discord.py makes it easy to add Prometheus metrics to your Discord bots."><meta property="og:description" content="This extension for discord.py makes it easy to add Prometheus metrics to your Discord bots."><meta name=twitter:description content="This extension for discord.py makes it easy to add Prometheus metrics to your Discord bots."><meta property="og:url" content="https://www.apollo-roboto.dev/posts/adding-prometheus-metrics-to-your-discord-bot/"><meta property="og:type" content="article"><meta name=theme-color content="#fffbeb"><meta name=keywords content="Library,PyPi,Python,Prometheus,Analytics,Bot,Discord,Extension,Metrics,Open Source,"><meta name=author content="Apollo-Roboto"><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div id=top></div><div class="flex flex-col h-screen justify-between"><div class="py-8 font-mono text-md border-b border-black shadow-md"><nav class="flex md:flex-row flex-col lg:w-9/12 w-11/12 mx-auto"><div class="lg:text-left text-center my-auto"><a href=/>Apollo-Roboto $_</a></div><div class="md:grow md:h-0 h-6"></div><div class="flex md:gap-8 gap-0 justify-evenly"><a href=/ class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">Home</a>
+<a href=/posts class="px-5 py-1
+text-white bg-black rounded-lg">Posts</a>
+<a href=/about class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">About</a></div></nav></div><div id=content class="pt-20 pb-36 mb-auto"><div class="flex flex-col md:flex-row justify-center items-stretch"><div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><time>Published 2022-12-11</time></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class="mb-10 markdown"><div class="border-b border-black pb-1 mb-3">Urls</div><a href=https://github.com/Apollo-Roboto/discord.py-ext-prometheus>GitHub</a>
+<b>•</b>
+<a href=https://pypi.org/project/discord-ext-prometheus/>PyPi</a></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Library</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">PyPi</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Python</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Prometheus</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Analytics</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Bot</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Discord</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Extension</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Metrics</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Open Source</span></div></div><div class="markdown w-11/12 md:w-7/12 lg:w-5/12 mx-auto md:mx-0"><h1>Adding Prometheus Metrics to Your Discord Bot</h1><div class="block md:hidden text-sm mb-12 -mt-4"><p>By Apollo-Roboto |
+Published <time>2022-12-11</time></p><div class=mb-2><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Library</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">PyPi</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Python</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Prometheus</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Analytics</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Bot</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Discord</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Extension</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Metrics</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Open Source</span></div></div><p>This extension is a Python library that makes it easy to add Prometheus metrics to your Discord bots. It also supports sharding for larger bots.</p><p>Prometheus is a popular open-source monitoring and alerting system. It allows users to collect and store metrics from their applications and infrastructure, and then visualize and analyse those metrics using tools like Grafana.</p><p>Here are the exposed metrics:</p><table><thead><tr><th>Name</th><th>Documentation</th><th>Labels</th></tr></thead><tbody><tr><td><code>discord_connected</code></td><td>Determines if the bot is connected to Discord</td><td><code>shard</code></td></tr><tr><td><code>discord_latency</code></td><td>Latency to Discord</td><td><code>shard</code></td></tr><tr><td><code>discord_event_on_interaction</code></td><td>Amount of interactions</td><td><code>shard</code>, <code>interaction</code>, <code>command</code></td></tr><tr><td><code>discord_event_on_command</code></td><td>Amount of commands</td><td><code>shard</code>, <code>command</code></td></tr><tr><td><code>discord_stat_total_guilds</code></td><td>Amount of guild this bot is a member of</td><td>None</td></tr><tr><td><code>discord_stat_total_channels</code></td><td>Amount of channels this bot is has access to</td><td>None</td></tr><tr><td><code>discord_stat_total_users</code></td><td>Amount of users this bot can see</td><td>None</td></tr><tr><td><code>discord_stat_total_commands</code></td><td>Amount of commands</td><td>None</td></tr><tr><td><code>logging</code></td><td>Log entries</td><td><code>logger</code>, <code>level</code></td></tr></tbody></table><h2 id=installation>Installation</h2><p>To use this extension, simply install it via pip:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python -m pip install discord-ext-prometheus</span></span></code></pre></div><p>Then, in your bot&rsquo;s code, you can import and add the <code>discord.ext.prometheus</code> Cog to the bot using <code>bot.add_cog()</code>. Here is an example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>asyncio</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>discord.ext</span> <span class=kn>import</span> <span class=n>commands</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>discord.ext.prometheus</span> <span class=kn>import</span> <span class=n>PrometheusCog</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>	<span class=n>bot</span> <span class=o>=</span> <span class=n>commands</span><span class=o>.</span><span class=n>Bot</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=n>command_prefix</span><span class=o>=</span><span class=s1>&#39;!&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=n>intents</span><span class=o>=</span><span class=n>Intents</span><span class=o>.</span><span class=n>all</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>await</span> <span class=n>bot</span><span class=o>.</span><span class=n>add_cog</span><span class=p>(</span><span class=n>PrometheusCog</span><span class=p>(</span><span class=n>bot</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>await</span> <span class=n>bot</span><span class=o>.</span><span class=n>start</span><span class=p>(</span><span class=s1>&#39;YOUR TOKEN&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>asyncio</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>main</span><span class=p>())</span></span></span></code></pre></div><p>Once the cog is added, the metrics will be exposed at <code>localhost:8000/metrics</code>.</p><p>It&rsquo;s also possible to add logging metrics if you need to visualize warnings and errors. To do so, import the <code>LoggingHandler</code> and add it to your logger handlers. Here is an example with a simple bot:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>asyncio</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>discord.ext</span> <span class=kn>import</span> <span class=n>commands</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>discord.ext.prometheus</span> <span class=kn>import</span> <span class=n>PrometheusCog</span><span class=p>,</span> <span class=n>PrometheusLoggingHandler</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span><span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>INFO</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>()</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>PrometheusLoggingHandler</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>	<span class=n>bot</span> <span class=o>=</span> <span class=n>commands</span><span class=o>.</span><span class=n>Bot</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=n>command_prefix</span><span class=o>=</span><span class=s1>&#39;!&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=n>intents</span><span class=o>=</span><span class=n>Intents</span><span class=o>.</span><span class=n>all</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>await</span> <span class=n>bot</span><span class=o>.</span><span class=n>add_cog</span><span class=p>(</span><span class=n>PrometheusCog</span><span class=p>(</span><span class=n>bot</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nd>@bot.listen</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>async</span> <span class=k>def</span> <span class=nf>on_ready</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>		<span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;Logged in as </span><span class=si>{</span><span class=n>bot</span><span class=o>.</span><span class=n>user</span><span class=o>.</span><span class=n>name</span><span class=si>}</span><span class=s1>#</span><span class=si>{</span><span class=n>bot</span><span class=o>.</span><span class=n>user</span><span class=o>.</span><span class=n>discriminator</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>logging</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;Starting the bot&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>await</span> <span class=n>bot</span><span class=o>.</span><span class=n>start</span><span class=p>(</span><span class=s1>&#39;YOUR TOKEN&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>asyncio</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>main</span><span class=p>())</span></span></span></code></pre></div><h2 id=grafana>Grafana</h2><p>A Grafana dashboard is under construction at the moment, but here is a little preview of my current dashboard:</p><p><img src=./grafana-preview.png alt="Grafana Preview"></p></div></div></div><div><div style=background-image:url(/images/InkWave.svg) class="h-8 bg-repeat"></div><div class="bg-neutral-900 grid place-items-center text-white"><div class=h-14></div><a href=https://github.com/Apollo-Roboto><img src=/images/GitHub/Mark-Light-120px-plus.png alt class=w-14></a><div class=h-10></div><p class=text-xs>Copyright &#xA9 2022 | Apollo-Roboto</p><div class=h-10></div><p class="text-xs text-gray-500">Powered by
+<a class=hover:underline href=https://pages.github.com/>Github Pages</a>,
+<a class=hover:underline href=https://gohugo.io/>Hugo</a> and
+<a class=hover:underline href=https://tailwindcss.com/>Tailwindcss</a></p><div class=h-4></div></div></div></div></body></html>

@@ -1,38 +1,40 @@
-<!doctype html><html class=overflow-y-scroll><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.105.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>Creating a Python Discord Bot With MVC</title><meta name=title content="Creating a Python Discord Bot With MVC"><meta property="og:title" content="Creating a Python Discord Bot With MVC"><meta name=twitter:title content="Creating a Python Discord Bot With MVC"><meta name=description content="Discover how to better organize your Discord bot using the MVC Pattern."><meta property="og:description" content="Discover how to better organize your Discord bot using the MVC Pattern."><meta name=twitter:description content="Discover how to better organize your Discord bot using the MVC Pattern."><meta property="og:url" content="https://www.apollo-roboto.dev/posts/creating-a-python-discord-bot-with-mvc/"><meta property="og:type" content="article"><meta name=theme-color content="#fffbeb"><meta name=keywords content="Tutorial,Python,Discord,Bot,MVC,Design Pattern,Organization,"><meta name=author content="Apollo-Roboto"><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div id=top></div><div class="flex flex-col h-screen justify-between"><div class="py-8 font-mono text-md border-b border-black shadow-md"><nav class="flex md:flex-row flex-col w-9/12 mx-auto"><div class="lg:text-left text-center my-auto"><a href=/>Apollo-Roboto $_</a></div><div class="md:grow md:h-0 h-6"></div><div class="flex md:gap-8 gap-0 justify-evenly"><a href=/ class="px-5 py-1
+<!doctype html><html class=overflow-y-scroll><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.108.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>Creating a Python Discord Bot With MVC</title><meta name=title content="Creating a Python Discord Bot With MVC"><meta property="og:title" content="Creating a Python Discord Bot With MVC"><meta name=twitter:title content="Creating a Python Discord Bot With MVC"><meta name=description content="Discover how to better organize your Discord bot using the MVC Pattern."><meta property="og:description" content="Discover how to better organize your Discord bot using the MVC Pattern."><meta name=twitter:description content="Discover how to better organize your Discord bot using the MVC Pattern."><meta property="og:url" content="https://www.apollo-roboto.dev/posts/creating-a-python-discord-bot-with-mvc/"><meta property="og:type" content="article"><meta name=theme-color content="#fffbeb"><meta name=keywords content="Tutorial,Python,Discord,Bot,MVC,Design Pattern,Organization,"><meta name=author content="Apollo-Roboto"><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div id=top></div><div class="flex flex-col h-screen justify-between"><div class="py-8 font-mono text-md border-b border-black shadow-md"><nav class="flex md:flex-row flex-col lg:w-9/12 w-11/12 mx-auto"><div class="lg:text-left text-center my-auto"><a href=/>Apollo-Roboto $_</a></div><div class="md:grow md:h-0 h-6"></div><div class="flex md:gap-8 gap-0 justify-evenly"><a href=/ class="px-5 py-1
 underline decoration-2 decoration-[#00000000] hover:decoration-black
 transition-colors duration-200 underline-offset-8">Home</a>
 <a href=/posts class="px-5 py-1
 text-white bg-black rounded-lg">Posts</a>
 <a href=/about class="px-5 py-1
 underline decoration-2 decoration-[#00000000] hover:decoration-black
-transition-colors duration-200 underline-offset-8">About</a></div></nav></div><div id=content class="pt-20 pb-36 mb-auto"><div class="flex flex-col md:flex-row justify-center items-stretch"><div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><time>Published 2022-11-06</time></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+transition-colors duration-200 underline-offset-8">About</a></div></nav></div><div id=content class="pt-20 pb-36 mb-auto"><div class="flex flex-col md:flex-row justify-center items-stretch"><div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><time>Published 2022-11-06</time>
+<time>Modified 2022-12-11</time></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Tutorial</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Python</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Discord</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Bot</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">MVC</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Design Pattern</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Organization</span></div></div><div class="markdown w-11/12 md:w-7/12 lg:w-5/12 mx-auto md:mx-0"><h1>Creating a Python Discord Bot With MVC</h1><div class="block md:hidden text-sm mb-12 -mt-4"><p>By Apollo-Roboto |
-Published <time>2022-11-06</time></p><div class=mb-2><span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+Published <time>2022-11-06</time>
+(<time>2022-12-11</time>)</p><div class=mb-2><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Tutorial</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Python</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Discord</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Bot</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">MVC</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Design Pattern</span>
-<span class="inline-block bg-black text-white rounded-lg pt-0.5 pb-1 px-3 my-0.5 text-xs font-medium
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
 font-['PT_Sans'] leading-4">Organization</span></div></div><p>This tutorial focuses on the MVC pattern and how you can apply it to your own bot. I&rsquo;ll be presenting it with a simple dice roll command.</p><p>I am assuming that you already got your token. If not, get it on the <a href=https://discord.com/developers/applications>Discord Developer Portal</a>.</p><h2 id=what-is-mvc>What is MVC</h2><p>MVC is a design pattern commonly used for developing user interfaces. It&rsquo;s a great way to properly organize your code.</p><ul><li>The <strong>Model</strong> is the component that defines, hold and manages data.</li><li>A <strong>View</strong> takes data to create a visual representation of it.</li><li>The <strong>Controller</strong> manages user input to build and return the request</li></ul><h2 id=setting-the-directory-structure>Setting the Directory Structure</h2><p>Here is the basic directory structure we will be following.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>.env
 </span></span><span class=line><span class=cl>requirements.txt
 </span></span><span class=line><span class=cl>src/
@@ -63,7 +65,7 @@ font-['PT_Sans'] leading-4">Organization</span></div></div><p>This tutorial focu
 </span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>bot</span><span class=p>):</span>
 </span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>bot</span> <span class=o>=</span> <span class=n>bot</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>	<span class=nd>@commands</span><span class=o>.</span><span class=n>command</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=nd>@commands.command</span><span class=p>(</span>
 </span></span><span class=line><span class=cl>		<span class=n>name</span><span class=o>=</span><span class=s2>&#34;roll&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>		<span class=n>description</span><span class=o>=</span><span class=s2>&#34;Roll a dice!&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>	<span class=p>)</span>
