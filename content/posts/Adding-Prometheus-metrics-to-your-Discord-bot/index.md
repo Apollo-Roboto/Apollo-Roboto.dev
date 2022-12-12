@@ -7,16 +7,18 @@ author: Apollo-Roboto
 summary: This extension for discord.py makes it easy to add Prometheus metrics to your Discord bots.
 priorityTags:
   - Python
-  - Prometheus
   - Discord
+  - Prometheus
+  - Grafana
 tags:
+  - Python
+  - Discord
+  - Prometheus
+  - Grafana
   - Library
   - PyPi
-  - Python
-  - Prometheus
   - Analytics
   - Bot
-  - Discord
   - Extension
   - Metrics
   - Open Source
@@ -27,7 +29,7 @@ urls:
     url: https://pypi.org/project/discord-ext-prometheus/
 ---
 
-This extension is a Python library that makes it easy to add Prometheus metrics to your Discord bots. It also supports sharding for larger bots.
+`discord-ext-prometheus` is an extension library I made to make it easy to add Prometheus metrics to your Discord bots. It also supports sharding for larger bots.
 
 Prometheus is a popular open-source monitoring and alerting system. It allows users to collect and store metrics from their applications and infrastructure, and then visualize and analyse those metrics using tools like Grafana.
 
