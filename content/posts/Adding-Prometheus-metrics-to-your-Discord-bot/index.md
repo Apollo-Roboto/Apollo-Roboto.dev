@@ -108,6 +108,6 @@ asyncio.run(main())
 
 # Grafana
 
-A Grafana dashboard is under construction at the moment, but here is a little preview of my current dashboard:
+I also made a Grafana dashboard that uses those metrics. It's available for free on [Grafana Dashboards](https://grafana.com/grafana/dashboards/17670-discord-bot/).
 
 ![Grafana Preview](./grafana-preview.png)

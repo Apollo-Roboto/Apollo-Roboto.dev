@@ -153,3 +153,16 @@ html {
 	from{tab-size: 0;}
 	to{tab-size: 4;}
 }
+
+
+
+/*======== Custom ========*/
+
+.animatedTagsParent:hover .animatedTagsChild {
+	opacity: 0.6;
+	translate: -25px 0px;
+}
+.animatedTagsParent:hover .animatedTagsChild:nth-child(1) { transition-delay: 0s }
+.animatedTagsParent:hover .animatedTagsChild:nth-child(2) { transition-delay: .06s }
+.animatedTagsParent:hover .animatedTagsChild:nth-child(3) { transition-delay: .12s }
+.animatedTagsParent:hover .animatedTagsChild:nth-child(4) { transition-delay: .18s }
