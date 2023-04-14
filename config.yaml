@@ -52,6 +52,10 @@ params:
       url: https://stackoverflow.com/users/10101321/apollo-roboto
       text: Apollo-Roboto
       iconUrl: /images/StackOverflow_Icon.svg
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
+      text: Alexandre Thibessart
+      iconUrl: /images/LinkedIn_Icon.svg
     - name: Ko-fi
       url: https://ko-fi.com/apolloroboto
       text: Buy me a coffee!
