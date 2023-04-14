@@ -53,9 +53,13 @@ params:
       text: Apollo-Roboto
       iconUrl: /images/StackOverflow_Icon.svg
     - name: Ko-fi
-      url: https://ko-fi.com/M4M3CMENQ
+      url: https://ko-fi.com/apolloroboto
       text: Buy me a coffee!
       iconUrl: /images/Ko-fi_Icon.svg
+    - name: Buymeacoffee
+      url: https://www.buymeacoffee.com/ApolloRoboto
+      text: Buy me a coffee!
+      iconUrl: /images/buymeacoffee_Icon.svg
     - name: Email
       url: mailto:Apollo_Roboto@outlook.com
       text: Apollo_Roboto@outlook.com
