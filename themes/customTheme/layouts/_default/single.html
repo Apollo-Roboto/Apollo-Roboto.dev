@@ -12,10 +12,10 @@
 			
 			<div class="border-b border-black pb-1 mb-3">Date</div>
 			
-			<time>Published {{ $publishDate }}</time>
+			<span>Published <time>{{ $publishDate }}</time></span>
 
 			{{ if ne $publishDate $lastmod }}
-				<time>Modified {{ $lastmod }}</time>
+				<span>Modified <time>{{ $lastmod }}</time></span>
 			{{ end }}
 		</div>
 
