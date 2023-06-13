@@ -1,0 +1,131 @@
+<!doctype html><html class=overflow-y-scroll><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.113.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>Validating File Structures With PathSchema</title><meta name=title content="Validating File Structures With PathSchema"><meta property="og:title" content="Validating File Structures With PathSchema"><meta name=twitter:title content="Validating File Structures With PathSchema"><meta name=description content="PathSchema is a Python module that validate folder structures."><meta property="og:description" content="PathSchema is a Python module that validate folder structures."><meta name=twitter:description content="PathSchema is a Python module that validate folder structures."><meta property="og:url" content="https://www.apollo-roboto.dev/posts/validating-file-structures-with-pathschema/"><meta property="og:type" content="article"><meta name=theme-color content="#fffbeb"><meta name=keywords content="Library,Python,Validation,PathSchema,Organization,Project,Tutorial,GitHub Action,"><meta name=author content="Apollo-Roboto"><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div id=top></div><div class="flex flex-col h-screen justify-between"><div class="py-8 font-mono text-md border-b border-black shadow-md"><nav class="flex md:flex-row flex-col lg:w-9/12 w-11/12 mx-auto"><div class="lg:text-left text-center my-auto"><a href=/>Apollo-Roboto $_</a></div><div class="md:grow md:h-0 h-6"></div><div class="flex md:gap-8 gap-0 justify-evenly"><a href=/ class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">Home</a>
+<a href=/posts class="px-5 py-1
+text-white bg-black rounded-lg">Posts</a>
+<a href=/about class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">About</a></div></nav></div><div id=content class="pt-20 pb-36 mb-auto"><div class="flex flex-col md:flex-row justify-center items-stretch"><div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><time>Published 2023-06-12</time></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Library</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Python</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Validation</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">PathSchema</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Organization</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Project</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Tutorial</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">GitHub Action</span></div></div><div class="markdown w-11/12 md:w-7/12 lg:w-5/12 mx-auto md:mx-0"><h1>Validating File Structures With PathSchema</h1><div class="block md:hidden text-sm mb-12 -mt-4"><p>By Apollo-Roboto |
+Published <time>2023-06-12</time></p><div class=mb-2><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Library</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Python</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Validation</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">PathSchema</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Organization</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Project</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Tutorial</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">GitHub Action</span></div></div><p>PathSchema is a Python module that offers a simple and effective solution for enforcing standardized file organization within a project. By defining a schema file, developers can validate their folder structures, enhancing code quality and project organization. In this blog post, I’ll introduce the tool, and explain how to create a <code>.pathschema</code> file as well as how to use the command line utility.</p><h2 id=how-to-create-a-pathschema-file>How to Create a PathSchema File</h2><p>To define a schema, create a new file with the <code>.pathschema</code> extension. This file will declare what is allowed in a directory.</p><p>As a first introduction, consider this file structure:</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema>media/
+	photos/
+		2022/
+			1.png
+		2023/
+			1.png
+			2.png
+	wallpapers/
+		default.png
+		company logo.webp
+	sound effects/
+		lasers.wav</code></pre><p>With this matching schema, no other folders are allowed and only some extensions are expected.</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema>media/
+	photos/
+		*/
+			*.png
+	wallpapers/
+		*.png
+		*.webp
+	sound effects/
+		*.wav</code></pre><p><em>Notice the <code>*/</code>, this is matching any name for the directory, allowing 2022 and 2023.</em></p><h3 id=files-and-folders>Files and Folders</h3><p>A <code>/</code> in the end of a line marks the path as a folder.</p><p>Here is a simple file definition</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema>Dockerfile
+README.md</code></pre><p>And a folder definition</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema>resources/
+	# Folders can declare child paths
+	settings.yaml</code></pre><h3 id=making-a-path-as-required-or-forbidden>Making a Path as Required or Forbidden.</h3><p>By default, every path you define in a schema is an optional file. To require a path to exist, prefix its name with a <code>+</code>. Similarly, to require a path to be absent, prefix its name with a <code>-</code>. This can work on both files and directories.</p><p>Here is an example that makes the readme required:</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema># A readme is always required
++ README.md
+
+# But a .env should never be there
+- .env
+
+# Always include the .github folder
++ .github/
+
+# Ignore other files
+...</code></pre><p><em>More on the <code>...</code> bellow.</em></p><h3 id=name-pattern-matching>Name Pattern Matching</h3><p>PathSchema supports two styles of name matching:</p><ul><li>Wildcards for quick, short and clear name matching.</li><li>Regex expressions for more complex name matching.</li></ul><h4 id=wildcard-characters>Wildcard Characters</h4><p>Each path will allow wildcards by default.</p><p>Here is an example:</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema># Allows any files that ends with .png
+*.png
+
+# Folder for a 3d object must start with object
+object_*/
+	model.fbx
+	texture.png</code></pre><p>These are all the matching options, coming from the <a href=https://docs.python.org/3/library/fnmatch.html>fnmatch python module</a>.</p><table><thead><tr><th style=text-align:center>Symbol</th><th>Description</th></tr></thead><tbody><tr><td style=text-align:center>*</td><td>Matches everything</td></tr><tr><td style=text-align:center>?</td><td>Matches any single character</td></tr><tr><td style=text-align:center>[seq]</td><td>Matches any character in seq</td></tr><tr><td style=text-align:center>[!seq]</td><td>Matches any character not in seq</td></tr></tbody></table><h4 id=regex-pattern-matching>Regex Pattern Matching</h4><p>To enable regex matching, surround the path’s name with double quotes.</p><p>Here is an example:</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema># logs must include the date (expecting yyyy-mm-dd)
+logs/
+	&#34;log_\d{4}-\d{2}-\d{2}\.txt&#34;
+
+# pictures must be in a directory that represent it&#39;s year
+pictures/
+	&#34;\d{4}&#34;/
+		*.png</code></pre><h3 id=preventing-further-validation>Preventing Further Validation</h3><p>In some cases, it may not be necessary to validate every single folder. There are situations where we need more flexibility. To make additional files or directories valid, you can add an ellipsis (<code>...</code>).</p><p>For example, take this schema that represents Java’s source code.</p><pre tabindex=0><code class=language-pathschema data-lang=pathschema>src/
+	main/
+		...
+	test/
+		...
++pom.xml</code></pre><p>Java having lots of nested directories can make this more tedious to structure, but we can skip this part using the ellipsis.</p><h2 id=using-the-command-line>Using the Command Line</h2><p>The PathSchema command line tool provides detailed feedback on the validation process. Any failures will always give provide an explanation.</p><p>Usage:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>python</span> <span class=o>-</span><span class=n>m</span> <span class=n>pathschema</span> <span class=n>path</span><span class=o>/</span><span class=n>to</span><span class=o>/.</span><span class=n>pathschema</span> <span class=o>./</span><span class=n>directory</span><span class=o>/</span><span class=n>to</span><span class=o>/</span><span class=n>validate</span><span class=o>/</span></span></span></code></pre></div><p><em>If you only want to see the errors, you can add the optional flag <code>--errors-only</code>.</em></p><p>Example logs of a missing required file:</p><pre tabindex=0><code class=language-log data-lang=log>FAIL  /home/runner/work/test/test
+	Missing required file README.md
+  OK  /home/runner/work/test/test/.git
+  OK  /home/runner/work/test/test/pathschema.txt
+  OK  /home/runner/work/test/test/.github
+  OK  /home/runner/work/test/test/.github/FUNDING.yml
+  OK  /home/runner/work/test/test/.github/workflows
+  OK  /home/runner/work/test/test/.github/workflows/build.yml
+
+Valid files: 6/7
+FAILED</code></pre><h2 id=using-pathschema-in-github-workflows>Using PathSchema in GitHub Workflows</h2><p>A good place to use PathSchema would be in GitHub Workflows to validate your project structure as soon as a new pull request comes in.</p><p>Below is a sample workflow that can detect invalid pull requests. If there is a failure, users can easily go in the action log and find exactly what caused the failure.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Example Validation</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;main&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>pull_request</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;main&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>validate</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Validate Structure</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v3</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/setup-python@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Set up Python 3.10</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>python-version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3.10&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install PathSchema</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>python -m pip install pathschema</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Validate Files</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>python -m pathschema .pathschema .</span></span></span></code></pre></div></div></div></div><div><div style=background-image:url(/images/InkWave.svg) class="h-8 bg-repeat"></div><div class="bg-neutral-900 grid place-items-center text-white"><div class=h-14></div><a href=https://github.com/Apollo-Roboto><img src=/images/GitHub/Mark-Light-120px-plus.png alt class=w-14></a><div class=h-10></div><p class=text-xs>Copyright &#xA9 2023 | Apollo-Roboto</p><div class=h-10></div><p class="text-xs text-gray-500">Powered by
+<a class=hover:underline href=https://pages.github.com/>Github Pages</a>,
+<a class=hover:underline href=https://gohugo.io/>Hugo</a> and
+<a class=hover:underline href=https://tailwindcss.com/>Tailwindcss</a></p><div class=h-4></div></div><div class="bg-red-500 h-1 min-w-full"></div><div class="bg-orange-500 h-1 min-w-full"></div><div class="bg-yellow-500 h-1 min-w-full"></div><div class="bg-green-500 h-1 min-w-full"></div><div class="bg-blue-500 h-1 min-w-full"></div><div class="bg-purple-500 h-1 min-w-full"></div></div></div></body></html>
