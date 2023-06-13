@@ -17,6 +17,11 @@ tags:
   - Project
   - Tutorial
   - GitHub Action
+urls:
+  - name: GitHub
+    url:  https://github.com/Apollo-Roboto/python-pathschema
+  - name: PyPi
+    url: https://pypi.org/project/pathschema/
 summary: PathSchema is a Python module that validate folder structures.
 ---
 
