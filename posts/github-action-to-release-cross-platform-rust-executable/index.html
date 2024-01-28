@@ -1,0 +1,169 @@
+<!doctype html><html class=overflow-y-scroll lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en-ca"><meta name=generator content="Hugo 0.122.0"><link rel=stylesheet type=text/css href=/css/tailwind.css><link rel=stylesheet type=text/css href=/css/debugStyle.css><link rel=stylesheet type=text/css href=/css/fonts.css><link rel=stylesheet type=text/css href=/css/style.css><link rel=stylesheet type=text/css href=/css/syntax.css><title>GitHub Action to Release Cross Platform Rust Executable</title>
+<meta name=title content="GitHub Action to Release Cross Platform Rust Executable"><meta property="og:title" content="GitHub Action to Release Cross Platform Rust Executable"><meta name=twitter:title content="GitHub Action to Release Cross Platform Rust Executable"><meta name=description content="Rust is a cross platform language, let's learn how to automate releases for multiple platforms with GitHub Actions."><meta property="og:description" content="Rust is a cross platform language, let's learn how to automate releases for multiple platforms with GitHub Actions."><meta name=twitter:description content="Rust is a cross platform language, let's learn how to automate releases for multiple platforms with GitHub Actions."><meta property="og:url" content="https://www.apollo-roboto.dev/posts/github-action-to-release-cross-platform-rust-executable/"><meta property="og:type" content="article"><meta name=theme-color content="#fffbeb"><meta name=keywords content="Rust,GitHub Actions,Tutorial,"><meta name=author content="Apollo-Roboto"><script async src="https://www.googletagmanager.com/gtag/js?id=G-99E0KYVB3G"></script><script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-99E0KYVB3G",{anonymize_ip:!1})}</script></head><body class=bg-amber-50><div id=top></div><div class="flex flex-col h-screen justify-between"><div class="py-8 font-mono text-md border-b border-black shadow-md"><nav class="flex md:flex-row flex-col lg:w-9/12 w-11/12 mx-auto"><div class="lg:text-left text-center my-auto"><a href=/>Apollo-Roboto $_</a></div><div class="md:grow md:h-0 h-6"></div><div class="flex md:gap-8 gap-0 justify-evenly"><a href=/ class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">Home</a>
+<a href=/posts class="px-5 py-1
+text-white bg-black rounded-lg">Posts</a>
+<a href=/about class="px-5 py-1
+underline decoration-2 decoration-[#00000000] hover:decoration-black
+transition-colors duration-200 underline-offset-8">About</a></div></nav></div><div id=content class="pt-20 pb-36 mb-auto"><div class="flex flex-col md:flex-row justify-center items-stretch"><div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min"><div class=mb-10><div class="border-b border-black pb-1 mb-3">Date</div><span>Published <time>2024-01-28</time></span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Author</div><span>Apollo-Roboto</span></div><div class=mb-10><div class="border-b border-black pb-1 mb-3">Tags</div><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Rust</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">GitHub Actions</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Tutorial</span></div></div><div class="markdown w-11/12 md:w-7/12 lg:w-5/12 mx-auto md:mx-0"><h1>GitHub Action to Release Cross Platform Rust Executable</h1><div class="block md:hidden text-sm mb-12 -mt-4"><p>By Apollo-Roboto |
+Published <time>2024-01-28</time></p><div class=mb-2><span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Rust</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">GitHub Actions</span>
+<span class="inline-block text-black rounded-md border border-black pb-0.5 px-2 my-0.5 text-xs font-medium
+font-['PT_Sans'] leading-4">Tutorial</span></div></div><p>In this post, I&rsquo;ll be releasing Rust binaries for both Windows and Linux. Most of the example here could be applied to other languages too.</p><h2 id=triggering-the-workflow>Triggering the Workflow</h2><p>Create a workflow file at <code>.github/workflows/release.yml</code>.</p><p>Since each releases on GitHub must be associated with a Git tag. We&rsquo;ll use them as our trigger for the workflow.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>tags</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;*.*.*&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># enables colors in the log output during builds</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>CARGO_TERM_COLOR</span><span class=p>:</span><span class=w> </span><span class=l>always</span></span></span></code></pre></div><h2 id=building-the-executables-jobs>Building the Executables Jobs</h2><p>Let&rsquo;s create jobs to build on each platform. We will also upload the created binaries to make them accessible later on.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build_windows</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build Windows</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>windows-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>cargo build --release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Upload Window Executable</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/upload-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;windows-${{ github.ref_name }}&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/target/release/amazing-software.exe&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>if-no-files-found</span><span class=p>:</span><span class=w> </span><span class=l>error</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>retention-days</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build_linux</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build Linux</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>cargo build --release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Upload Linux Executable</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/upload-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;linux-${{ github.ref_name }}&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/target/release/amazing-software&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>if-no-files-found</span><span class=p>:</span><span class=w> </span><span class=l>error</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>retention-days</span><span class=p>:</span><span class=w> </span><span class=m>1</span></span></span></code></pre></div><p>The Cargo flag <code>--release</code> is to optimize the compilation for release. This usually results in smaller and faster software.</p><p>The artifacts should be named after their platform and the current tag name. <code>windows-${{ github.ref_name }}</code> will become <code>windows-1.1.0</code>.</p><blockquote><p>⚠ Notice how the Linux executable doesn&rsquo;t have an extension like Windows&rsquo;s <code>.exe</code>. Make sure to build locally and validate the name and location of your executables.</p></blockquote><p>The retention days of the artifact is lowered to 1 because we&rsquo;ll only use them during this workflow.</p><h2 id=the-release-job>The Release Job</h2><p>This job will download all artifacts we&rsquo;ve published to add them on the release page for anyone to download.</p><p>Before we start writing this job, we need the workflow to have permissions to create new releases.</p><ul><li>From the repository on GitHub.</li><li>Go to &ldquo;Settings&rdquo; > &ldquo;Actions&rdquo; > &ldquo;General&rdquo; > &ldquo;Workflow permissions&rdquo;.</li><li>Select &ldquo;Read and write permissions&rdquo; and click &ldquo;Save&rdquo;.</li></ul><p><img loading=lazy src=./read-write-permissions.png alt="Read-write permissions"></p><p>There are three steps to this release: download the previously built executables, zip them in a user friendly way and release them on GitHub.</p><p>We&rsquo;ll use a third party action called <code>softprops/action-gh-release</code> to create the release. <a href=https://github.com/softprops/action-gh-release>Feel free to checkout their repository</a>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=w>  </span><span class=nt>release</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Create Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>needs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>build_windows</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>build_linux</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Download Executables</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/download-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/artifacts&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Zip Executables</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          pushd &#34;${{ github.workspace }}/artifacts&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          for dir in ./*/; do
+</span></span></span><span class=line><span class=cl><span class=sd>            dir_name=$(basename &#34;$dir&#34;);
+</span></span></span><span class=line><span class=cl><span class=sd>            zip_file=&#34;./$dir_name.zip&#34;;
+</span></span></span><span class=line><span class=cl><span class=sd>            zip -r &#34;$zip_file&#34; &#34;$dir_name&#34;;
+</span></span></span><span class=line><span class=cl><span class=sd>          done
+</span></span></span><span class=line><span class=cl><span class=sd>          popd</span><span class=w>          
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>softprops/action-gh-release@v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>body</span><span class=p>:</span><span class=w> </span><span class=l>New release!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>files</span><span class=p>:</span><span class=w> </span><span class=l>${{ github.workspace }}/artifacts/*.zip</span></span></span></code></pre></div><p>With the <code>needs</code> property, this job won&rsquo;t start until the two builds are completed.</p><p>If you&rsquo;d like to include a file for the text of the release page (like a changelog). You can add a checkout step and use the <code>body_path</code> parameter from <code>softprops/action-gh-release</code>.</p><h2 id=making-a-release>Making a Release</h2><p>Now that we have our workflow file. Let&rsquo;s ship a release! All you need to do is push a new Git tag.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git tag <span class=s2>&#34;0.1.0&#34;</span>
+</span></span><span class=line><span class=cl>git push --tag</span></span></code></pre></div><p>The workflow will start right away.</p><p><img loading=lazy src=./workflow-preview.png alt="Workflow preview"></p><p>Here is what the release looks like when completed. All binaries are easily accessible and properly named.</p><p><img loading=lazy src=./release-page-preview.png alt="Release page preview"></p><hr><p>That&rsquo;s it! In case you need the full workflow file for reference.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>tags</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;*.*.*&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>CARGO_TERM_COLOR</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build_windows</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build Windows</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>windows-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>cargo build --release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Upload Window Executable</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/upload-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;windows-${{ github.ref_name }}&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/target/release/amazing-software.exe&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>if-no-files-found</span><span class=p>:</span><span class=w> </span><span class=l>error</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>retention-days</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build_linux</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build Linux</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>cargo build --release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Upload Linux Executable</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/upload-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;linux-${{ github.ref_name }}&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/target/release/amazing-software&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>if-no-files-found</span><span class=p>:</span><span class=w> </span><span class=l>error</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>retention-days</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>release</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Create Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>needs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>build_windows</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>build_linux</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Download Executables</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/download-artifact@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;${{ github.workspace }}/artifacts&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Zip Executables</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          pushd &#34;${{ github.workspace }}/artifacts&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          for dir in ./*/; do
+</span></span></span><span class=line><span class=cl><span class=sd>            dir_name=$(basename &#34;$dir&#34;);
+</span></span></span><span class=line><span class=cl><span class=sd>            zip_file=&#34;./$dir_name.zip&#34;;
+</span></span></span><span class=line><span class=cl><span class=sd>            zip -r &#34;$zip_file&#34; &#34;$dir_name&#34;;
+</span></span></span><span class=line><span class=cl><span class=sd>          done
+</span></span></span><span class=line><span class=cl><span class=sd>          popd</span><span class=w>          
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Release</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>softprops/action-gh-release@v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>body</span><span class=p>:</span><span class=w> </span><span class=l>New release!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>files</span><span class=p>:</span><span class=w> </span><span class=l>${{ github.workspace }}/artifacts/*.zip</span></span></span></code></pre></div></div></div></div><div><div style=background-image:url(/images/InkWave.svg) class="h-8 bg-repeat"></div><div class="bg-neutral-900 grid place-items-center text-white"><div class=h-14></div><a href=https://github.com/Apollo-Roboto><img src=/images/GitHub/Mark-Light-120px-plus.png alt="GitHub Icon" class=w-14></a><div class=h-10></div><p class=text-xs>Copyright &#169; 2024 | Apollo-Roboto</p><div class=h-10></div><p class="text-xs text-gray-500">Powered by
+<a class=hover:underline href=https://pages.github.com/>Github Pages</a>,
+<a class=hover:underline href=https://gohugo.io/>Hugo</a> and
+<a class=hover:underline href=https://tailwindcss.com/>Tailwindcss</a></p><div class=h-4></div></div><div class="bg-red-500 h-1 min-w-full"></div><div class="bg-orange-500 h-1 min-w-full"></div><div class="bg-yellow-500 h-1 min-w-full"></div><div class="bg-green-500 h-1 min-w-full"></div><div class="bg-blue-500 h-1 min-w-full"></div><div class="bg-purple-500 h-1 min-w-full"></div></div></div></body></html>
