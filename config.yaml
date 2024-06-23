@@ -11,7 +11,7 @@ enableEmoji: true
 enableInlineShortcodes: true
 googleAnalytics: G-99E0KYVB3G
 rssLimit: null
-paginate: 5
+paginate: 6
 enableRobotsTXT: true
 
 author:
