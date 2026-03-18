@@ -4,9 +4,9 @@
         {{/*  Title  */}}
         <div class="lg:text-left text-center my-auto text-neutral-900">
             {{ if .IsHome }}
-                <span>{{ .Site.Title }} $_</span>
+                <span>{{ .Site.Title }} >_<span class="text-amber-50 selection:text-neutral-900"><</span></span>
             {{ else }}
-                <a href="/">{{ .Site.Title }} $_</a>
+                <a href="/">{{ .Site.Title }} >_<span class="text-amber-50 selection:text-neutral-900"><</span></a>
             {{ end }}
         </div>
 
