@@ -19,6 +19,12 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Setup Tailwindcss
+        run: |
+          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.2/tailwindcss-linux-x64
+          chmod +x tailwindcss-linux-x64
+          mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
