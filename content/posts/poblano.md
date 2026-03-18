@@ -2,6 +2,10 @@
 title: Here's a poblano
 date: 2022-02-12
 draft: true
+categories:
+  - Testing Thingies
+main_tags:
+  - Test
 tags: 
   - ascii
 ---

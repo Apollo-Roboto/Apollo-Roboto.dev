@@ -1,0 +1,59 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+    {{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+    {{- $pages = $pctx.Pages -}}
+{{- end -}}
+
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+
+{{- if ge $limit 1 -}}
+    {{- $pages = $pages | first $limit -}}
+{{- end -}}
+
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML -}}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ .Site.Title }}</title>
+        <link>{{ .Permalink }}</link>
+        <description>Recent content on {{ .Site.Title }}</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <ttl>10080</ttl>
+        {{ with .Site.LanguageCode }}
+            <language>{{ . }}</language>
+        {{- end -}}
+        {{ with .Site.Params.Author }}
+            <managingEditor>{{ .email }} ({{ .name }})</managingEditor>
+            <webMaster>{{ .email }} ({{ .name }})</webMaster>
+        {{- end -}}
+        {{ with .Site.Copyright }}
+            <copyright>{{ . }}</copyright>
+        {{- end -}}
+        <lastBuildDate>{{ now.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+        {{- with .OutputFormats.Get "RSS" -}}
+            {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+        {{- end -}}
+        {{ range where $pages "Type" "in" (slice "posts" "projects") }}
+            <item>
+                <title>{{ .Title }}</title>
+                <link>{{ .Permalink }}</link>
+                <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+                <description>{{ .Summary | html }}</description>
+                <guid>{{ .Permalink }}</guid>
+                {{ with .Site.Params.author }}
+                    <author>{{ .email }} ({{ .name }})</author>
+                {{- end -}}
+                {{ range .Params.categories }}
+                    <category>{{ . }}</category>
+                {{- end -}}
+                {{ if .Params.thumbnail }}
+                    {{ $image := readFile .Params.thumbnail }}
+                    {{ $len := len $image }}
+                    <enclosure url="{{ .Permalink }}{{ .Params.thumbnail }}" length="{{ $len }}" type="image/png" />
+                {{- end -}}
+            </item>
+        {{- end -}}
+    </channel>
+</rss>

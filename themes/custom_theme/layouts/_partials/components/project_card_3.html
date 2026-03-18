@@ -1,0 +1,68 @@
+<article class="relative group hover:translate-x-1 sm:hover:translate-x-3 transition-transform">
+    <a href="{{ .RelPermalink }}" class="point absolute left-0 right-0 bottom-0 top-0"></a>
+
+    <div class="relative z-1 pointer-events-none sm:h-52 flex flex-col sm:flex-row gap-2 sm:gap-5">
+
+        {{/*  left side  */}}
+        {{/*  thumbnail  */}}
+        {{ $image_path := "images/github_repo_card_template.png" }}
+        {{ if isset .Params "thumbnail" }}
+            {{ $image_path = printf "%s%s" .RelPermalink .Params.thumbnail | relURL}}
+        {{ end }}
+        
+        <div class="sm:w-80 sm:py-5 flex justify-center">
+            <img src="{{ $image_path }}" alt="Thumbnail for project {{ .Title }}" class="rounded-md overflow-clip object-cover aspect-5/2 sm:aspect-4/2"/>
+        </div>
+
+        {{/*  vertical bar  */}}
+        <div class="bg-neutral-900 w-px hidden sm:block"></div>
+
+        {{/*  right side  */}}
+        <div class="flex-3 flex flex-col justify-between sm:py-5">
+
+            {{/*  title  */}}
+            <header class="font-bold underline decoration-2 decoration-[#00000000] transition-all duration-200 group-hover:decoration-neutral-900">
+                {{ .Title }}
+            </header>
+
+            {{/*  summary  */}}
+            <section class="text-sm font-light">
+                <p>{{ .Summary }}</p>
+            </section>
+
+            {{/*  urls  */}}
+            <section class="markdown text-sm">
+                {{ if gt .Params.urls 0 }}
+                    {{ range $index, $element := .Params.urls }}
+                        {{/* dot seperator */}}
+                        {{ if ne $index 0 }} 
+                        <b>•</b>
+                    {{ end }}
+                    <a href="{{ $element.url }}" class="pointer-events-auto">{{ $element.name }}</a>
+                    {{ end }}
+                
+                {{ end }}
+            </section>
+
+            {{/*  publish date and tags  */}}
+            <section class="markdown">
+                <span class="text-xs leading-6">
+                    {{ .PublishDate | time.Format "2006-01-02" }}
+                    {{ if .Draft }}
+                        | <b>Draft</b>
+                    {{ end }}
+                </span>
+                <span class="float-right">
+                    {{ range .Params.main_tags }}
+                        {{ partial "components/tag.html" . }}
+                    {{ end }}
+                </span>
+            </section>
+        </div>
+
+        {{/*  arrow decoration  */}}
+        {{/*  <svg viewBox="0 0 10 20" class="hidden sm:block w-6 h-12 -translate-x-6  text-transparent group-hover:text-neutral-900/50 group-hover:translate-0 transition-all" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="0,0 10,10 0,20" fill="none" stroke="currentColor" stroke-width="1.05" vector-effect="non-scaling-stroke"/>
+        </svg>  */}}
+    </div>
+</article>

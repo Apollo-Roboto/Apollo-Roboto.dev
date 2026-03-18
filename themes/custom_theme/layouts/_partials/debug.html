@@ -1,0 +1,76 @@
+{{ if .Site.Params.debug }}
+
+{{ $block_class := "bg-orange-100 rounded p-2.5" }}
+
+<div class="p-2.5 flex flex-col gap-2.5">
+
+    <pre class="{{ $block_class }}">
+site
+    <b>.Site.Title:</b> {{ .Site.Title }}
+    <b>.Site.BaseURL:</b> {{ .Site.BaseURL }}
+    <b>.Site.BuildDrafts:</b> {{ .Site.BuildDrafts }}
+    <b>.Site.Language.LanguageCode:</b> {{ .Site.Language.LanguageCode }}
+    <b>.Site.Params:</b> 
+    {{- range $key, $val := .Site.Params }}
+        <b>{{ $key }}: </b>{{ $val -}}
+    {{ end }}
+    <b>.Site.Menus.nav:</b>
+    {{- range .Site.Menus.nav }}
+        {{ .Name -}}
+    {{ end }}
+    <b>.Site.Taxonomies.tags:</b>
+    {{- range $key, $val := .Site.Taxonomies.tags -}}
+        {{ print  " " $key "," }}
+    {{- end }}
+    <b>.Site.Taxonomies.categories:</b>
+    {{- range $key, $val := .Site.Taxonomies.categories -}}
+        {{ print  " " $key "," }}
+    {{- end }}
+    </pre>
+
+    <pre class="{{ $block_class }}">
+page
+    <b>.Title:</b> {{ .Title }}
+    <b>.Permalink:</b> {{ .Permalink }}
+    <b>.RelPermalink:</b> {{ .RelPermalink }}
+    <b>.Date:</b> {{ .Date }}
+    <b>.PublishDate:</b> {{ .PublishDate }}
+    <b>.Lastmod:</b> {{ .Lastmod }}
+    <b>.Slug:</b> {{ .Slug }}
+    <b>.Type:</b> {{ .Type }}
+    <b>.IsPage:</b> {{ .IsPage }}
+    <b>.IsSection:</b> {{ .IsSection }}
+    <b>.IsHome:</b> {{ .IsHome }}
+    <b>.Kind:</b> {{ .Kind }}
+    <b>.Layout:</b> {{ .Layout }}
+    <b>.Resources:</b> {{ .Resources }}
+    <b>.Pages:</b>
+    {{- range .Pages }}
+        {{ .RelPermalink -}}
+    {{ end }}
+    <b>.Params:</b>
+    {{- range $key, $val := .Params }}
+        <b>{{ $key }}: </b>{{ $val -}}
+    {{ end }}
+    </pre>
+
+    {{ with .File }}
+    <pre class="{{ $block_class }}">
+file
+    <b>.File.Section:</b> {{ .Section }}
+    <b>.File.Dir:</b> {{ .Dir }}
+    <b>.File.Ext:</b> {{ .Ext }}
+    <b>.File.Filename:</b> {{ .Filename }}
+    <b>.File.Path:</b> {{ .Path }}
+    <b>.File.UniqueID:</b> {{ .UniqueID }}
+    <b>.File.IsContentAdapter:</b> {{ .IsContentAdapter }}
+    <b>.File.LogicalName:</b> {{ .LogicalName }}
+    <b>.File.BaseFileName:</b> {{ .BaseFileName }}
+    <b>.File.ContentBaseName:</b> {{ .ContentBaseName }}
+    <b>.File.TranslationBaseName:</b> {{ .TranslationBaseName }}
+    </pre>
+    {{ end }}
+
+</div>
+
+{{ end }}

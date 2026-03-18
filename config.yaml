@@ -1,34 +1,88 @@
 baseURL: https://www.apollo-roboto.dev/
 languageCode: en-us
 defaultContentLanguage: en
-title: Apollo-Roboto
-theme: customTheme
+title: ApolloRoboto
+theme: custom_theme
+copyright: ApolloRoboto
 
-enableGitInfo: true
-copyright: Apollo-Roboto
-summaryLength: 70
-enableEmoji: true
-enableInlineShortcodes: true
-googleAnalytics: G-99E0KYVB3G
-rssLimit: null
-paginate: 6
-enableRobotsTXT: true
-
-author:
-  name: Apollo-Roboto
-  email: Apollo_Roboto@outlook.com
+params:
+  author:
+    name: Alexandre Thibessart
+    email: Apollo_Roboto@outlook.com
+  debug: false
+  visual_effects: true
+  pride: false
+  github_issue_url: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
+  socials:
+    - name: GitHub
+      shown: true
+      url: https://github.com/Apollo-Roboto
+      text: Apollo-Roboto
+      icon_url: /images/GitHub_Icon.svg
+    - name: StackOverflow
+      shown: false
+      url: https://stackoverflow.com/users/10101321/apolloroboto
+      text: ApolloRoboto
+      icon_url: /images/StackOverflow_Icon.svg
+    - name: LinkedIn
+      shown: true
+      url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
+      text: Alexandre Thibessart
+      icon_url: /images/LinkedIn_Icon.svg
+    - name: Ko-fi
+      shown: true
+      url: https://ko-fi.com/apolloroboto
+      text: Buy me a coffee!
+      icon_url: /images/Ko-fi_Icon.svg
+    - name: Buymeacoffee
+      shown: false
+      url: https://www.buymeacoffee.com/ApolloRoboto
+      text: Buy me a coffee!
+      icon_url: /images/buymeacoffee_Icon.svg
+    - name: Email
+      shown: true
+      url: mailto:Apollo_Roboto@outlook.com
+      text: Apollo_Roboto@outlook.com
+      icon_url: /images/Email_Icon.svg
+    - name: RSS
+      shown: true
+      url: https://www.apollo-roboto.dev/index.xml
+      text: Subscribe
+      icon_url: /images/RSS_Icon.svg
 
 menu:
   nav:
     - name: Home
       url: /
       weight: 1
-    - name: Posts
-      url: /posts
+    - name: Projects
+      url: "/#projects"
       weight: 2
-    - name: About
-      url: /about
+    - name: Socials
+      url: "/#socials"
       weight: 3
+
+ignoreFiles:
+  - 'content.*\.xcf$' # for the thumbnail gimp files
+
+mainSections: []
+
+enableGitInfo: true
+summaryLength: 70
+enableEmoji: true
+enableInlineShortcodes: true
+rssLimit: null
+paginate: 6
+enableRobotsTXT: true
+
+services:
+  googleAnalytics:
+    id: G-99E0KYVB3G
+
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
 
 markup:
   highlight:
@@ -38,37 +92,12 @@ markup:
     renderer:
       unsafe: true
 
-params:
-  debug: false
-  visualEffects: true
-  pride: true
-  githubIssueUrl: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
-  socials:
-    - name: GitHub
-      url: https://github.com/Apollo-Roboto
-      text: Apollo-Roboto
-      iconUrl: /images/GitHub_Icon.svg
-    - name: StackOverflow
-      url: https://stackoverflow.com/users/10101321/apollo-roboto
-      text: Apollo-Roboto
-      iconUrl: /images/StackOverflow_Icon.svg
-    - name: LinkedIn
-      url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
-      text: Alexandre Thibessart
-      iconUrl: /images/LinkedIn_Icon.svg
-    - name: Ko-fi
-      url: https://ko-fi.com/apolloroboto
-      text: Buy me a coffee!
-      iconUrl: /images/Ko-fi_Icon.svg
-    - name: Buymeacoffee
-      url: https://www.buymeacoffee.com/ApolloRoboto
-      text: Buy me a coffee!
-      iconUrl: /images/buymeacoffee_Icon.svg
-    - name: Email
-      url: mailto:Apollo_Roboto@outlook.com
-      text: Apollo_Roboto@outlook.com
-      iconUrl: /images/Email_Icon.svg
-    - name: RSS
-      url: https://www.apollo-roboto.dev/index.xml
-      text: Subscribe
-      iconUrl: /images/RSS_Icon.svg
+# for tailwindcss
+# would prefer to have this at the custom theme level, will have to look into that again
+# https://gohugo.io/functions/css/tailwindcss/#step-2
+build:
+  buildStats:
+    enable: true
+  cachebusters:
+    - source: "layouts/.*"
+      target: css

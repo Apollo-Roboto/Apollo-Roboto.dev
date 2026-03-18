@@ -1,0 +1,14 @@
+<a href="{{ .url }}" class="w-min group">
+    <div class="border border-neutral-900 rounded-md decoration-2 flex items-center underline decoration-[#00000000]
+        transition-all duration-200 group-hover:shadow-md group-hover:decoration-neutral-900 group-hover:-translate-y-2 md:group-hover:-translate-y-4
+    ">
+        <img src="{{ .icon_url }}" alt="" class="md:w-16 md:h-12 w-12 h-10 my-5 mx-7"/>
+
+        <div class="lg:w-80 w-72 pr-7">
+            <span class="font-bold">{{ .name }}</span>
+            <br/>
+            <span class="font-light">{{ .text }}</span>
+        </div>
+
+    </div>
+</a>

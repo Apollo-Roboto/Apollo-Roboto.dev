@@ -1,0 +1,56 @@
+<article class="border border-neutral-900 rounded-md w-96 m-5 overflow-hidden transition-all duration-200 hover:-translate-y-2 hover:shadow-md bg-amber-50">
+
+
+    {{/*  Thumbnail  */}}
+    <img src="{{ printf "%s%s" .RelPermalink .Params.thumbnail | relURL }}" alt="" class="w-fit h-36" />
+
+
+    {{/*  Dot Pattern Decoration  */}}
+    <img src="/images/DotPattern.svg" class="float-right w-5 m-3 select-none"></img>
+
+
+    {{/*  Title  */}}
+    <header class="mx-4 my-4 font-bold">
+        <a href="{{ if gt .Params.urls 0 }} {{ (index .Params.urls 0).url }} {{ end }}" class="underline decoration-2 decoration-[#00000000] transition-all duration-200 hover:decoration-neutral-900">
+            {{ .Title }}
+        </a>
+    </header>
+
+
+    {{/*  Summary  */}}
+    <section class="mx-4 mb-4 text-sm font-light h-16">
+        <p>{{ .Summary }}</p>
+    </section>
+
+    {{/*  Urls  */}}
+    <section class="mx-4 mb-4 markdown text-sm h-5">
+
+        {{ if gt .Params.urls 0 }}
+            {{ range $index, $element := .Params.urls }}
+
+                {{/* dot seperator */}}
+                {{ if ne $index 0 }} 
+                    <b>•</b>
+                {{ end }}
+
+                <a href="{{ $element.url }}">{{ $element.name }}</a>
+            {{ end }}
+            
+        {{ end }}
+
+    </section>
+
+
+    {{/*  PublishDate And Tags  */}}
+    <section class="mx-4 mb-4 markdown h-5">
+        <span class="text-xs leading-6">
+            {{ .PublishDate | time.Format "2006-01-02" }}
+        </span>
+        <span class="float-right">
+            {{ range .Params.main_tags }}
+                {{ partial "components/tag.html" . }}
+            {{ end }}
+        </span>
+    </section>
+
+</article>

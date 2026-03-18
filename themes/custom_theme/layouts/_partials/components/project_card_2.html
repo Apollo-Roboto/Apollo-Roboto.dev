@@ -1,0 +1,68 @@
+
+<article class="border border-neutral-900 h-52 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-2 hover:shadow-md bg-amber-50 flex flex-row gap-5">
+
+    {{/*  left side  */}}
+    
+    {{/*  Thumbnail  */}}
+    {{ $image_path := "images/blank_thumbnail.svg" }}
+    {{ if isset .Params "thumbnail" }}
+        {{ $image_path = printf "%s%s" .RelPermalink .Params.thumbnail | relURL}}
+    {{ end }}
+    
+    <div class="flex-2">
+        <img src="{{ $image_path }}" alt="" class="w-full h-full object-cover"/>
+    </div>
+
+    {{/*  right side  */}}
+    <div class="flex-3 h-full flex flex-col justify-between py-5 pr-5">
+        {{/*  why is it not full height?  */}}
+
+        
+        {{/*  Title  */}}
+        <header class="font-bold">
+            <a href="{{ .RelPermalink }}" class="underline decoration-2 decoration-[#00000000] transition-all duration-200 hover:decoration-neutral-900">
+                {{ .Title }}
+            </a>
+        </header>
+
+        {{/*  Summary  */}}
+        <section class="text-sm font-light">
+            <p>{{ .Summary }}</p>
+        </section>
+
+        {{/*  Urls  */}}
+        <section class="markdown text-sm">
+
+            {{ if gt .Params.urls 0 }}
+                {{ range $index, $element := .Params.urls }}
+                
+                {{/* dot seperator */}}
+                {{ if ne $index 0 }} 
+                <b>•</b>
+                {{ end }}
+                
+                <a href="{{ $element.url }}">{{ $element.name }}</a>
+                {{ end }}
+            
+            {{ end }}
+            
+        </section>
+        
+            
+        {{/*  PublishDate And Tags  */}}
+        <section class="markdown">
+            <span class="text-xs leading-6">
+                {{ .PublishDate | time.Format "2006-01-02" }}
+                {{ if .Draft }}
+                    | <b>Draft</b>
+                {{ end }}
+            </span>
+            <span class="float-right">
+                {{ range .Params.main_tags }}
+                    {{ partial "components/tag.html" . }}
+                {{ end }}
+            </span>
+        </section>
+    </div>
+
+</article>

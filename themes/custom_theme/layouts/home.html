@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<div class="flex 2xl:flex-row flex-col w-11/12 md:w-8/12 mx-auto items-center justify-between">
+    {{/*  home main text  */}}
+    <div class="font-light text-neutral-900">
+        <p class="text-left">{{ .Params.top_main_text }}</p>
+        <p class="text-3xl sm:text-4xl md:text-5xl whitespace-nowrap">{{ .Site.Params.author.name }}</p>
+        <p class="text-right">{{ .Params.sub_main_text }}</p>
+    </div>
+
+    <canvas id="threejs" class="block border-neutral-900 rounded-full 2xl:w-176 2xl:h-96 w-lg h-64 2xl:-mr-12"></canvas>
+</div>
+
+{{ partial "components/content_spacer" }}
+
+{{/*  <h1>{{ .Title }}</h1>  */}}
+<div class="markdown w-11/12 md:w-9/12 3xl:w-8/12 mx-auto">
+    {{ .Content }}
+</div>
+
+{{ partial "components/content_spacer" }}
+
+{{/*  project cards  */}}
+<div class="bg-linear-to-b from-transparent to-transparent via-orange-800/5">
+    <div id="projects" class="w-11/12 xl:w-10/12 3xl:w-9/12 mx-auto">
+        <div class="grid grid-cols-1 2xl:grid-cols-2 gap-y-12 sm:gap-y-10 gap-x-14 ">
+            {{ $projects := where .Site.RegularPages "Section" "projects" }}
+            {{ $sorted := sort $projects "Date" "desc" }}
+            {{ $sorted = sort $sorted "Params.featured" "desc" }}
+            {{ range $sorted }}
+                {{ partial "components/project_card_3.html" . }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{ partial "components/content_spacer" }}
+
+{{/*  social cards  */}}
+<div id="socials" class="w-11/12 md:w-9/12 mx-auto flex flex-wrap justify-center md:gap-12 gap-5 ">
+    {{ range where .Site.Params.socials "shown" true }}
+        {{ partial "components/social_card.html" . }}
+    {{ end }}
+</div>
+
+{{ partial "components/content_spacer" }}
+
+{{/*  GitHub issue url  */}}
+{{ if .Site.Params.github_issue_url }}
+    <div class="markdown">
+        <p class="text-center">Found a problem? Open an issue <a href="{{ .Site.Params.github_issue_url }}">here</a>.</p>
+    </div>
+{{ end }}
+
+{{/*  scripts  */}}
+{{/*  TODO deal with scripts in a better way  */}}
+{{ if .Site.Params.visual_effects }}
+    {{/*  <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>  */}}
+
+    <script src="js/three/build/three.min.js"></script>
+    {{/*  <script src="js/three/build/three.js"></script>  */}}
+    {{/*  <script src="js/three/examples/js/lines/LineSegmentsGeometry.js"></script>
+    <script src="js/three/examples/js/lines/LineSegments2.js"></script>
+    <script src="js/three/examples/js/lines/Line2.js"></script>
+    <script src="js/three/examples/js/lines/LineMaterial.js"></script>
+    <script src="js/three/examples/js/lines/LineGeometry.js"></script>  */}}
+    {{/*  <script src="js/three/examples/js/loaders/OBJLoader.js"></script>  */}}
+    <script src="js/homeScreenEffects.js"></script>
+{{ end }}
+
+{{ end }}

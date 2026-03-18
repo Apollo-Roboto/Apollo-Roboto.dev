@@ -1,0 +1,52 @@
+
+
+<div>
+
+    {{/*  wave  */}}
+    <div style="background-image: url(/images/InkWave.svg);" class="h-8 bg-repeat"></div>
+
+    {{/*  Footer content  */}}
+    <div class="bg-neutral-900 grid place-items-center text-white">
+
+        <div class="h-14"></div>
+
+        {{ range where .Site.Params.socials "name" "GitHub" }}
+            <a href="{{ .url }}">
+                {{/* <img src="/images/GitHub/Logo_White.png" alt="GitHub Icon" class="w-20"/> */}}
+                <img src="/images/GitHub/Mark-Light-120px-plus.png" alt="GitHub Icon" class="w-14"/>
+            </a>
+        {{ end }}
+
+        {{/*  Spacer  */}}
+        <div class="h-10"></div>
+
+        <p class="text-xs">Copyright &#xA9; {{ now.UTC.Year }} | {{ .Site.Copyright}}</p>
+
+        {{/*  Spacer  */}} {{/*  With hidden funny  */}}
+        <div class="h-10 flex flex-col justify-center text-neutral-900">
+            (｡◕‿‿◕｡)
+        </div>
+
+        <p class="text-xs text-gray-500">
+            Powered by
+            <a class="hover:underline" href="https://pages.github.com/">Github Pages</a>, 
+            <a class="hover:underline" href="https://gohugo.io/">Hugo</a> and
+            <a class="hover:underline" href="https://tailwindcss.com/">Tailwindcss</a>
+        </p>
+
+
+        {{/*  Spacer  */}}
+        <div class="h-4"></div>
+
+    </div>
+
+    {{/*  Pride flag  */}}
+    {{ if .Site.Params.pride }}
+        <div class="bg-red-500 h-1 min-w-full"></div>
+        <div class="bg-orange-500 h-1 min-w-full"></div>
+        <div class="bg-yellow-500 h-1 min-w-full"></div>
+        <div class="bg-green-500 h-1 min-w-full"></div>
+        <div class="bg-blue-500 h-1 min-w-full"></div>
+        <div class="bg-purple-500 h-1 min-w-full"></div>
+    {{ end }}    
+</div>

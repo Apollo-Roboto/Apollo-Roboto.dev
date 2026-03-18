@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+{{ $paginator := .Paginator }}
+
+{{/*  Title  */}}
+<div class="w-11/12 md:w-7/12 lg:w-5/12 mx-auto mb-24">
+    <h1 class="text-4xl font-normal">{{ .Type | title }}</h1>
+</div>
+
+{{/*  Content  */}}
+<div class="flex flex-row justify-center items-start">
+
+    <!-- Posts container -->
+    <div class="w-11/12 md:w-7/12 lg:w-6/12">
+
+    {{ range $paginator.Pages.ByPublishDate.Reverse }}
+            <div class="border-t-2 border-dashed border-neutral-900"></div> {{/*  Seperator  */}}
+            {{ partial "components/list_item.html" . }}
+    {{ end }}
+    <div class="border-t-2 border-dashed border-neutral-900"></div> {{/*  Seperator  */}}
+
+    </div>
+</div>
+
+<div class="h-36"></div>
+
+{{/*  Paginator  */}}
+{{ partial "components/paginator.html" $paginator }}
+
+{{ end }}

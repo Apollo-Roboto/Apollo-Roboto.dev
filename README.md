@@ -14,15 +14,3 @@ Note that the generated static pages in the public folder won't work as intended
 ## Github workflow
 
 A workflow has been setup to automatically upload updates to the [Apollo-Roboto.dev repository](https://github.com/Apollo-Roboto/Apollo-Roboto.dev)'s github pages
-
-## Creating a new post 
-
-```bash
-hugo new posts/NAME.md
-```
-
-## Creating a new redirect
-
-```bash
-hugo new redirect/NAME.md
-```

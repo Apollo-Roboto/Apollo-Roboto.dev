@@ -1,0 +1,84 @@
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='content-language' content='en-ca'>
+
+    {{/* generator tag information */}}
+    {{ hugo.Generator }}
+
+    {{/*  CSS  */}}
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+
+    {{/*  favicon  */}}
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    {{/*  link to alternate formats  */}}
+    {{ range .AlternativeOutputFormats }}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end }}
+
+    {{/*  Meta Tags  */}}
+
+    {{ $title := "" }}
+
+    {{ if .IsHome }}
+        {{ $title = .Site.Title }}
+    {{ else }}
+        {{ $title = .Title }}
+    {{ end }}
+
+    {{/*  Adding "- DEV" to make it clear I'm on development  */}}
+    {{ if in (.Site.BaseURL | string) "localhost" }}
+        {{ $title = (print $title " - DEV") }}
+    {{ end }}
+
+    {{/* Pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
+    {{ if in (slice "taxonomy" "term") .Kind }}
+        <meta name="robots" content="noindex,follow">
+    {{ end }}
+
+    <title>{{ $title }}</title>
+    <meta name="title" content="{{ $title }}">
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta name="twitter:title" content="{{ $title }}" />
+
+    {{ if .Params.summary }}
+        <meta name="description" content="{{ .Params.summary }}">
+        <meta property="og:description" content="{{ .Params.summary }}" />
+        <meta name="twitter:description" content="{{ .Params.summary }}" />
+    {{ end }}
+
+    <meta property="og:url" content="{{ .Permalink }}" />
+
+    {{ if eq .Type "posts" }}
+        <meta property="og:type" content="article" />
+    {{ else }} {{/*  defaults to blog  */}}
+        <meta property="og:type" content="blog" />
+    {{ end }}
+
+    {{ if .Params.thumbnail }}
+        <meta property="og:image" content="{{ .Params.thumbnail }}" />
+        <meta name="twitter:image" content="{{ .Params.thumbnail }}" />
+    {{ end }}
+
+    <meta name="theme-color" content="#fffbeb" />
+
+    {{ if .Params.tags }}
+        <meta name="keywords" content="{{ range .Params.tags }}{{ . }}, {{ end }}" />
+    {{ end }}
+
+    {{ if .Params.author }}
+        <meta name="author" content="{{ .Params.author }}">
+    {{ end }}
+
+    {{ partial "google_analytics.html" . }}
+
+    {{/*  https://gohugo.io/functions/css/tailwindcss/#step-5  */}}
+    {{ with (templates.Defer (dict "key" "global")) }}
+        {{ partial "css.html" . }}
+    {{ end }}
+</head>

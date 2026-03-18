@@ -1,0 +1,223 @@
+/* https: //gohugo.io/functions/css/tailwindcss/#step-3 */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "hugo_stats.json";
+
+@theme {
+    --font-sans: "Roboto", sans-serif;
+    --font-mono: "Fira Code", sans-serif;
+}
+
+.markdown {
+    @apply text-neutral-900;
+}
+
+::selection {
+    @apply bg-[#D4C098];
+}
+
+.markdown hr {
+    @apply border-neutral-900;
+}
+
+
+
+/*======== Headers ========*/
+
+.markdown h1 {
+    @apply text-4xl mt-4 mb-5 font-normal;
+}
+
+.markdown h2 {
+    @apply text-3xl mt-12 mb-2 font-normal;
+}
+
+.markdown h3 {
+    @apply text-2xl mt-4 mb-1 font-normal;
+}
+
+.markdown h4 {
+    @apply text-xl mt-3 mb-1 font-normal;
+}
+
+.markdown h5 {
+    @apply text-lg mt-3 mb-1 font-semibold;
+}
+
+.markdown h6 {
+    @apply mt-3 mb-1 font-semibold;
+}
+
+
+
+/*======== Text ========*/
+
+.markdown p {
+    font-weight: 200;
+    @apply font-light mt-4 mb-1;
+}
+
+.markdown a {
+    @apply text-amber-700 transition-all duration-200 underline decoration-[#00000000] decoration-2;
+}
+
+.markdown a:hover {
+    @apply decoration-amber-700;
+}
+
+.markdown a:visited {
+    @apply text-orange-800;
+}
+
+.markdown em,
+.markdown i {
+    @apply italic;
+}
+
+.markdown strong,
+.markdown b {
+    @apply font-semibold;
+}
+
+.markdown del {
+    @apply line-through;
+}
+
+
+
+/*======== Images ========*/
+.markdown img {
+    @apply rounded-lg mx-auto;
+}
+
+
+
+/*======== Lists ========*/
+
+.markdown ul {
+    @apply font-light list-disc;
+}
+
+.markdown ol {
+    @apply font-light list-decimal;
+}
+
+.markdown li {
+    @apply ml-6;
+}
+
+.markdown li li {
+    @apply ml-4;
+}
+
+.markdown li::marker {
+    @apply font-medium;
+}
+
+
+
+/*======== Quotes ========*/
+
+.markdown blockquote {
+    @apply border-l-2 border-neutral-900 pl-3 mb-3 rounded-l-sm rounded-r-md bg-orange-900/10;
+}
+
+
+
+/*======== Tables ========*/
+
+.markdown th {
+    @apply font-bold px-5 py-1.5 bg-neutral-900/10;
+}
+
+.markdown th:not(:last-child) {
+    @apply border-r border-neutral-900;
+}
+
+.markdown th:first-child {
+    @apply rounded-tl-lg;
+}
+
+.markdown th:last-child {
+    @apply rounded-tr-lg;
+}
+
+.markdown tr:last-child td:first-child {
+    @apply rounded-bl-lg;
+}
+
+.markdown tr:last-child td:last-child {
+    @apply rounded-br-lg;
+}
+
+.markdown td {
+    @apply border-t border-neutral-900 py-1 px-5;
+}
+
+.markdown tr:hover td {
+    @apply bg-neutral-900/5;
+}
+
+.markdown table {
+    @apply min-w-[60%] sm:mx-0 mx-auto;
+}
+
+.markdown table * {
+    @apply transition-all;
+}
+
+
+
+/*======== Code ========*/
+
+.markdown code {
+    @apply bg-orange-900/10 rounded-md text-sm px-1;
+}
+
+.markdown pre code {
+    @apply bg-orange-900/0 px-0;
+}
+
+.markdown pre {
+    @apply bg-orange-900/10 rounded-lg text-sm px-4 py-2 mt-2 mb-4 overflow-x-auto;
+    tab-size: 4;
+    animation: tab_animation 0.6s;
+}
+
+@keyframes tab_animation {
+    from {
+        tab-size: 0;
+    }
+
+    to {
+        tab-size: 4;
+    }
+}
+
+
+
+/*======== Custom ========*/
+
+
+/* should probably move those? */
+
+.animatedTagsParent:hover .animatedTagsChild {
+    opacity: 0.6;
+    translate: -25px 0px;
+}
+
+.animatedTagsParent:hover .animatedTagsChild:nth-child(1) {
+    transition-delay: 0s
+}
+
+.animatedTagsParent:hover .animatedTagsChild:nth-child(2) {
+    transition-delay: .06s
+}
+
+.animatedTagsParent:hover .animatedTagsChild:nth-child(3) {
+    transition-delay: .12s
+}
+
+.animatedTagsParent:hover .animatedTagsChild:nth-child(4) {
+    transition-delay: .18s
+}
