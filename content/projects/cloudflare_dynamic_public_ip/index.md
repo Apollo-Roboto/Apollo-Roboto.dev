@@ -3,7 +3,7 @@ title: "Cloudflare Dynamic Public IP"
 date: 2026-02-28
 draft: false
 author: ApolloRoboto
-summary: Automatically update Cloudflare DNS entries when my public IP changes.
+summary: Automatically update Cloudflare DNS entries when your public IP changes.
 thumbnail: thumbnail_4.png
 featured: true
 categories:
@@ -28,7 +28,7 @@ urls:
     url: https://github.com/apollo-roboto/rust-cloudflare-dynamic-public-ip
 ---
 
-I was getting really annoyed one summer with my Internet Service Provider. They changed my public IP often, up to 4 times a month, breaking access to game servers and automations that I had setup on my little homelab. Naturally, and with little hope, I called to ask for a static IP, then was told that reserving a static IP is exclusive to their expensive proffessional plans.
+I was getting really annoyed one summer with my Internet Service Provider. They changed my public IP often, up to 4 times a month, breaking access to game servers and automations that I had setup on my little homelab. Naturally, and with little hope, I called to ask for a static IP, then was told that reserving a static IP is exclusive to their expensive professional plans.
 
 So what can I do about it? Well I can automate my DNS entries in Cloudflare. The plan is simple, monitor my public IP, then, if it changes, reach Cloudflare throught their DNS API and update all old IP to the new one. With slow refresh, this gives about 5 minutes down time max. Not bad.
 
