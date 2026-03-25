@@ -1,8 +1,16 @@
 {{ if .Site.Params.debug }}
 
-{{ $block_class := "bg-orange-100 rounded p-2.5" }}
+{{ $block_class := "bg-orange-100 rounded p-2.5 text-xs overflow-scroll" }}
 
 <div class="p-2.5 flex flex-col gap-2.5">
+
+    <pre class="{{ $block_class }}">
+hugo
+    <b>hugo.Version:</b> {{ hugo.Version }}
+    <b>hugo.IsDevelopment:</b> {{ hugo.IsDevelopment }}
+    <b>hugo.IsProduction:</b> {{ hugo.IsProduction }}
+    <b>hugo.WorkingDir:</b> {{ hugo.WorkingDir }}
+    </pre>
 
     <pre class="{{ $block_class }}">
 site
@@ -28,7 +36,10 @@ site
     {{- end }}
     </pre>
 
-    <pre class="{{ $block_class }}">
+    <div class="flex flex-col lg:flex-row gap-2.5 justify-items-stretch">
+
+    
+    <pre class="{{ $block_class }} lg:flex-1">
 page
     <b>.Title:</b> {{ .Title }}
     <b>.Permalink:</b> {{ .Permalink }}
@@ -55,7 +66,7 @@ page
     </pre>
 
     {{ with .File }}
-    <pre class="{{ $block_class }}">
+    <pre class="{{ $block_class }} lg:flex-1">
 file
     <b>.File.Section:</b> {{ .Section }}
     <b>.File.Dir:</b> {{ .Dir }}
@@ -70,6 +81,7 @@ file
     <b>.File.TranslationBaseName:</b> {{ .TranslationBaseName }}
     </pre>
     {{ end }}
+    </div>
 
 </div>
 

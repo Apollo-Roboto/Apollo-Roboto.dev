@@ -31,13 +31,8 @@
     {{ end }}
 
     {{/*  Adding "- DEV" to make it clear I'm on development  */}}
-    {{ if in (.Site.BaseURL | string) "localhost" }}
+    {{ if hugo.IsDevelopment }}
         {{ $title = (print $title " - DEV") }}
-    {{ end }}
-
-    {{/* Pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
-    {{ if in (slice "taxonomy" "term") .Kind }}
-        <meta name="robots" content="noindex,follow">
     {{ end }}
 
     <title>{{ $title }}</title>
@@ -75,8 +70,15 @@
         <meta name="author" content="{{ .Params.author }}">
     {{ end }}
 
-    {{ partial "google_analytics.html" . }}
+    {{ if hugo.IsDevelopment }}
+        {{ partial "google_analytics.html" . }}
+    {{ end }}
 
+    {{/* Pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
+    {{ if in (slice "taxonomy" "term") .Kind }}
+        <meta name="robots" content="noindex,follow">
+    {{ end }}
+    
     {{/*  https://gohugo.io/functions/css/tailwindcss/#step-5  */}}
     {{ with (templates.Defer (dict "key" "global")) }}
         {{ partial "css.html" . }}
