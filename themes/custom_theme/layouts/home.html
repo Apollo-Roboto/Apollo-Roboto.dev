@@ -8,7 +8,17 @@
         <p class="text-right">{{ .Params.sub_main_text }}</p>
     </div>
 
-    <canvas id="threejs" class="block border-neutral-900 2xl:w-176 w-full 2xl:h-96 h-64 2xl:-mr-12"></canvas>
+    {{/*  home effect  */}}
+    <div class="relative block w-full 2xl:w-176 h-64 2xl:h-96 2xl:-mr-12">
+        <canvas id="threejs" class="w-full h-full"></canvas>
+        <noscript>
+            <img
+                src="images/noscript_home_effect.png"
+                loading="lazy" 
+                class="absolute inset-0 w-full h-full object-contain"
+            />
+        </noscript>
+    </div>
 </div>
 
 {{ partial "components/content_spacer" }}
@@ -66,7 +76,7 @@
     <script src="js/three/examples/js/lines/LineMaterial.js"></script>
     <script src="js/three/examples/js/lines/LineGeometry.js"></script>  */}}
     {{/*  <script src="js/three/examples/js/loaders/OBJLoader.js"></script>  */}}
-    <script src="js/homeScreenEffects.js"></script>
+    <script src="js/home_screen_effects.js"></script>
 {{ end }}
 
 {{ end }}
