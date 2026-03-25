@@ -21,6 +21,7 @@ tags:
   - Website
   - CSS
   - Go
+  - Open Source
 frameworks:
   - name: GoHuGo
     version: "0.157"
@@ -30,7 +31,7 @@ urls:
   - name: GitHub
     url:  https://github.com/Apollo-Roboto/Apollo-Roboto.dev
   - name: Home Page
-    url:  https://apollo-roboto.dev/
+    url:  https://www.apollo-roboto.dev/
 ---
 
 *Originally created in 2023*

@@ -1,0 +1,9 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" }}
+<img
+    title="{{ $alt }}"
+    alt="{{ $alt }}"
+    src="{{ $src }}"
+    loading="lazy"
+    class="flex-1 w-full"
+/>

@@ -17,6 +17,8 @@ tags:
   - Organization
   - Planning
   - CI/CD
+  - File System
+  - Open Source
 urls:
   - name: GitHub
     url:  https://github.com/Apollo-Roboto/python-pathschema
@@ -25,6 +27,8 @@ urls:
   - name: Web Demo
     url: https://apollo-roboto.github.io/python-pathschema/
 ---
+
+*This is a project from 2023*
 
 File structures, one of my weird obsessions.
 

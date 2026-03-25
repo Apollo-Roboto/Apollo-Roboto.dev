@@ -24,6 +24,7 @@ tags:
   - Bot
   - Extension
   - Metrics
+  - Monitoring
   - Open Source
 urls:
   - name: GitHub

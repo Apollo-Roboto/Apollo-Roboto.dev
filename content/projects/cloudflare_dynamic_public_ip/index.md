@@ -23,6 +23,7 @@ tags:
   - Server
   - IP
   - Networking
+  - Open Source
 urls:
   - name: GitHub
     url: https://github.com/apollo-roboto/rust-cloudflare-dynamic-public-ip
