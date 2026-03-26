@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
+
+name: Edit Request
+description: Found a spelling mistake? A post needs some changes?
+labels:
+  - edit
+assignees:
+  - Apollo-Roboto
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out an edit request!
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL
+      description: Which page is this issue for?
+      placeholder: https://www.apollo-roboto.dev/THA_PAGE
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should change?
+    validations:
+      required: true

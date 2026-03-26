@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
+
+name: Feature Request
+description: Make a request for a missing feature or website improvements
+labels:
+  - feature
+assignees:
+  - Apollo-Roboto
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out a feature request!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's your cool idea?
+    validations:
+      required: true

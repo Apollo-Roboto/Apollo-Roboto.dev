@@ -1,12 +1,13 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
+
 name: Bug Report
 description: Did the site broke? Let me know!
-title: "[Bug]: "
 labels:
   - bug
 assignees:
   - Apollo-Roboto
 body:
-  - type: Markdown
+  - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
@@ -15,6 +16,7 @@ body:
     id: page_url
     attributes:
       label: Page URL
+      description: Where did you saw the bug?
       placeholder: https://www.apollo-roboto.dev/BUGGY_PAGE
 
   - type: dropdown
@@ -32,6 +34,7 @@ body:
     id: what_happened
     attributes:
       label: What happened?
+      description: Describe the bug on the site.
     validations:
       required: true
 
@@ -39,7 +42,6 @@ body:
     id: screenshots
     attributes:
       label: Upload relevant files
-      description: "Drag and drop any relevant screenshots or log files."
+      description: "Drag and drop any relevant files"
     validations:
       required: false
-      accept: ".png,.jpg,.gif,.log,.txt,.zip"
