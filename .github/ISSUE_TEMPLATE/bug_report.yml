@@ -1,0 +1,45 @@
+name: Bug Report
+description: Did the site broke? Let me know!
+title: "[Bug]: "
+labels:
+  - bug
+assignees:
+  - Apollo-Roboto
+body:
+  - type: Markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: input
+    id: page_url
+    attributes:
+      label: Page URL
+      placeholder: https://www.apollo-roboto.dev/BUGGY_PAGE
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Firefox
+        - Chrome
+        - Edge
+        - Safari
+        - Other
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Upload relevant files
+      description: "Drag and drop any relevant screenshots or log files."
+    validations:
+      required: false
+      accept: ".png,.jpg,.gif,.log,.txt,.zip"
