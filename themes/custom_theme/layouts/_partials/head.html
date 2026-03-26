@@ -70,7 +70,7 @@
         <meta name="author" content="{{ .Params.author }}">
     {{ end }}
 
-    {{ if hugo.IsDevelopment }}
+    {{ if not hugo.IsDevelopment }}
         {{ partial "google_analytics.html" . }}
     {{ end }}
 

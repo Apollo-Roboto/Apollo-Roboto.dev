@@ -1,11 +1,10 @@
 ---
-name: Bug Report
-about: Did the site broke? Let me know!
+name: Edit Request
+about: Found a spelling mistake? A post needs some changes?
 title: ''
 labels:
-  - bug
+  - edit
 assignees: ''
-
 ---
 
 [Link to the page.](URL HERE)
@@ -14,6 +13,3 @@ assignees: ''
 
 # Description
 (DESCRIPTION HERE)
-
-# Error message
-(MESSAGE HERE IF ANY)

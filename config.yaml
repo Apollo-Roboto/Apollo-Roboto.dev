@@ -92,6 +92,12 @@ markup:
     renderer:
       unsafe: true
 
+# for gitub pages deployments
+# https://gohugo.io/host-and-deploy/host-on-github-pages/#step-2
+caches:
+  images:
+    dir: :cacheDir/images
+
 # for tailwindcss
 # would prefer to have this at the custom theme level, will have to look into that again
 # https://gohugo.io/functions/css/tailwindcss/#step-2
