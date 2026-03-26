@@ -1,5 +1,5 @@
 ---
-title: Prometheus Extension for Discord.py
+title: Prometheus Extension for discord.py
 date: 2026-03-17
 draft: false
 author: ApolloRoboto
@@ -37,7 +37,7 @@ urls:
 
 *Originally created in 2022*
 
-As I was on a DevOps team at the time, I wanted to put the Prometheus metrics into everything. I had to make one for my own Discord bot
+As I was on a DevOps team at the time, I wanted to put the Prometheus metrics into everything. So naturally I built for my own Discord bot too.
 
 # Implementation
 
@@ -69,11 +69,11 @@ And from there, your metrics are accessible at `localhost:8000/metrics`
 
 ![Grafana Dashboard](./preview.png)
 
-The grafana dashboard shows a bunch of overall metrics:
-- Many discord bot support.
+The Grafana dashboard shows a bunch of overall metrics:
+- Multiple discord bot support.
 - All called commands, including buttons and other Discord interactions.
 - Stats like the amount of users and servers each bot sees.
 - Up time and connection status with latency.
-- Logs rate (optional)
+- Log rates (optional)
 
-So it has all to get a good overview on how your bots are doing.
+So it has everything you need to get a good overview on how your bots are doing. And it seems like developers are enjoying it too as It got 20 stars on GitHub at the time of writing.

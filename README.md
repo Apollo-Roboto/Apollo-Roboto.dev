@@ -1,7 +1,8 @@
-# Apollo-Roboto.dev-source
+# apollo-roboto.dev
 
-This is the source code of my personal website at [Apollo-Roboto.dev](https://www.apollo-roboto.dev/).
-Powered with Hugo and github pages.
+This is the source code of my personal website at [apollo-roboto.dev](https://www.apollo-roboto.dev/).
+
+Custom theme made by yours trully *([me](https://github.com/Apollo-Roboto))*. Powered with GoHugo, TailwindCSS and GitHub Pages.
 
 ## Run locally
 
@@ -10,9 +11,9 @@ Run the development server with:
 hugo server -D
 ```
 
-Build the pages
+Build the pages:
 ```bash
 hugo --minify
 ```
 
-Or check development options with `just`.
+Or check more development options with `just`.

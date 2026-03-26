@@ -3,7 +3,7 @@ title: Validating File Structure With PathSchema
 date: 2026-03-17
 draft: false
 author: ApolloRoboto
-summary: A Python module that validate file structures to enforcing conventions and catching errors early.
+summary: A Python module that validate file structures to enforce conventions and catching errors early.
 thumbnail: thumbnail.png
 featured: false
 categories:
@@ -32,13 +32,13 @@ urls:
 
 File structures, one of my weird obsessions.
 
-I realized that the moment you want to standardize a folder's file, it's very hard to enforce it. What I've seen is that developers will often let the tools that rely on them fail rather than being preventive with scripting or unit testing. Which sometimes, especially during complex CI/CD pipelines, could fail be very far down the road.
+I realized that the moment you want to standardize a folder's files, it's very hard to enforce it. What I've seen is that developers will often let the tools that rely on them fail rather than being preventive with scripting or unit testing. Which sometimes, especially during complex CI/CD pipelines, could fail very far down the road.
 
-I wanted a flexible preventive approach to file validation, something that can run in CI Pipelines. This is where I came up with PathSchema.
+I wanted a flexible preventive approach to file validation, something that can run in CI pipelines. This is where I came up with PathSchema.
 
-After giving it a test run, it became surprisingly useful to me. I was able to organize way beyond code projects, but also a bunch of messy folders on my computer. I use it on all my photos, videos, 3D model, references, etc. When I want to sort out a mess, I create a `.pathschema` file, write the structure I want, then run it and all misplaced files are highlighted. I love this.
+After giving it a test run, it became surprisingly useful to me. I was able to organize way beyond code projects, but also a bunch of messy folders on my computer. I use it on all my photos, videos, 3D models, references, etc. When I want to sort out a mess, I create a `.pathschema` file, write the structure I want, then run it and all misplaced files are highlighted. I love this.
 
-[Checkout the web demo!](https://apollo-roboto.github.io/python-pathschema/)
+[Check out the web demo!](https://apollo-roboto.github.io/python-pathschema/)
 
 It's simple to write:
 ```pathschema
