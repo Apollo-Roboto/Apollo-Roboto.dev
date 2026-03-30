@@ -9,9 +9,11 @@ on:
       - main
     paths-ignore:
       - .github/ISSUE_TEMPLATE/*
-      - .github/funding.yaml
+      - .github/FUNDING.yaml
+      - .github/PULL_REQUEST_TEMPLATE/*
       - .vscode/*
       - README.md
+      - themes/*/README.md
       - justfile
 
 permissions:

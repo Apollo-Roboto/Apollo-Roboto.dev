@@ -37,7 +37,7 @@ urls:
 
 *Originally created in 2022*
 
-As I was on a DevOps team at the time, I wanted to put the Prometheus metrics into everything. So naturally I built for my own Discord bot too.
+As I was on a DevOps team at the time, I wanted to put the Prometheus metrics into everything. So naturally I implemented it for my own Discord bot too.
 
 # Implementation
 

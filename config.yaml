@@ -8,11 +8,11 @@ copyright: ApolloRoboto
 params:
   author:
     name: Alexandre Thibessart
-    email: Apollo_Roboto@outlook.com
+    email: apollo_roboto@outlook.com
   debug: false
   visual_effects: true
   pride: false
-  github_issue_url: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
+  github_issue_url: https://github.com/Apollo-Roboto/apollo-roboto.dev/issues/new/choose
   socials:
     - name: GitHub
       shown: true
@@ -24,16 +24,16 @@ params:
       url: https://stackoverflow.com/users/10101321/apolloroboto
       text: ApolloRoboto
       icon_url: /images/StackOverflow_Icon.svg
-    - name: LinkedIn
-      shown: true
-      url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
-      text: Alexandre Thibessart
-      icon_url: /images/LinkedIn_Icon.svg
     - name: Ko-fi
       shown: true
       url: https://ko-fi.com/apolloroboto
       text: Buy me a coffee!
       icon_url: /images/Ko-fi_Icon.svg
+    - name: LinkedIn
+      shown: true
+      url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
+      text: Alexandre Thibessart
+      icon_url: /images/LinkedIn_Icon.svg
     - name: Buymeacoffee
       shown: false
       url: https://www.buymeacoffee.com/ApolloRoboto
@@ -41,8 +41,8 @@ params:
       icon_url: /images/buymeacoffee_Icon.svg
     - name: Email
       shown: true
-      url: mailto:Apollo_Roboto@outlook.com
-      text: Apollo_Roboto@outlook.com
+      url: mailto:apollo_roboto@outlook.com
+      text: apollo_roboto@outlook.com
       icon_url: /images/Email_Icon.svg
     - name: RSS
       shown: true

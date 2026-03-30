@@ -5,7 +5,7 @@ Example parameters:
 params:
   pride: true
   visual_effects: true
-  github_issue_url: https://github.com/Apollo-Roboto/Apollo-Roboto.dev/issues/new/choose
+  github_issue_url: https://github.com/Apollo-Roboto/apollo-roboto.dev/issues/new/choose
   socials:
   - name: GitHub
     shown: true
@@ -14,8 +14,8 @@ params:
     icon_url: /images/GitHub_Icon.svg
   - name: Email
     shown: true
-    url: mailto:Apollo_Roboto@outlook.com
-    text: Apollo_Roboto@outlook.com
+    url: mailto:apollo_roboto@outlook.com
+    text: apollo_roboto@outlook.com
     icon_url: /images/Email_Icon.svg
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Personal Site Apollo-Roboto.dev
+title: Personal Site apollo-roboto.dev
 date: 2026-03-14
 draft: false
 author: ApolloRoboto
@@ -29,7 +29,7 @@ frameworks:
     version: "4.1"
 urls:
   - name: GitHub
-    url:  https://github.com/Apollo-Roboto/Apollo-Roboto.dev
+    url:  https://github.com/Apollo-Roboto/apollo-roboto.dev
   - name: Home Page
     url:  https://www.apollo-roboto.dev/
 ---

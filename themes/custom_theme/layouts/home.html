@@ -38,7 +38,7 @@
             {{ $sorted := sort $projects "Date" "desc" }}
             {{ $sorted = sort $sorted "Params.featured" "desc" }}
             {{ range $sorted }}
-                {{ partial "components/project_card_3.html" . }}
+                {{ partial "components/project_card.html" . }}
             {{ end }}
         </div>
     </div>

@@ -28,6 +28,11 @@ clean:
     rm ".hugo_build.lock"
     rm "hugo_stats.json"
 
+# Add a new post content
+new_post NAME:
+    hugo new posts/{{ NAME }}.md
+    code ./content/posts/{{ NAME }}.md
+
 # Add a new project content
 new_project NAME:
     hugo new projects/{{ NAME }}.md

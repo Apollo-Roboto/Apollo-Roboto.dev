@@ -20,8 +20,8 @@ sub_main_text: and I write code!
 # sub_main_text: Software Developer
 ---
 
-I'm a Python, C# and Rust software developer with 5+ years of experience in backend. I do 3D printing too!
+I'm a software developer with 5+ years of experience in backend. Programming all sorts of projects with Python, Rust, Java and C#.
 
-Currently looking for work in Canada and open to relacate, hit me up.
+Currently looking for work in Canada and open to relacate. [Checkout my resume](./resume.pdf)!
 
 And while you're here, checkout some of my work, I'll be adding more here soon:
