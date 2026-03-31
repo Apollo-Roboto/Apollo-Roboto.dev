@@ -3,7 +3,7 @@ title: TodoGraph
 date: 2026-03-30
 draft: false
 author: ApolloRoboto
-summary: When the simple todo list becomes a little too overengineered
+summary: When the simple todo list becomes a little too overengineered. Rust GUI application for managing tasks in an experimental approach.
 thumbnail: thumbnail.png
 featured: true
 categories:
@@ -79,15 +79,15 @@ Nope! I'm exploring silly ideas, todo lists are quick and easy to write. No need
 
 This is written in Rust, using the [Slint UI Framework](https://crates.io/crates/slint). I have a lot of fun building interfaces with this, even if not perfect. I even got to contribute to Slint while working on this. Their menu bar implementation was stuck on the white theme, which was an eyesore to me, thankfully there was an existing discussion that helped me out a lot to find what to change and where in the code. You chan check my contribution [here (#10034)](https://github.com/slint-ui/slint/pull/10034).
 
-For some reason, I'm always looking into the UI world of Rust, it's fascinating to me. Something about a modern, performant and crashless future just peaks my interrest. Take a look at [Are We GUI Yet](https://areweguiyet.com/) if that's interresting to you too.
+For some reason, I'm always looking into the UI world of Rust, it's fascinating to me. Something about a modern, performant and crashless future just piques my interrest. Take a look at [Are We GUI Yet](https://areweguiyet.com/) if that's interesting to you too.
 
-So I learned that writting editors is hard! Unsurprising but this is my first attempt at fully featured complex editor, even if it's just for todo items. This thing needed undo redo, which means that every actions are now commands that must be capable of reversing their action. Quite a different flow to get used to, especially when thinking about memory consumption. For example, saving a snapshot of the project at each commands is easy but very memory intensive when you have a longer undo history, it's much better to store what changed instead.
+So I learned that writing editors is hard! Unsurprising but this is my first attempt at fully featured complex editor, even if it's just for todo items. This thing needed undo redo, which means that every actions are now commands that must be capable of reversing their action. Quite a different flow to get used to, especially when thinking about memory consumption. For example, saving a snapshot of the project at each commands is easy but very memory intensive when you have a longer undo history, it's much better to store what changed instead.
 
 Lots of commands and general feel is inspired by Blender's node editor *(Blender's gotta be my favorite software out there)*.
 
 <!-- I haven't fully completed these yet
 
-Data migration is also an interresting challenge I tackled. What should happen when you introduce breaking changes in the saved user files. I had two main solutions:
+Data migration is also an interesting challenge I tackled. What should happen when you introduce breaking changes in the saved user files. I had two main solutions:
 - The first is to have default values during deserialization in as many places as possible. That loosen the restrictions drastically during a migrations.
 - The second is to call scripted conversions that are triggered by tracking a version number stored in the file's metadata. This then create a chain of migrations: if the original file is v4 and latest is v6, we do all conversions in `migrate_4_to_5` then `migrate_5_to_6`.
 
