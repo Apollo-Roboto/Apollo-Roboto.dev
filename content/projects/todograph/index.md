@@ -1,7 +1,7 @@
 ---
-title: Todo Graph
-date: 
-draft: true
+title: TodoGraph
+date: 2026-03-30
+draft: false
 author: ApolloRoboto
 summary: When the simple todo list becomes a little too overengineered
 thumbnail: thumbnail.png
@@ -23,7 +23,7 @@ tags:
   - WIP
 urls:
   - name: GitHub
-    url: https://github.com/apollo-roboto/rust-todo-graph
+    url: https://github.com/apollo-roboto/rust-todograph
 ---
 
 *Application is a work in progress*
@@ -31,6 +31,11 @@ urls:
 I present to you my overengineered todo list. My personal attempt at removing total order.
 
 Wait hold on? What's wrong with todo lists? Well I'm glad you asked! *(hopefully)*.
+
+{{< gallery >}}
+  {{< gallery-image src="preview_1.png" alt="Showing the todograph software" >}}
+  {{< gallery-image src="preview_2.png" alt="Showing a task being edited" >}}
+{{< /gallery >}}
 
 # What's the problem with todo lists?
 
@@ -97,10 +102,9 @@ TODO: show help stdout here
 
 # The future of this project
 
-There are lots to patch out and many visual improvements to do. I still have these big goals for the future:
-- User defined task types.
-- User defined task properties.
-- User defined state beyond `Todo`, `Doing` and `Done`.
+There are lots to patch out and many visual improvements to do. I would love to explore these features in the future:
+- Custom user defined task types and properties.
+- Custom User defined state beyond `Todo`, `Doing` and `Done`.
 - Scripting support with [Rhai](https://crates.io/crates/rhai) for quick and advanced custom actions.
 - Plugging support for optional features like MQTT.
 
@@ -110,4 +114,4 @@ Plugins and scripting features are mostly for personal learning, I might only st
 
 Oh and if you are wondering, I am fully tracking this project within itself as a todo graph! *(It's massive)*
 
-![The project within itself](this_project_todo_graph.png)
+![The project within itself](this_project_todograph.png)
