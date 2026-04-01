@@ -11,7 +11,7 @@
         {{ end }}
 
         <div class="sm:w-80 sm:py-5 flex justify-center">
-            <img src="{{ $image_path }}" alt="Thumbnail for project {{ .Title }}" class="transition-all rounded-md overflow-clip object-cover aspect-5/2 sm:aspect-4/2 group-hover:shadow-md"/>
+            <img loading="lazy" src="{{ $image_path }}" alt="Thumbnail for project {{ .Title }}" class="transition-all rounded-md overflow-clip object-cover aspect-5/2 sm:aspect-4/2 group-hover:shadow-md"/>
         </div>
 
         {{/*  vertical bar  */}}

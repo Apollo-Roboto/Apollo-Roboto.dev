@@ -107,3 +107,7 @@ build:
   cachebusters:
     - source: "layouts/.*"
       target: css
+
+security:
+  funcs:
+    getenv: ["GITHUB_SHA"]

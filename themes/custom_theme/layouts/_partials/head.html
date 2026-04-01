@@ -3,10 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='content-language' content='en-ca'>
 
-    {{/* generator tag information */}}
-    {{ hugo.Generator }}
-
-    {{/*  CSS  */}}
+    {{/*  css  */}}
     <link rel="stylesheet" type="text/css" href="/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/css/syntax.css">
 
@@ -20,7 +17,10 @@
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end }}
 
-    {{/*  Meta Tags  */}}
+    {{/* generator tag information */}}
+    {{ hugo.Generator }}
+
+    {{/*  meta tags  */}}
 
     {{ $title := "" }}
 
@@ -74,11 +74,19 @@
         {{ partial "google_analytics.html" . }}
     {{ end }}
 
-    {{/* Pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
+    {{/* pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
     {{ if in (slice "taxonomy" "term") .Kind }}
         <meta name="robots" content="noindex,follow">
     {{ end }}
-    
+
+    {{/*  build commit, from github action */}}
+    {{ with os.Getenv "GITHUB_SHA" }}
+        <meta name="site-commit" content="{{ . }}">
+    {{ end }}
+    {{ with .GitInfo }}
+        <meta name="content-commit" content="{{ .Hash }}">
+    {{ end }}
+
     {{/*  https://gohugo.io/functions/css/tailwindcss/#step-5  */}}
     {{ with (templates.Defer (dict "key" "global")) }}
         {{ partial "css.html" . }}
