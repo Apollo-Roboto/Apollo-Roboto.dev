@@ -3,18 +3,18 @@ title: Personal Site apollo-roboto.dev
 date: 2026-03-14
 draft: false
 author: ApolloRoboto
-summary: My personal blog website, made with GoHugo and TailwindCSS. Hosted on GitHub Pages.
+summary: My personal blog website, made with GoHugo and Tailwind CSS. Hosted on GitHub Pages.
 thumbnail: thumbnail.png
 featured: true
 categories:
   - Computer Programming
 main_tags:
   - GoHugo
-  - TailwindCSS
+  - Tailwind CSS
   - HTML
 tags:
   - GoHugo
-  - TailwindCSS
+  - Tailwind CSS
   - HTML
   - GitHub Pages
   - GitHub Actions
@@ -25,7 +25,7 @@ tags:
 frameworks:
   - name: GoHugo
     version: "0.159"
-  - name: TailwindCSS
+  - name: Tailwind CSS
     version: "4.1"
 urls:
   - name: GitHub
@@ -38,7 +38,7 @@ urls:
 
 I needed a personal site to showcase some of my projects, and you're right here! Welcome!
 
-To avoid having to manage any service, I settled on creating a static website. This allowed me to host it for free on [GitHub Pages](https://docs.github.com/en/pages), as long as the code is open-sourced. I used [GoHugo](https://gohugo.io/) for the whole site generation and [Tailwindcss](https://tailwindcss.com/) for styling my custom GoHugo theme. After a new commit is pushed, GitHub Actions updates the site automatically.
+To avoid having to manage any service, I settled on creating a static website. This allowed me to host it for free on [GitHub Pages](https://docs.github.com/en/pages), as long as the code is open-sourced. I used [GoHugo](https://gohugo.io/) for the whole site generation and [Tailwind CSS](https://tailwindcss.com/) for styling my custom GoHugo theme. After a new commit is pushed, GitHub Actions updates the site automatically.
 
 Yep, this whole theme is custom made, I had to design my own, even if GoHugo has lots of options from the community. I wanted a clean theme around paper, ink and coffee. I am very happy with the results. Did you know you can interact with the planet on the home screen? Go try it.
 

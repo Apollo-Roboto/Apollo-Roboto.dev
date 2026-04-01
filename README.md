@@ -2,7 +2,7 @@
 
 This is the source code of my personal website at [apollo-roboto.dev](https://www.apollo-roboto.dev/).
 
-Custom theme made by yours trully *([me](https://github.com/Apollo-Roboto))*. Powered with GoHugo, TailwindCSS and GitHub Pages.
+Custom theme made by yours trully *([me](https://github.com/Apollo-Roboto))*. Powered with GoHugo, Tailwind CSS and GitHub Pages.
 
 ## Run locally
 

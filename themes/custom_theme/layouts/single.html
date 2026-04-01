@@ -1,37 +1,39 @@
 {{ define "main" }}
 
+{{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
+{{ $publishDateIso := .PublishDate | time.Format "2006-01-02T15:04:05Z07:00" }}
+{{ $lastMod := .Lastmod | time.Format "2006-01-02" }}
+{{ $lastModIso := .Lastmod | time.Format "2006-01-02T15:04:05Z07:00" }}
+
 <div class="flex flex-col md:flex-row justify-center items-stretch">
 
-    {{/*  Side information bar (only visible on bigger media)  */}}
+    {{/*  side information bar (only visible on bigger media)  */}}
     <div class="hidden md:flex flex-col text-sm font-thin w-1/12 mt-16 mr-16 text-right min-w-min ">
 
-        {{/*  Dates  */}}
-        <div class="mb-10">
-            {{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
-            {{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
-            
+        {{/*  dates  */}}
+        <div class="mb-10">           
             <div class="border-b border-neutral-900 pb-1 mb-3">Date</div>
-            
-            <span>Published <time>{{ $publishDate }}</time></span>
 
-            {{ if ne $publishDate $lastmod }}
-                <span>Modified <time>{{ $lastmod }}</time></span>
+            <span>Published <time datetime="{{ $publishDateIso }}">{{ $publishDate }}</time></span>
+
+            {{ if ne $publishDate $lastMod }}
+                <br><span>Modified <time datetime="{{ $lastModIso }}">{{ $lastMod }}</time></span>
             {{ end }}
         </div>
 
-        {{/*  Author  */}}
-        {{ if .Params.author }}
+        {{/*  author  */}}
+        {{ with .Params.author }}
             <div class="mb-10">
                 <div class="border-b border-neutral-900 pb-1 mb-3">Author</div>
-                <span>{{ .Params.author }}</span>
+                <span>{{ . }}</span>
             </div>
         {{ end }}
 
-        {{/*  Urls  */}}
-        {{ if gt .Params.urls 0 }}
+        {{/*  urls  */}}
+        {{ with .Params.urls }}
             <div class="mb-10 markdown">
                 <div class="border-b border-neutral-900 pb-1 mb-3">Urls</div>
-                {{ range $index, $element := .Params.urls }}
+                {{ range $index, $element := . }}
                     {{/* dot seperator */}}
                     {{/*  {{ if ne $index 0 }} 
                         <b>•</b>
@@ -40,14 +42,13 @@
                     <a target="_blank" href="{{ $element.url }}">{{ $element.name }}</a><br>
                 {{ end }}
             </div>
-            
         {{ end }}
-        
-        {{/*  Tags  */}}
-        {{ if gt .Params.tags 0 }}
-            <div class="mb-10">
+
+        {{/*  tags  */}}
+        {{ with .Params.tags }}
+            <div>
                 <div class="border-b border-neutral-900 pb-1 mb-3">Tags</div>
-                {{ range .Params.tags }}
+                {{ range . }}
                     {{ partial "components/tag.html" .}}
                 {{ end }}
             </div>
@@ -55,7 +56,7 @@
 
         {{/*  <div class="grow"></div>  */}}
 
-        {{/*  Back to the top button  */}}
+        {{/*  back to the top button  */}}
         {{/*  <a href="#top" class="mx-auto" title="Back to the top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M18.655 10.405a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06l4.97-4.97v14.44a.75.75 0 001.5 0V5.435l4.97 4.97a.75.75 0 001.06 0z"></path></svg>
         </a>
@@ -68,40 +69,56 @@
 
         <h1>{{- .Title -}}</h1>
         
-        {{/*  Top information bar (only visible on small media)  */}}
+        {{/*  top information bar (only visible on small media)  */}}
         <div class="block md:hidden text-sm mb-12 -mt-4">
             <p>
-                {{/*  Author  */}}
-                {{ if .Params.author }}
-                    By {{ .Params.author }} | 
+                {{/*  dates  */}}
+                Published <time datetime="{{ $publishDateIso }}">{{ $publishDate }}</time>
+
+                {{ if ne $publishDate $lastMod }}
+                    (<time title="Modified" datetime="{{ $lastModIso }}">{{ $lastMod }}</time>)
                 {{ end }}
 
-                {{/*  Dates  */}}
-                {{ $publishDate := .PublishDate | time.Format "2006-01-02" }}
-                {{ $lastmod := .Lastmod | time.Format "2006-01-02" }}
-                
-                Published <time>{{ $publishDate }}</time>
-
-                {{ if ne $publishDate $lastmod }}
-                    (<time title="Modified">{{ $lastmod }}</time>)
+                {{/*  author  */}}
+                {{ with .Params.author }}
+                    <br>By {{ . }}
                 {{ end }}
             </p>
 
-            {{/*  Tags  */}}
-            {{ if gt .Params.tags 0 }}
-            <div class="mb-2">
-                {{ range .Params.tags }}
-                    {{ partial "components/tag.html" .}}
-                {{ end }}
-            </div>
-            {{ end }}
-
-            <hr class="mt-12"/>
+            <hr/>
 
         </div>
 
-
         {{ .Content }}
+
+        {{/*  bottom information bar (only visible on small media)  */}}
+        <div class="flex md:hidden text-sm mb-12 -mt-4 flex-col gap-2">
+            <hr/>
+
+            {{/*  urls  */}}
+            {{ with .Params.urls }}
+                <div>
+                Urls: 
+                {{ range $index, $element := . }}
+                    {{/*  dot seperator */}}
+                    {{ if ne $index 0 }}
+                        <b>•</b>
+                    {{ end }}
+                    <a target="_blank" href="{{ $element.url }}">{{ $element.name }}</a>
+                {{ end }}
+                </div>
+            {{ end }}
+            
+            {{/*  tags  */}}
+            {{ with .Params.tags }}
+                <div>
+                {{ range . }}
+                    {{ partial "components/tag.html" .}}
+                {{ end }}
+                </div>
+            {{ end }}
+
+        </div>
         
     </div>
 

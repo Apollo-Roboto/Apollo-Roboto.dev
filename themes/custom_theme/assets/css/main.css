@@ -17,7 +17,7 @@
 }
 
 .markdown hr {
-    @apply border-neutral-900;
+    @apply border-neutral-900 my-12;
 }
 
 

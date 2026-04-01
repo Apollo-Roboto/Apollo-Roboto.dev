@@ -33,7 +33,7 @@ jobs:
           mkdir -p "${HOME}/.local/bin"
           echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
 
-      - name: Install Tailwindcss
+      - name: Install Tailwind CSS
         run: |
           curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.2/tailwindcss-linux-x64
           chmod +x tailwindcss-linux-x64
