@@ -29,7 +29,7 @@ frameworks:
     version: "4.1"
 urls:
   - name: GitHub
-    url:  https://github.com/Apollo-Roboto/apollo-roboto.dev
+    url:  https://github.com/ApolloRoboto/apollo-roboto.dev
   - name: Home Page
     url:  https://www.apollo-roboto.dev/
 ---

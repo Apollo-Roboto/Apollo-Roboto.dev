@@ -23,7 +23,7 @@ tags:
   - WIP
 urls:
   - name: GitHub
-    url: https://github.com/apollo-roboto/rust-todograph
+    url: https://github.com/ApolloRoboto/rust-todograph
 ---
 
 *Application is a work in progress*

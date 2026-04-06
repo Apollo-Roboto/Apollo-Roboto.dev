@@ -23,7 +23,7 @@ tags:
   - Game
 urls:
   - name: GitHub
-    url:  https://github.com/Apollo-Roboto/simple_TicTacToe_Watch
+    url:  https://github.com/ApolloRoboto/simple_TicTacToe_Watch
   - name: Galaxy Store
     # url: https://galaxy.store/simpletic
     url: https://galaxystore.samsung.com/geardetail/org.tizen.example.TicTacToe_Watch.Tizen.Wearable

@@ -28,7 +28,7 @@ tags:
   - Open Source
 urls:
   - name: GitHub
-    url:  https://github.com/Apollo-Roboto/discord.py-ext-prometheus
+    url:  https://github.com/ApolloRoboto/discord.py-ext-prometheus
   - name: PyPi
     url: https://pypi.org/project/discord-ext-prometheus/
   - name: Grafana Dashboard

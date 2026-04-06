@@ -21,11 +21,11 @@ tags:
   - Open Source
 urls:
   - name: GitHub
-    url:  https://github.com/Apollo-Roboto/python-pathschema
+    url:  https://github.com/ApolloRoboto/python-pathschema
   - name: PyPi
     url: https://pypi.org/project/pathschema/
   - name: Web Demo
-    url: https://apollo-roboto.github.io/python-pathschema/
+    url: https://apolloroboto.github.io/python-pathschema/
 ---
 
 *This is a project from 2023*
@@ -38,7 +38,7 @@ I wanted a flexible preventive approach to file validation, something that can r
 
 After giving it a test run, it became surprisingly useful to me. I was able to organize way beyond code projects, but also a bunch of messy folders on my computer. I use it on all my photos, videos, 3D models, references, etc. When I want to sort out a mess, I create a `.pathschema` file, write the structure I want, then run it and all misplaced files are highlighted. I love this.
 
-[Check out the web demo!](https://apollo-roboto.github.io/python-pathschema/)
+[Check out the web demo!](https://apolloroboto.github.io/python-pathschema/)
 
 It's simple to write:
 ```pathschema

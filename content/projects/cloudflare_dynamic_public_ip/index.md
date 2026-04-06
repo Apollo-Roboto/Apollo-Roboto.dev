@@ -26,7 +26,7 @@ tags:
   - Open Source
 urls:
   - name: GitHub
-    url: https://github.com/apollo-roboto/rust-cloudflare-dynamic-public-ip
+    url: https://github.com/ApolloRoboto/rust-cloudflare-dynamic-public-ip
 ---
 
 I was getting really annoyed one summer with my Internet Service Provider. They changed my public IP often, up to 4 times a month, breaking access to game servers and automations that I had setup on my little homelab. Naturally, and with little hope, I called to ask for a static IP, then was told that reserving a static IP is exclusive to their expensive professional plans.

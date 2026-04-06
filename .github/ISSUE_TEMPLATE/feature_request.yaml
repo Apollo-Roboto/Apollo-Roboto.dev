@@ -5,7 +5,7 @@ description: Make a request for a missing feature or website improvements
 labels:
   - feature
 assignees:
-  - Apollo-Roboto
+  - ApolloRoboto
 body:
   - type: markdown
     attributes:
