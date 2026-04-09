@@ -35,7 +35,7 @@ The Galaxy Watch 3 was really cool, that rotating bevel is my favorite feature. 
 
 Because I had to be nerdy about it, I absolutely wanted to make an app on it. I settled on a simple game of Tic-Tac-Toe. You can still download it today if you have a compatible watch, but the galaxy store is discontinuing Tyzen OS so that may go away soon. I can't see the page myself anymore.
 
-{{< gallery >}}
+{{< gallery col=2 >}}
   {{< gallery-image src="photo_1.jpg" alt="App icon as seen from the application menu" >}}
   {{< gallery-image src="photo_2.jpg" alt="Preview of the a game on the Galaxy Watch" >}}
 {{< /gallery >}}

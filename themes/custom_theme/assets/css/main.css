@@ -86,11 +86,14 @@
 
 
 /*======== Images ========*/
+
 .markdown img {
-    @apply rounded-lg mx-auto;
+    @apply rounded-lg inline;
 }
 
-
+.markdown p.gallery+ p.gallery {
+    @apply mt-2 mb-0; /* adapt gap with next gallery */
+}
 
 /*======== Lists ========*/
 
@@ -119,7 +122,7 @@
 /*======== Quotes ========*/
 
 .markdown blockquote {
-    @apply border-l-2 border-neutral-900 pl-3 mb-3 rounded-l-sm rounded-r-md bg-orange-900/10;
+    @apply border-l-2 border-neutral-900 pl-3 mb-3 rounded-l-sm rounded-r-md bg-orange-900/10 sm:mx-6;
 }
 
 
@@ -127,7 +130,7 @@
 /*======== Tables ========*/
 
 .markdown th {
-    @apply font-bold px-5 py-1.5 bg-neutral-900/10;
+    @apply font-bold px-5 py-1.5 bg-orange-900/10;
 }
 
 .markdown th:not(:last-child) {
@@ -150,20 +153,16 @@
     @apply rounded-br-lg;
 }
 
-.markdown td {
-    @apply border-t border-neutral-900 py-1 px-5;
-}
-
 .markdown tr:hover td {
     @apply bg-neutral-900/5;
 }
 
-.markdown table {
-    @apply min-w-[60%] sm:mx-0 mx-auto;
+.markdown td {
+    @apply border-t border-neutral-900 py-1 px-5 transition-all;
 }
 
-.markdown table * {
-    @apply transition-all;
+.markdown table {
+    @apply w-full sm:mx-6;
 }
 
 

@@ -3,5 +3,8 @@
     "html.format.enable": false,
     "[markdown]": {
         "files.autoSave": "onWindowChange",
+    },
+    "files.associations": {
+        "*.css": "tailwindcss",
     }
 }

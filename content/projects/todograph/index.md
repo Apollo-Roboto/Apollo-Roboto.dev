@@ -32,7 +32,7 @@ I present to you my overengineered todo list. My personal attempt at removing to
 
 Wait hold on? What's wrong with todo lists? Well I'm glad you asked! *(hopefully)*.
 
-{{< gallery >}}
+{{< gallery col=2 >}}
   {{< gallery-image src="preview_1.png" alt="Showing the todograph software" >}}
   {{< gallery-image src="preview_2.png" alt="Showing a task being edited" >}}
 {{< /gallery >}}
@@ -114,4 +114,7 @@ Plugins and scripting features are mostly for personal learning, I might only st
 
 Oh and if you are wondering, I am fully tracking this project within itself as a todo graph! *(It's massive)*
 
-![The project within itself](this_project_todograph.png)
+{{< gallery  >}}
+  {{< gallery-image src="this_project_todograph.png" alt="The project within itself" >}}
+{{< /gallery >}}
+

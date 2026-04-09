@@ -1,3 +1,4 @@
-<div class="flex flex-row justify-center gap-5 mt-12">
+{{ $col := .Get "col" | default 1}}
+<p class="gallery grid grid-cols-{{ $col }} justify-center gap-2 sm:mx-6">
     {{ .Inner }}
-</div>
+</p>
