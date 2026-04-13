@@ -24,11 +24,16 @@ params:
       url: https://stackoverflow.com/users/10101321/apolloroboto
       text: ApolloRoboto
       icon_url: /images/StackOverflow_Icon.svg
+    - name: MakerWorld
+      shown: true
+      url: https://makerworld.com/en/@apolloroboto
+      text: "@apolloroboto"
+      icon_url: /images/MakerWorld_Icon.svg
     - name: Ko-fi
       shown: true
       url: https://ko-fi.com/apolloroboto
-      text: Buy me a coffee!
-      icon_url: /images/Ko-fi_Icon.svg
+      text: Buy me a coffee <3
+      icon_url: /images/Kofi_Icon.svg
     - name: LinkedIn
       shown: true
       url: https://www.linkedin.com/in/alexandre-thibessart-a63837181/
@@ -37,7 +42,7 @@ params:
     - name: Buymeacoffee
       shown: false
       url: https://www.buymeacoffee.com/ApolloRoboto
-      text: Buy me a coffee!
+      text: Buy me a coffee <3
       icon_url: /images/buymeacoffee_Icon.svg
     - name: Email
       shown: true

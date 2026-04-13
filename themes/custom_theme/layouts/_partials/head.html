@@ -1,16 +1,16 @@
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv='content-language' content='en-ca'>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv='content-language' content='en-ca'/>
 
     {{/*  css  */}}
-    <link rel="stylesheet" type="text/css" href="/css/fonts.css">
-    <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
 
     {{/*  favicon  */}}
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 
     {{/*  link to alternate formats  */}}
     {{ range .AlternativeOutputFormats }}
@@ -36,13 +36,13 @@
     {{ end }}
 
     <title>{{ $title }}</title>
-    <meta name="title" content="{{ $title }}">
+    <meta name="title" content="{{ $title }}" />
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     <meta name="twitter:title" content="{{ $title }}" />
 
     {{ if .Params.summary }}
-        <meta name="description" content="{{ .Params.summary }}">
+        <meta name="description" content="{{ .Params.summary }}" />
         <meta property="og:description" content="{{ .Params.summary }}" />
         <meta name="twitter:description" content="{{ .Params.summary }}" />
     {{ end }}
@@ -67,7 +67,7 @@
     {{ end }}
 
     {{ if .Params.author }}
-        <meta name="author" content="{{ .Params.author }}">
+        <meta name="author" content="{{ .Params.author }}" />
     {{ end }}
 
     {{ if not hugo.IsDevelopment }}
@@ -76,15 +76,15 @@
 
     {{/* pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}
     {{ if in (slice "taxonomy" "term") .Kind }}
-        <meta name="robots" content="noindex,follow">
+        <meta name="robots" content="noindex,follow" />
     {{ end }}
 
     {{/*  build commit, from github action */}}
     {{ with os.Getenv "GITHUB_SHA" }}
-        <meta name="site-commit" content="{{ . }}">
+        <meta name="site-commit" content="{{ . }}" />
     {{ end }}
     {{ with .GitInfo }}
-        <meta name="content-commit" content="{{ .Hash }}">
+        <meta name="content-commit" content="{{ .Hash }}" />
     {{ end }}
 
     {{/*  https://gohugo.io/functions/css/tailwindcss/#step-5  */}}

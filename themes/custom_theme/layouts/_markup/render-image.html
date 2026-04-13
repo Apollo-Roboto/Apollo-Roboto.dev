@@ -1,1 +1,9 @@
-<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{ $src := .Destination | .Page.Resources.Get }}
+{{ if $src }}
+<img loading="lazy" src="{{ $src }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{ else }}
+<svg viewBox="0 0 100 100" width="100%" height="100" preserveAspectRatio="none" stroke="#171717" stroke-width="1">
+    <path d="M 0,0 L 100,100 M 0,100 L 100,0" vector-effect="non-scaling-stroke"/>
+    <circle cx="50" cy="50" r="50" fill="none" vector-effect="non-scaling-stroke"/>
+</svg>
+{{ end }}

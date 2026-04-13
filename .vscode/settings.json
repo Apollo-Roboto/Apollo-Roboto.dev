@@ -1,6 +1,5 @@
 {
     "svg.preview.background": "transparent",
-    "html.format.enable": false,
     "[markdown]": {
         "files.autoSave": "onWindowChange",
     },

@@ -67,7 +67,9 @@ And from there, your metrics are accessible at `localhost:8000/metrics`
 
 # Grafana
 
-![Grafana Dashboard](./preview.png)
+{{< gallery >}}
+  {{< gallery-image src="./preview.png" alt="Preview of the Grafana dashboard">}}
+{{< /gallery >}}
 
 The Grafana dashboard shows a bunch of overall metrics:
 - Multiple discord bot support.
