@@ -2,7 +2,8 @@
 title: Home
 date: 2021-10-31
 draft: false
-summary: ApolloRoboto's personal site!
+summary: Alexandre Thibessart's personal site!
+thumbnail: /projects/apollo_roboto_dev/thumbnail.png
 
 top_main_text: I am
 # top_main_text: For am I the mighty
