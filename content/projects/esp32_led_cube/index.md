@@ -3,7 +3,7 @@ title: ESP32 LED Cube
 date: 2026-04-13
 draft: false
 author: ApolloRoboto
-summary: 3D printed and colorful LED cube powered by Rust on ESP32. No standard library and network controlled.
+summary: 3D printed and colorful LED cube powered by Rust on ESP32. Network controlled over MQTT.
 thumbnail: thumbnail.png
 featured: true
 categories:
@@ -38,7 +38,6 @@ My first fully featured embedded project, I was curious about the Rust developme
 The goals sounded simple to me at first, get 6 displays hooked up, and control the effects over network. Simple right? *Oh boy, I didn't realized how much I had to learn...* I had to climb a lot of hills in the way. First was learning to write Rust code without the standard library (no_std), then I had to work around many memory limitations. I ran into electronic challenges as all those LEDs needs a lot more power than I initially thought. And I had to find how to mount all the components in a 3D printed compact and portable cube.
 
 I got something that is presentable! Still a work in progress at the time of writing, but I get to showcase it here:
-<br>*Please don't mind the low quality photos, it's hard to take pictures of bright LEDs*
 
 {{< gallery col=2 >}}
   {{< gallery-image src="media/effect_3.gif" alt="Effect perlin noise" >}}
