@@ -1,7 +1,7 @@
 ---
-title: ESP32 Led Cube
-date: 
-draft: true
+title: ESP32 LED Cube
+date: 2026-04-13
+draft: false
 author: ApolloRoboto
 summary: 3D printed and colorful LED cube powered by Rust on ESP32. No standard library and network controlled.
 thumbnail: thumbnail.png
@@ -28,7 +28,7 @@ urls:
   - name: GitHub
     url: https://github.com/ApolloRoboto/rust-led-cube
   # - name: MakerWorld
-  #   url: https://makerworld.com/
+  #   url: https://makerworld.com/TODO
 ---
 
 *Still a work in progress*
@@ -37,16 +37,17 @@ My first fully featured embedded project, I was curious about the Rust developme
 
 The goals sounded simple to me at first, get 6 displays hooked up, and control the effects over network. Simple right? *Oh boy, I didn't realized how much I had to learn...* I had to climb a lot of hills in the way. First was learning to write Rust code without the standard library (no_std), then I had to work around many memory limitations. I ran into electronic challenges as all those LEDs needs a lot more power than I initially thought. And I had to find how to mount all the components in a 3D printed compact and portable cube.
 
-But hey, I got something that is presentable! Still a work in progress at the time of writing, but I get to showcase it here:
+I got something that is presentable! Still a work in progress at the time of writing, but I get to showcase it here:
+<br>*Please don't mind the low quality photos, it's hard to take pictures of bright LEDs*
 
 {{< gallery col=2 >}}
-  {{< gallery-image src="effect_noise_flicker.gif" alt="Effect noise flicker" >}}
-  {{< gallery-image src="effect_perlin_noise.gif" alt="Effect perlin noise" >}}
+  {{< gallery-image src="media/effect_3.gif" alt="Effect perlin noise" >}}
+  {{< gallery-image src="media/effect_2.gif" alt="Effect noise flicker" >}}
 {{< /gallery >}}
 {{< gallery col=3 >}}
-  {{< gallery-image src="effect_color_cube.png" alt="Effect color cube" >}}
-  {{< gallery-image src="text_rendering.png" alt="Text rendering" >}}
-  {{< gallery-image src="effect_squares.png" alt="Effect color cube" >}}
+  {{< gallery-image src="media/photo_15.jpg" alt="Effect color cube" >}}
+  {{< gallery-image src="media/effect_1.gif" alt="Effect spiral" >}}
+  {{< gallery-image src="media/photo_16.jpg" alt="Text rendering" >}}
 {{< /gallery >}}
 
 # Designing and 3D printing the cube
@@ -56,10 +57,10 @@ I built everything around those 16x16 WS2812B LED panel I got for cheap on AliEx
 The top face is held with magnets to allow for a quick access to all the electronics inside.
 
 {{< gallery col=2 >}}
-  {{< gallery-image src="photos/photo_6.png" alt="Exploded 3D model render" >}}
-  {{< gallery-image src="photos/photo_5.png" alt="Blender 3D model" >}}
-  {{< gallery-image src="photos/photo_4.jpg" alt="Panel close up" >}}
-  {{< gallery-image src="photos/photo_3.jpg" alt="The cube without the top panel" >}}
+  {{< gallery-image src="media/photo_6.png" alt="Exploded 3D model render" >}}
+  {{< gallery-image src="media/photo_5.png" alt="Blender 3D model" >}}
+  {{< gallery-image src="media/photo_4.jpg" alt="Panel close up" >}}
+  {{< gallery-image src="media/photo_3.jpg" alt="The cube without the top panel" >}}
 {{< /gallery >}}
 
 <!-- The 18650 battery holder is available for on [MakeWorld](https://makerworld.com/TODO) (standalone or Gridfinity) -->
@@ -69,10 +70,10 @@ The top face is held with magnets to allow for a quick access to all the electro
 I wanted the face displays of the cube to have an "OLED" look, leading me to make some experimentation to find the best diffusion layer I could 3D print.
 
 {{< gallery col=2 >}}
-  {{< gallery-image src="photos/photo_7.jpg" alt="Display panel attempt with white PLA" >}}
-  {{< gallery-image src="photos/photo_8.jpg" alt="Display panel attempt with gray translucent PETG" >}}
-  {{< gallery-image src="photos/photo_9.jpg" alt="Display panel attempt with gray translucent PETG followed by black PETG on a textured PEI bed plate" >}}
-  {{< gallery-image src="photos/photo_10.jpg" alt="Display panel attempt with gray translucent PETG followed by black PETG on a SuperTack bed plate" >}}
+  {{< gallery-image src="media/photo_7.jpg" alt="Display panel attempt with white PLA" >}}
+  {{< gallery-image src="media/photo_8.jpg" alt="Display panel attempt with gray translucent PETG" >}}
+  {{< gallery-image src="media/photo_9.jpg" alt="Display panel attempt with gray translucent PETG followed by black PETG on a textured PEI bed plate" >}}
+  {{< gallery-image src="media/photo_10.jpg" alt="Display panel attempt with gray translucent PETG followed by black PETG on a SuperTack bed plate" >}}
 {{< /gallery >}}
 
 **First** is white PLA, that was the sharpest look I could get, but I had to try something to avoid that white background.
@@ -87,8 +88,8 @@ If you intent to print a large area on a SuperTack bed plate, be warned; it's re
 There are lots of LEDs to power, 16x16 LEDs for 6 faces, gives 1536 of them! And it requires lots of power as each LED channel can consume up to 12mA, or 36mA per LED, bringing the max amps consumption (at full white) up to 1536x36mA = 55296mA. 55 amps for this project is a lot to ask, especially on batteries.
 
 {{< gallery col=2 >}}
-  {{< gallery-image src="photos/photo_14.jpg" alt="Front of the soldered protoboard" >}}
-  {{< gallery-image src="photos/photo_13.jpg" alt="Back of the soldered protoboard" >}}
+  {{< gallery-image src="media/photo_14.jpg" alt="Front of the soldered protoboard" >}}
+  {{< gallery-image src="media/photo_13.jpg" alt="Back of the soldered protoboard" >}}
 {{< /gallery >}}
 
 Components:
@@ -109,7 +110,7 @@ I am able to control the cube in two different ways:
 I implemented a cool looking debug effect full of widgets to shows me information I needed while working on the software.
 
 {{< gallery >}}
-  {{< gallery-image src="photos/photo_12.jpg" alt="Effect debug display" >}}
+  {{< gallery-image src="media/photo_12.jpg" alt="Effect debug display" >}}
 {{< /gallery >}}
 
 It shows:
