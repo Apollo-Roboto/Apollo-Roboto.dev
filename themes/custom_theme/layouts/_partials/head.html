@@ -70,8 +70,10 @@
         <meta name="author" content="{{ .Params.author }}" />
     {{ end }}
 
+    {{/*  analytics  */}}
     {{ if not hugo.IsDevelopment }}
         {{ partial "google_analytics.html" . }}
+        {{ partial "components/umami_analytics.html" . }}
     {{ end }}
 
     {{/* pages like /tags/ and /categories/ haven't been designed, I'd rather avoid seeing them in search engines */}}

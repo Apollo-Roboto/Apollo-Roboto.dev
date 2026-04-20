@@ -1,0 +1,9 @@
+{{ with .Site.Params.umami }}
+{{ $script_src := default "https://cloud.umami.is/script.js" .script_src }}
+<script
+  defer
+  src="{{ $script_src }}"
+  data-website-id="{{ .website_id }}"
+  data-do-not-track="true"
+></script>
+{{ end }}

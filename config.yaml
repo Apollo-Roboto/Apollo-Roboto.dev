@@ -13,6 +13,8 @@ params:
   visual_effects: true
   pride: false
   github_issue_url: https://github.com/ApolloRoboto/apollo-roboto.dev/issues/new/choose
+  umami:
+    website_id: c71162c1-6679-44b7-a41e-45ef287aa118
   socials:
     - name: GitHub
       shown: true
@@ -80,14 +82,14 @@ rssLimit: null
 paginate: 6
 enableRobotsTXT: true
 
-services:
-  googleAnalytics:
-    id: G-99E0KYVB3G
+# services:
+#   googleAnalytics:
+#     id: G-99E0KYVB3G
 
-privacy:
-  googleAnalytics:
-    disable: false
-    respectDoNotTrack: true
+# privacy:
+#   googleAnalytics:
+#     disable: false
+#     respectDoNotTrack: true
 
 markup:
   highlight:
