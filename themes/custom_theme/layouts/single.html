@@ -14,10 +14,10 @@
         <div class="mb-10">           
             <div class="border-b border-neutral-900 pb-1 mb-3">Date</div>
 
-            <span>Published <time datetime="{{ $publishDateIso }}">{{ $publishDate }}</time></span>
+            <span class="text-nowrap">Published <time datetime="{{ $publishDateIso }}">{{ $publishDate }}</time></span>
 
             {{ if ne $publishDate $lastMod }}
-                <br><span>Modified <time datetime="{{ $lastModIso }}">{{ $lastMod }}</time></span>
+                <br><span class="text-nowrap">Modified <time datetime="{{ $lastModIso }}">{{ $lastMod }}</time></span>
             {{ end }}
         </div>
 

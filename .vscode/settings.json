@@ -3,6 +3,9 @@
     "[markdown]": {
         "files.autoSave": "onWindowChange",
     },
+    "[html]": {
+        "editor.formatOnSave": false,
+    },
     "files.associations": {
         "*.css": "tailwindcss",
     }
