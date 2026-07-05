@@ -5,7 +5,7 @@ Example parameters:
 params:
   pride: true
   visual_effects: true
-  github_issue_url: https://github.com/ApolloRoboto/apollo-roboto.dev/issues/new/choose
+  github_issue_url: https://github.com/ApolloRoboto/apolloroboto.dev/issues/new/choose
   socials:
   - name: GitHub
     shown: true

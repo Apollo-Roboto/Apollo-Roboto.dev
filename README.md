@@ -1,6 +1,6 @@
-# apollo-roboto.dev
+# apolloroboto.dev
 
-This is the source code of my personal website at [apollo-roboto.dev](https://www.apollo-roboto.dev/).
+This is the source code of my personal website at [apolloroboto.dev](https://www.apolloroboto.dev/).
 
 Custom theme made by yours trully *([me](https://github.com/ApolloRoboto))*. Powered with GoHugo, Tailwind CSS and GitHub Pages.
 

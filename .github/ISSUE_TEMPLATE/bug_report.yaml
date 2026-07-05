@@ -17,7 +17,7 @@ body:
     attributes:
       label: Page URL
       description: Where did you saw the bug?
-      placeholder: https://www.apollo-roboto.dev/BUGGY_PAGE
+      placeholder: https://www.apolloroboto.dev/BUGGY_PAGE
 
   - type: dropdown
     id: browser

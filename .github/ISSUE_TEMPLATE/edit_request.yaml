@@ -17,7 +17,7 @@ body:
     attributes:
       label: Page URL
       description: Which page is this issue for?
-      placeholder: https://www.apollo-roboto.dev/THA_PAGE
+      placeholder: https://www.apolloroboto.dev/THA_PAGE
 
   - type: textarea
     id: description

@@ -1,4 +1,4 @@
-baseURL: https://www.apollo-roboto.dev/
+baseURL: https://www.apolloroboto.dev/
 languageCode: en-us
 defaultContentLanguage: en
 title: ApolloRoboto
@@ -12,7 +12,7 @@ params:
   debug: false
   visual_effects: true
   pride: false
-  github_issue_url: https://github.com/ApolloRoboto/apollo-roboto.dev/issues/new/choose
+  github_issue_url: https://github.com/ApolloRoboto/apolloroboto.dev/issues/new/choose
   umami:
     website_id: c71162c1-6679-44b7-a41e-45ef287aa118
   socials:
@@ -53,7 +53,7 @@ params:
       icon_url: /images/Email_Icon.svg
     - name: RSS
       shown: true
-      url: https://www.apollo-roboto.dev/index.xml
+      url: https://www.apolloroboto.dev/index.xml
       text: Subscribe
       icon_url: /images/RSS_Icon.svg
 

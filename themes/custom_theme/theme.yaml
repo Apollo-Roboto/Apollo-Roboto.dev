@@ -1,9 +1,9 @@
 name: Custom_theme
 license: MIT
-description: "Custom theme for apollo-roboto.dev"
+description: "Custom theme for apolloroboto.dev"
 tags: []
 features: []
 min_version: 0.156.0
 author:
   name: ApolloRoboto
-  homepage: apollo-roboto.dev
+  homepage: apolloroboto.dev
