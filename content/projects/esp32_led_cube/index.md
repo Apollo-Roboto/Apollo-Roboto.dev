@@ -51,7 +51,7 @@ I got something that is presentable! Still a work in progress at the time of wri
 
 # Designing and 3D printing the cube
 
-I built everything around those 16x16 WS2812B LED panel I got for cheap on AliExpress. Every faces are fully 3D printable! *(except for screws and magnets of course)*
+I built everything around those 16x16 WS2812B LED panel I got for cheap on AliExpress. Every faces is fully 3D printable! *(except for screws and magnets of course)*
 
 The top face is held with magnets to allow for a quick access to all the electronics inside.
 

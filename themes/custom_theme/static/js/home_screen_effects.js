@@ -1,42 +1,42 @@
 const params = {
-    "style": {
-        "antialias": 2,
-        "moonDistance": 2.3,
-        "moonSize": 0.1,
-        "planetSize": 1,
-        "planetOpacity": .85,
-        "lineWidth": 1,
-        "lineColor": 0x171717,
-        "mainColor": 0xfffbeb,
-        "moonColor": 0x171717,
+    style: {
+        antialias: 2,
+        moon_distance: 2.3,
+        moon_size: 0.1,
+        planet_size: 1,
+        planet_opacity: .85,
+        line_width: 1,
+        line_color: 0x171717,
+        main_color: 0xfffbeb,
+        moon_color: 0x171717,
     },
-    "interaction": {
+    interaction: {
         /** Scale of the mouse interaction relative to the planet size. 1.0 is planet size, 0.0 is none, 0.5 is inside, 1.5 is outside */
-        "planetInteractionScale": 1.1,
-        "mouseInfluence": 0.18,
+        planet_interaction_scale: 1.1,
+        mouse_influence: 0.18,
     },
-    "animation": {
-        "speed": 0.2,
-        "moonSpeed": 0.8,
+    animation: {
+        speed: 0.2,
+        moon_speed: 0.8,
         /** How long does it take to get back to default force  */
-        "backToDefaultForceSpeed": 0.007,
-        "defaultForce": new THREE.Vector3(0.75, 0.25, 0.75),
+        back_to_default_force_speed: 0.007,
+        default_force: new THREE.Vector3(0.75, 0.25, 0.75),
     }
 };
 
 
 const canvas = document.querySelector("#threejs");
 
-window.addEventListener('resize', onWindowResize, false);
-canvas.addEventListener('mousemove', onCanvasMouseMove, false);
+window.addEventListener('resize', on_window_resize, false);
+canvas.addEventListener('mousemove', on_canvas_mouse_move, false);
 
 let scene, camera, renderer;
-let planetObject, orbitObject;
+let planet_object, orbit_object;
 
 let mouse = new THREE.Vector2();
 let clock = new THREE.Clock();
-let lastMousePosition = mouse.clone();
-let appliedForce = params.animation.defaultForce.clone();
+let last_mouse_position = mouse.clone();
+let applied_force = params.animation.default_force.clone();
 
 
 function init() {
@@ -57,72 +57,72 @@ function init() {
     renderer.setSize(canvas.offsetWidth, canvas.offsetHeight, false);
 
     // planet wireframe
-    const planetObjectWireframe = new THREE.LineSegments(
-        new THREE.EdgesGeometry(new THREE.DodecahedronGeometry(params.style.planetSize, 0)),
-        new THREE.LineBasicMaterial({ color: params.style.lineColor, linewidth: params.style.lineWidth })
+    const planet_object_wireframe = new THREE.LineSegments(
+        new THREE.EdgesGeometry(new THREE.DodecahedronGeometry(params.style.planet_size, 0)),
+        new THREE.LineBasicMaterial({ color: params.style.line_color, linewidth: params.style.line_width })
     );
-    planetObjectWireframe.renderOrder = 1;
+    planet_object_wireframe.renderOrder = 1;
 
     // planet
-    planetObject = new THREE.Mesh(
-        new THREE.DodecahedronGeometry(params.style.planetSize, 0),
-        new THREE.MeshBasicMaterial({ color: params.style.mainColor, transparent: true, opacity: params.style.planetOpacity })
+    planet_object = new THREE.Mesh(
+        new THREE.DodecahedronGeometry(params.style.planet_size, 0),
+        new THREE.MeshBasicMaterial({ color: params.style.main_color, transparent: true, opacity: params.style.planet_opacity })
     );
-    planetObject.add(planetObjectWireframe)
-    scene.add(planetObject);
+    planet_object.add(planet_object_wireframe)
+    scene.add(planet_object);
 
     // moon
-    const moonObject = new THREE.Mesh(
-        new THREE.SphereGeometry(params.style.moonSize, 32, 16),
-        new THREE.MeshBasicMaterial({ color: params.style.moonColor })
+    const moon_object = new THREE.Mesh(
+        new THREE.SphereGeometry(params.style.moon_size, 32, 16),
+        new THREE.MeshBasicMaterial({ color: params.style.moon_color })
     );
-    moonObject.position.x = params.style.moonDistance;
+    moon_object.position.x = params.style.moon_distance;
 
     // orbit
-    const points = new THREE.Path().absarc(0, 0, params.style.moonDistance, 0, Math.PI * 2).getPoints(90);
-    orbitObject = new THREE.Line(
+    const points = new THREE.Path().absarc(0, 0, params.style.moon_distance, 0, Math.PI * 2).getPoints(90);
+    orbit_object = new THREE.Line(
         new THREE.BufferGeometry().setFromPoints(points),
-        new THREE.LineBasicMaterial({ color: params.style.moonColor, linewidth: params.style.lineWidth })
+        new THREE.LineBasicMaterial({ color: params.style.moon_color, linewidth: params.style.line_width })
     );
-    orbitObject.attach(moonObject);
-    orbitObject.rotation.x = -1.35;
-    orbitObject.rotation.y = -0.3;
-    scene.add(orbitObject);
+    orbit_object.attach(moon_object);
+    orbit_object.rotation.x = -1.35;
+    orbit_object.rotation.y = -0.3;
+    scene.add(orbit_object);
 }
 
 
 function animate() {
-    let animationRequest = requestAnimationFrame(animate);
+    let animation_request = requestAnimationFrame(animate);
     let delta = clock.getDelta() * params.animation.speed;
 
     // calculate the mouse force
-    let diff = lastMousePosition.clone().sub(mouse);
-    let mouseForce = new THREE.Vector3(diff.y, -diff.x, 0);
-    mouseForce.normalize().multiplyScalar(params.interaction.mouseInfluence);
-    lastMousePosition = mouse.clone();
+    let diff = last_mouse_position.clone().sub(mouse);
+    let mouse_force = new THREE.Vector3(diff.y, -diff.x, 0);
+    mouse_force.normalize().multiplyScalar(params.interaction.mouse_influence);
+    last_mouse_position = mouse.clone();
 
-    appliedForce = appliedForce.clone()
-        .add(mouseForce).clone()
-        .lerp(params.animation.defaultForce, params.animation.backToDefaultForceSpeed).clone();
+    applied_force = applied_force.clone()
+        .add(mouse_force).clone()
+        .lerp(params.animation.default_force, params.animation.back_to_default_force_speed).clone();
 
 
     // animate the planet
     {
-        const rotationAxis = new THREE.Vector3(appliedForce.x, appliedForce.y, appliedForce.z).normalize();
-        const deltaQuaternion = new THREE.Quaternion().setFromAxisAngle(rotationAxis, appliedForce.length() * delta);
-        planetObject.quaternion.premultiply(deltaQuaternion);
+        const rotation_axis = new THREE.Vector3(applied_force.x, applied_force.y, applied_force.z).normalize();
+        const delta_quaternion = new THREE.Quaternion().setFromAxisAngle(rotation_axis, applied_force.length() * delta);
+        planet_object.quaternion.premultiply(delta_quaternion);
     }
 
     // animate the moon
     {
-        orbitObject.rotation.z += params.animation.moonSpeed * delta;
+        orbit_object.rotation.z += params.animation.moon_speed * delta;
     }
 
     renderer.render(scene, camera);
 }
 
 
-function onCanvasMouseMove(event) {
+function on_canvas_mouse_move(event) {
     const canvas_rect = canvas.getBoundingClientRect();
 
     let pos = new THREE.Vector2();
@@ -133,23 +133,23 @@ function onCanvasMouseMove(event) {
     const aspect = canvas.offsetWidth / canvas.offsetHeight;
     const distance = Math.sqrt((pos.x * aspect) ** 2 + pos.y ** 2);
 
-    if (distance <= getPlanetInteractionRadius()) {
+    if (distance <= get_planet_interaction_radius()) {
         mouse = pos.clone();
     }
 }
 
 
-function onWindowResize() {
+function on_window_resize() {
     camera.aspect = canvas.offsetWidth / canvas.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.offsetWidth, canvas.offsetHeight, false);
 }
 
 
-function getPlanetInteractionRadius() {
+function get_planet_interaction_radius() {
     const fovRad = (camera.fov * Math.PI) / 180;
     const halfHeightAtPlanet = Math.tan(fovRad / 2) * camera.position.z;
-    return (params.style.planetSize / halfHeightAtPlanet) * params.interaction.planetInteractionScale;
+    return (params.style.planet_size / halfHeightAtPlanet) * params.interaction.planet_interaction_scale;
 }
 
 

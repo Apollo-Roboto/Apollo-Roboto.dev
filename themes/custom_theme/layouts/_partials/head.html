@@ -1,4 +1,20 @@
 <head>
+
+    {{ $title := "" }}
+
+    {{ if .IsHome }}
+        {{ $title = .Site.Title }}
+    {{ else }}
+        {{ $title = .Title }}
+    {{ end }}
+
+    {{/*  Adding "- DEV" to make it clear I'm on development  */}}
+    {{ if hugo.IsDevelopment }}
+        {{ $title = (print $title " - DEV") }}
+    {{ end }}
+
+    <title>{{ $title }}</title>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv='content-language' content='en-ca'/>
@@ -17,25 +33,7 @@
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end }}
 
-    {{/* generator tag information */}}
-    {{ hugo.Generator }}
-
     {{/*  meta tags  */}}
-
-    {{ $title := "" }}
-
-    {{ if .IsHome }}
-        {{ $title = .Site.Title }}
-    {{ else }}
-        {{ $title = .Title }}
-    {{ end }}
-
-    {{/*  Adding "- DEV" to make it clear I'm on development  */}}
-    {{ if hugo.IsDevelopment }}
-        {{ $title = (print $title " - DEV") }}
-    {{ end }}
-
-    <title>{{ $title }}</title>
     <meta name="title" content="{{ $title }}" />
     <meta property="og:title" content="{{ $title }}" />
     <meta property="og:site_name" content="{{ .Site.Title }}" />
@@ -80,6 +78,9 @@
     {{ if in (slice "taxonomy" "term") .Kind }}
         <meta name="robots" content="noindex,follow" />
     {{ end }}
+    
+    {{/* generator tag information */}}
+    {{ hugo.Generator }}
 
     {{/*  build commit, from github action */}}
     {{ with os.Getenv "GITHUB_SHA" }}
