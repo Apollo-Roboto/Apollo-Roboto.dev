@@ -1,6 +1,7 @@
 ---
 title: Prometheus Extension for discord.py
 date: 2026-03-17
+weight: 50
 draft: false
 author: ApolloRoboto
 summary: A Python library that makes it easy to add Prometheus metrics to your Python Discord bot. Also includes a Grafana Dashboard.

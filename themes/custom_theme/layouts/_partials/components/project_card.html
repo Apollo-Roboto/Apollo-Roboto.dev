@@ -63,6 +63,12 @@
                     {{ end }}
                 </span>
             </section>
+
+            {{ if .Site.Params.debug }}
+            <section class="markdown">
+                <code>weight: {{ .Weight }}</code>
+            </section>
+            {{ end }}
         </div>
 
         {{/*  arrow decoration  */}}

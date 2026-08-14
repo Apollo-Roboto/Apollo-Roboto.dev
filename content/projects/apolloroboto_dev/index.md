@@ -1,6 +1,7 @@
 ---
 title: Personal Site apolloroboto.dev
 date: 2026-03-14
+weight: 60
 draft: false
 author: ApolloRoboto
 summary: My personal blog website, made with GoHugo and Tailwind CSS. Hosted on GitHub Pages.

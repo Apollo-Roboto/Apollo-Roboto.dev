@@ -1,11 +1,12 @@
 ---
 title: Validating File Structure With PathSchema
 date: 2026-03-17
+weight: 30
 draft: false
 author: ApolloRoboto
 summary: A Python module that validate file structures to enforce conventions and catching errors early.
 thumbnail: thumbnail.png
-featured: false
+featured: true
 categories:
   - Computer Programming
 main_tags:

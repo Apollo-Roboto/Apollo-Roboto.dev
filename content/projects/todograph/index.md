@@ -1,6 +1,7 @@
 ---
 title: TodoGraph
 date: 2026-03-30
+weight: 40
 draft: false
 author: ApolloRoboto
 summary: When the simple todo list becomes a little too overengineered. Rust GUI application for managing tasks in an experimental approach.

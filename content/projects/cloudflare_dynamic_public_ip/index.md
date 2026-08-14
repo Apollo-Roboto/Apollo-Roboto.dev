@@ -1,6 +1,7 @@
 ---
 title: "Cloudflare Dynamic Public IP"
 date: 2026-02-28
+weight: 20
 draft: false
 author: ApolloRoboto
 summary: Automatically update Cloudflare DNS entries when your public IP changes.

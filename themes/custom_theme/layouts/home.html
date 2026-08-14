@@ -36,7 +36,8 @@
         <div class="grid grid-cols-1 2xl:grid-cols-2 gap-y-12 sm:gap-y-10 gap-x-14 ">
             {{ $projects := where .Site.RegularPages "Section" "projects" }}
             {{ $sorted := sort $projects "Date" "desc" }}
-            {{ $sorted = sort $sorted "Params.featured" "desc" }}
+            <!-- {{ $sorted = sort $sorted "Params.featured" "desc" }} -->
+            {{ $sorted = sort $sorted "Weight" "asc" }}
             {{ range $sorted }}
                 {{ partial "components/project_card.html" . }}
             {{ end }}

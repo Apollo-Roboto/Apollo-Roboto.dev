@@ -1,15 +1,16 @@
 ---
-title: Tic-Tac-Toe for Galaxy Watch
-date: 
-draft: true
+title: Galaxy Watch app with 100k downloads
+date: 2026-08-14
 author: ApolloRoboto
-summary: A stylish Tic-Tac-Toe app for Galaxy watch written with Xamarin. With more than 100k downloads!
-thumbnail: thumbnail.png
+summary: A stylish and simple Tic-Tac-Toe app for Galaxy watch. With more than 100k downloads.
+weight: 70
 featured: false
+draft: false
+thumbnail: thumbnail.png
 categories:
   - Computer Programming
 main_tags:
-  - Galaxy Watch
+  - Smart Watch
   - Xamarin
   - C#
 tags:
@@ -23,7 +24,7 @@ tags:
   - Game
 urls:
   - name: GitHub
-    url:  https://github.com/ApolloRoboto/simple_TicTacToe_Watch
+    url: https://github.com/ApolloRoboto/simple_TicTacToe_Watch
   - name: Galaxy Store
     # url: https://galaxy.store/simpletic
     url: https://galaxystore.samsung.com/geardetail/org.tizen.example.TicTacToe_Watch.Tizen.Wearable
@@ -31,7 +32,7 @@ urls:
 
 *This is a project from 2020*
 
-The Galaxy Watch 3 was really cool, that rotating bevel is my favorite feature. Sadly *(or for the best)*, Samsung has moved away from TizenOS to Google's Wear OS. this version has become badly supported and there is pretty much zero new applications coming out. Despite that, I still really like this watch and I wear it sometimes.
+The Galaxy Watch 3 was really fascinating to me, that rotating bevel is my favorite feature. Sadly *(or for the best)*, Samsung has moved away from TizenOS to Google's Wear OS. This version has become badly supported and there is pretty much zero new applications coming out. Despite that, I still really like this watch and I wear it sometimes.
 
 Because I had to be nerdy about it, I absolutely wanted to make an app on it. I settled on a simple game of Tic-Tac-Toe. You can still download it today if you have a compatible watch, but the galaxy store is discontinuing TizenOS so that may go away soon. I can't see the page myself anymore.
 
@@ -40,7 +41,7 @@ Because I had to be nerdy about it, I absolutely wanted to make an app on it. I 
   {{< gallery-image src="photo_2.jpg" alt="Preview of the a game on the Galaxy Watch" >}}
 {{< /gallery >}}
 
-This got a surprising 100k downloads over it's time in the store, placing it in the top 50 games of the Galaxy Watch Store.
+This got a surprising 100k downloads over its time in the store, placing it in the top 50 games of the Galaxy Watch Store.
 
 # How it was built
 
@@ -59,4 +60,4 @@ As I mentioned, this app was downloaded a lot, so here is a little proof from th
   {{< gallery-image src="download_stats.png" alt="Screenshot of the download dashboard" >}}
 {{< /gallery >}}
 
-From here you can see it flatting out just as the TizenOS support ended. I'm still surprized that it kept getting so many more downloads still in 2025.
+There's a spike not long after the release with ~300 downloads a day right at the end of 2020. My app is likely among the first thing many people downloaded after getting their new watch on Christmas. It later flattened out just as the TizenOS support ended in July 2025. I'm surprised that it kept getting so many more downloads even in 2025.

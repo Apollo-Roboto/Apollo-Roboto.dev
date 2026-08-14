@@ -1,6 +1,7 @@
 ---
 title: ESP32 LED Cube
 date: 2026-04-13
+weight: 10
 draft: false
 author: ApolloRoboto
 summary: 3D printed and colorful LED cube powered by Rust on ESP32. Network controlled over MQTT.
@@ -113,10 +114,10 @@ I implemented a cool looking debug effect full of widgets to shows me informatio
 {{< /gallery >}}
 
 It shows:
-- Each face directions.
-- <b style="color:red;">X</b>, <b style="color:green;">Y</b> and <b style="color:blue;">Z</b> axis.
+- Each face directions, marked **F**ront **B**ack **L**eft **R**ight **D**own **U**p.
+- Three dimentional <b style="color:red;">X</b>, <b style="color:green;">Y</b> and <b style="color:blue;">Z</b> axis.
 - Color gradients.
-- Active spinner to show if it crashed.
+- Active spinner as crash detection.
 - Stats bars for FPS, brightness and microphone.
 - Dot indicators showing enabled features and connection status of MQTT.
 
